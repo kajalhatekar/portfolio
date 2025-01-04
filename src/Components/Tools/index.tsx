@@ -8,7 +8,6 @@ import {
 } from "style/Skill";
 import VsCodeIcon from "assets/svg/VsCodeIcon";
 import PostmanIcon from "assets/svg/PostmanIcon";
-import GitIcon from "assets/svg/GitIcon";
 import GithubIcon from "assets/svg/GithubIcon";
 import GitlabIcon from "assets/svg/GitlabIcon";
 import NetlifyIcon from "assets/svg/NetlifyIcon";
@@ -37,12 +36,6 @@ const SkillsSec = () => {
               <PostmanIcon />
             </ToolsItem>
             <h3>Postman</h3>
-          </SkilName>
-          <SkilName>
-            <ToolsItem key={key}>
-              <GitIcon />
-            </ToolsItem>
-            <h3>Git</h3>
           </SkilName>
           <SkilName>
             <ToolsItem key={key}>

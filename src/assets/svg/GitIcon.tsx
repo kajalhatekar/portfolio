@@ -1,10 +1,9 @@
 import * as React from "react"
 import { SVGProps } from "react"
-const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
+const GitIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={77}
-    height={77}
+    style={{ width: "62px", height: "62px" }}
     fill="none"
     viewBox="0 0 32 32"
     {...props}
@@ -19,4 +18,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-export default SvgComponent
+export default GitIcon

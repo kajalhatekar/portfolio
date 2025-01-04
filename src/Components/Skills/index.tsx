@@ -1,21 +1,19 @@
-import { RiHtml5Fill, RiReactjsLine } from "react-icons/ri";
-import {
-  TbBrandCss3,
-  TbBrandJavascript,
-  TbBrandTypescript,
-} from "react-icons/tb";
-import { BiGitMerge } from "react-icons/bi";
-import { GiSkills } from "react-icons/gi";
 import {
   Container,
   FlexContainer,
-  FlexItem,
   Heading,
   WrapperContainer,
   SkilName,
+  ToolsItem,
 } from "style/Skill";
-import NextIcon from "assets/svg/NextIcon";
 import ReactVite from "assets/svg/ReactVite";
+import HtmlIcon from "assets/svg/HtmlIcon";
+import CssIcon from "assets/svg/CssIcon";
+import JsIcon from "assets/svg/JsIcon";
+import ReactIcon from "assets/svg/ReactIcon";
+import GitIcon from "assets/svg/GitIcon";
+import TypeScriptIcon from "assets/svg/TypeScriptIcon";
+import NextJsIcon from "assets/svg/NextJsIcon";
 
 const SkillsSec = () => {
   const key = new Date().getTime();
@@ -23,66 +21,56 @@ const SkillsSec = () => {
     <WrapperContainer>
       <Container>
         <Heading key={key}>
-          <GiSkills />
           Professional Skills
         </Heading>
         <FlexContainer>
           <SkilName>
-            <FlexItem>
-              <RiHtml5Fill />
-            </FlexItem>
-            <h3
-            >
-              Html
-            </h3>
+            <ToolsItem key={key}>
+              <HtmlIcon />
+            </ToolsItem>
+            <h3>Html</h3>
           </SkilName>
           <SkilName>
-            <FlexItem>
-              <TbBrandCss3 />
-            </FlexItem>
+            <ToolsItem key={key}>
+              <CssIcon />
+            </ToolsItem>
             <h3>Css</h3>
           </SkilName>
           <SkilName>
-            <FlexItem>
-              <TbBrandJavascript />
-            </FlexItem>
+            <ToolsItem key={key}>
+              <JsIcon />
+            </ToolsItem>
             <h3>JavaScript</h3>
           </SkilName>
           <SkilName>
-            <FlexItem>
-              <RiReactjsLine />
-            </FlexItem>
-            <h3
-            >
-              React
-            </h3>
+            <ToolsItem key={key}>
+              <ReactIcon />
+            </ToolsItem>
+            <h3>React</h3>
           </SkilName>
           <SkilName>
-            <FlexItem>
-              <BiGitMerge />
-            </FlexItem>
+            <ToolsItem key={key}>
+              <GitIcon />
+            </ToolsItem>
             <h3>Git</h3>
           </SkilName>
           <SkilName>
-            <FlexItem>
-              <TbBrandTypescript />
-            </FlexItem>
-            <h3
-            >
-              TypeScript
-            </h3>
+            <ToolsItem key={key}>
+              <TypeScriptIcon />
+            </ToolsItem>
+            <h3>TypeScript</h3>
           </SkilName>
 
           <SkilName>
-            <FlexItem className="next-icon">
-              <NextIcon />
-            </FlexItem>
+            <ToolsItem key={key}>
+              <NextJsIcon />
+            </ToolsItem>
             <h3>Next Js</h3>
           </SkilName>
           <SkilName>
-            <FlexItem className="next-icon">
+            <ToolsItem key={key}>
               <ReactVite />
-            </FlexItem>
+            </ToolsItem>
             <h3>React Vite</h3>
           </SkilName>
         </FlexContainer>

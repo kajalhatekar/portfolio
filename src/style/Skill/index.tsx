@@ -24,21 +24,6 @@ const fadeInAndMoveDown = keyframes`
     transform: translateY(0); /* Move to original position */
   }
 `;
-const  anime = keyframes` 
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-30px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }`
-;
 export const Heading = styled.div`
   font-size: 32px;
   font-weight: 700;
@@ -53,20 +38,19 @@ export const Heading = styled.div`
   gap: 5px;
   margin-top: 0;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
-  svg{
+  svg {
     color: #ddb8f9;
   }
 `;
 export const CollegeHeading = styled(Heading)`
- justify-content: unset;
- animation: unset;
+  justify-content: unset;
+  animation: unset;
 `;
 export const FlexContainer = styled.div`
   display: flex;
   width: 100%;
   gap: 48px;
   padding: 35px 0px;
-  
 `;
 export const FlexItem = styled.div`
   border: 5px solid ${(props) => props.theme.color.third};
@@ -88,7 +72,6 @@ export const FlexItem = styled.div`
     }
   }
   svg {
-    animation: ${anime} 1.5s ease infinite;
     font-weight: 0;
   }
 `;
@@ -99,11 +82,11 @@ export const SkilName = styled.div`
   align-items: center;
   gap: 15px;
 
-  h3{
+  h3 {
     display: flex;
     justify-content: center;
-  align-items: center;
-  color: #fff;
+    align-items: center;
+    color: #fff;
   }
 `;
 export const ToolsItem = styled(FlexItem)`
@@ -112,25 +95,24 @@ export const ToolsItem = styled(FlexItem)`
   background-color: #140c1c;
   border-radius: 25px;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
-  
-  svg{
-    animation:"unset";
+
+  svg {
+    animation: "unset";
     width: 54px;
-    filter: gray; 
-      -webkit-filter: grayscale(1); 
-      -webkit-transition: all .8s ease-in-out; 
-      
-      &:hover{
-        filter: none;
+    filter: #808080;
+    -webkit-filter: grayscale(1);
+    -webkit-transition: all 0.8s ease-in-out;
+
+    &:hover {
+      filter: none;
       -webkit-filter: grayscale(0);
       -webkit-transform: scale(1.01);
-      }
+    }
   }
-  &:hover{
+  &:hover {
     transition: 0.5s ease-out;
-     background-color: #2a1454;
-     border: 1px solid #8750f7;
-     
+    background-color: #2a1454;
+    border: 1px solid #8750f7;
   }
 `;
 // export const RightContainer = styled.div`

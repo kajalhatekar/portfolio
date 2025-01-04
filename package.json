@@ -30,6 +30,7 @@
     "gsap": "^3.12.5",
     "nodemailer": "^6.9.14",
     "react": "^18.2.0",
+    "react-animated-cursor": "^2.11.2",
     "react-animations": "^1.0.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dnd": "^16.0.1",

@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 const RoadMapStyle = styled.div`
   width: 100%;
   min-height: 100vh;
-  /* background: rgb(25, 65, 58); */
 `;
 
 const RoadMapHeadingWrapper = styled.div`
@@ -85,7 +84,6 @@ const RoadMapDivImg = styled.div`
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
-  background: #39575a;
   border-radius: 32px;
 `;
 const RoadMapContent = styled.div``;

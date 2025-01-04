@@ -120,13 +120,19 @@ const Projects = () => {
                 <RoadMapContentNumber>03.</RoadMapContentNumber>Plan-IT
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
-                Streamlining software projects with customizable workflows, task
-                assignments, and progress tracking. Implemented a drag-and-drop
-                interface for the dashboard, allowing tasks to be moved
-                according to status (To Do, In Progress, Unit Testing, QA Ready,
-                Done) antd enabling unlimited task creation. Developed and
-                enhanced frontend features using React.js, integrated Ant Design
-                (antd) components.
+                Designed and implemented core features like task creation, story
+                points, drag-and-drop dashboards, and unlimited task management,
+                enhancing functionality and usability. Optimized UI with themes
+                and ensured cross-device responsiveness, delivering an engaging
+                and accessible user experience. Utilized Redux Toolkit, hooks,
+                and React Query for efficient state management and data
+                fetching, improving load time by 20% through code optimization.
+                Collaborated with designers and backend developers to refine
+                UI/UX and seamlessly integrate APIs for smooth functionality.
+                  Link:{" "}
+                  <a href="https://planit.thewitslab.com/">
+                    https://planit.thewitslab.com/
+                  </a>
               </RoadMapContentParagraph>
             </RoadMapContent>
           </RoadMapEleL>
@@ -245,8 +251,11 @@ const Projects = () => {
             }}
           >
             <RoadMapContent>
-              <RoadMapContentHeading><RoadMapContentNumber>07.</RoadMapContentNumber>NPS (National Pension Scheme)</RoadMapContentHeading>
-              
+              <RoadMapContentHeading>
+                <RoadMapContentNumber>07.</RoadMapContentNumber>NPS (National
+                Pension Scheme)
+              </RoadMapContentHeading>
+
               <RoadMapContentParagraph>
                 `Orchestrator-workflow-manager` is designed to help manage
                 workflows, funnels, and rules through a set of RESTful APIs.

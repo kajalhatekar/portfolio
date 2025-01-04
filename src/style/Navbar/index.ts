@@ -13,8 +13,6 @@ export const Listitems = styled.li<ListItemProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* color: ${(props) => (props.isActive ? props.theme.color.third : '#8095aa')}; // Active color */
-  /* opacity: ${(props) => (props.isActive ? '1' : '0.8')}; // Opacity based on active state */
   margin-top: 10px;
   gap: 0;
   font-size: 20px;
@@ -25,8 +23,11 @@ export const Listitems = styled.li<ListItemProps>`
   a {
     text-decoration: none;
     padding-bottom: 5px;
-    color: inherit; // Inherit color from parent
-    border-bottom: ${(props) => (props.isActive ? '1.5px solid ' + props.theme.color.third : '1px solid transparent')}; // Border based on active state
+    color: inherit;
+    border-bottom: ${(props) =>
+      props.isActive
+        ? "1.5px solid " + props.theme.color.second
+        : "1px solid transparent"}; // Border based on active state
     font-size: 20px;
     font-family: sans-serif;
     font-weight: 400;
@@ -46,8 +47,8 @@ export const Listitems = styled.li<ListItemProps>`
 export const Header = styled.div`
   height: 11vh;
   backdrop-filter: blur(15px) !important;
-    background-color: #1b1a2ea9 !important;
-    box-shadow: 0 10px 10px 0 rgba(9,5,29,.171)!important;
+  background-color: #1b1a2ea9 !important;
+  box-shadow: 0 10px 10px 0 rgba(9, 5, 29, 0.171) !important;
   z-index: 5;
   position: fixed;
   top: 0;
@@ -58,14 +59,11 @@ export const Header = styled.div`
   z-index: 1000;
 `;
 export const LogoWrapper = styled.div`
-a{
   color: ${(props) => props.theme.color.second};
   transition: all 0.3s ease;
   font-size: 30px;
   font-weight: 700;
-}
- 
-`
+`;
 // export const Unorderli = styled.ul`
 
 // `
@@ -75,14 +73,13 @@ a{
 // export const Unorderli = styled.ul`
 
 // `
-
 
 export const Navbar = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 999;
   padding: 0px 100px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   transition: all 0.3s ease;
 
   &.sticky {
@@ -90,8 +87,8 @@ export const Navbar = styled.nav`
     /* background-color: rgb(28 33 55 / 66%) !important; */
     /* background-color:  rgb(38 28 55 / 66%) !important; */
     background-color: rgb(19 6 25 / 75%) !important;
-   
-    box-shadow: 0 10px 10px 0 rgba(9, 5, 29, .171) !important;
+
+    box-shadow: 0 10px 10px 0 rgba(9, 5, 29, 0.171) !important;
   }
 
   .max-width {
@@ -146,7 +143,7 @@ export const HomeContent = styled.div`
   .text-1,
   .text-2,
   .text-3 {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: "Ubuntu", sans-serif;
   }
 
   .text-1 {
@@ -161,5 +158,3 @@ export const HomeContent = styled.div`
     font-size: 24px;
   }
 `;
-
-
