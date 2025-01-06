@@ -20,20 +20,37 @@ import {
   RoadMapImageR,
   RoadMapImageL,
 } from "style/Contact/index";
-
-import Img1 from "assets/images/sparkle.avif";
-import Img2 from "assets/images/sparkle.avif";
-import Img3 from "assets/images/sparkle.avif";
-import Img4 from "assets/images/sparkle.avif";
+import { Dialog } from "@mui/material";
+import Img1 from "assets/images/blog-project.png";
+import Img2 from "assets/images/music-player.png";
+import Img3 from "assets/images/plan-it.png";
+import Img4 from "assets/images/basic-mining.png";
 import Img5 from "assets/images/sparkle.avif";
 import Img6 from "assets/images/sparkle.avif";
 import Img7 from "assets/images/sparkle.avif";
+import { useState } from "react";
 const Projects = () => {
   const ImgStyle = {
     width: "100%",
     "max-width": "300px",
     height: "150px",
     "border-radius": "12px",
+    cursor: "pointer",
+    border: "2px solid #ffff",
+  };
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState<string>("");
+
+  // Explicitly typing the imageSrc parameter as string
+  const handleImageClick = (imageSrc: string) => {
+    setCurrentImage(imageSrc);
+    setModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setModalOpen(false);
+    setCurrentImage("");
   };
 
   return (
@@ -43,11 +60,6 @@ const Projects = () => {
           <RoadMapHeadingWrapperD1 />
           <RoadMapHeadingWrapperD2>
             <RoadMapHeadingH>PROJECTS</RoadMapHeadingH>
-            {/* <RoadMapParagraphWrapper>
-              The oil is produced at the source using a robust and
-              modernsolvent-free extraction system, designed in conjunction with
-              Texarome's technology to obtain a high quality product.
-            </RoadMapParagraphWrapper> */}
           </RoadMapHeadingWrapperD2>
           <RoadMapHeadingWrapperD3 />
         </RoadMapHeadingWrapper>
@@ -55,7 +67,12 @@ const Projects = () => {
         <RoadMapDiv>
           <RoadMapGenticD1>
             <RoadMapDivImg>
-              <img style={ImgStyle} src={Img1} alt="" />
+              <img
+                style={ImgStyle}
+                src={Img1}
+                alt="Blog Project"
+                onClick={() => handleImageClick(Img1)}
+              />
             </RoadMapDivImg>
           </RoadMapGenticD1>
           <RoadMapGenticD2>
@@ -64,7 +81,6 @@ const Projects = () => {
                 <RoadMapContentNumber>01.</RoadMapContentNumber>Blog Project
                 (April2023-April2023 )
               </RoadMapContentHeading>
-              {/* <RoadMapContentNumber>01</RoadMapContentNumber> */}
               <RoadMapContentParagraph>
                 This Blog Website is made with Front-end and Back-end. In this
                 website, proper authentication is used. In the front-end, I have
@@ -85,20 +101,29 @@ const Projects = () => {
             <RoadMapContentEleR>
               <RoadMapContentHeading>
                 <RoadMapContentNumber>02.</RoadMapContentNumber>Music Player
-                Project (May2022-May2022 )
+                Project (May2020-june2020 )
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
-                This project was to develop the user interface of an online
-                music player. This project was developed using HTML,CSS and
-                JavaScript. To make the project responsive flex and media query
-                were used.
+                Developed the user interface for an online music player using
+                HTML, CSS, and JavaScript. Added features like play, pause,
+                skip, shuffle, and volume control to enhance functionality and
+                user engagement. Designed a visually appealing and intuitive
+                layout, incorporating animations for smooth transitions. Ensured
+                full responsiveness using Flexbox and media queries, providing a
+                seamless experience across desktops, tablets, and mobile
+                devices.
               </RoadMapContentParagraph>
             </RoadMapContentEleR>
           </RoadMapEleR>
           <RoadMapEmptyDiv>
             <RoadMapImageR>
               <RoadMapDivImg>
-                <img style={ImgStyle} src={Img2} alt="" />
+                <img
+                  style={ImgStyle}
+                  src={Img2}
+                  alt="Music Player Project"
+                  onClick={() => handleImageClick(Img2)}
+                />
               </RoadMapDivImg>
             </RoadMapImageR>
           </RoadMapEmptyDiv>
@@ -110,7 +135,12 @@ const Projects = () => {
           <RoadMapEmptyDiv>
             <RoadMapImageL>
               <RoadMapDivImg>
-                <img style={ImgStyle} src={Img3} alt="" />
+                <img
+                  style={ImgStyle}
+                  src={Img3}
+                  alt="Plan-IT"
+                  onClick={() => handleImageClick(Img3)}
+                />
               </RoadMapDivImg>
             </RoadMapImageL>
           </RoadMapEmptyDiv>
@@ -129,10 +159,12 @@ const Projects = () => {
                 fetching, improving load time by 20% through code optimization.
                 Collaborated with designers and backend developers to refine
                 UI/UX and seamlessly integrate APIs for smooth functionality.
+                <div>
                   Link:{" "}
                   <a href="https://planit.thewitslab.com/">
                     https://planit.thewitslab.com/
                   </a>
+                </div>
               </RoadMapContentParagraph>
             </RoadMapContent>
           </RoadMapEleL>
@@ -149,21 +181,30 @@ const Projects = () => {
                 <RoadMapContentNumber>04.</RoadMapContentNumber>Basic Mining
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
-                Collaborated closely with backend teams to integrate APIs and
-                backend logic into a responsive e-commerce platform for managing
-                Bitcoin mining devices. Worked on implementing dynamic user
-                interfaces to handle auction management, sales processes, and
-                payment method integration. Focused on delivering a seamless and
-                secure transaction experience for users, ensuring that the
-                frontend interfaces provided real-time updates and intuitive
-                navigation throughout the purchase journey.
+                Collaborated on developing a responsive e-commerce platform for
+                Bitcoin mining devices using Next.js, TypeScript, and
+                Material-UI. Designed interactive UI elements, integrated secure
+                APIs for seamless transactions, and optimized auction and
+                payment interfaces. Leveraged Redux for efficient state
+                management and ensured cross-device responsiveness. Conducted
+                rigorous testing to enhance platform reliability, security, and
+                scalability.
+                <div>
+                  Link:{" "}
+                  <a href="https://basicmining.com">https://basicmining.com</a>
+                </div>
               </RoadMapContentParagraph>
             </RoadMapContentEleR>
           </RoadMapEleR>
           <RoadMapEmptyDiv>
             <RoadMapImageR>
               <RoadMapDivImg>
-                <img style={ImgStyle} src={Img4} alt="" />
+                <img
+                  style={ImgStyle}
+                  src={Img4}
+                  alt="Basic Mining"
+                  onClick={() => handleImageClick(Img4)}
+                />
               </RoadMapDivImg>
             </RoadMapImageR>
           </RoadMapEmptyDiv>
@@ -175,7 +216,12 @@ const Projects = () => {
           <RoadMapEmptyDiv>
             <RoadMapImageL>
               <RoadMapDivImg>
-                <img style={ImgStyle} src={Img5} alt="" />
+              <img
+                  style={ImgStyle}
+                  src={Img5}
+                  alt="Earn Alliance"
+                  onClick={() => handleImageClick(Img5)}
+                />
               </RoadMapDivImg>
             </RoadMapImageL>
           </RoadMapEmptyDiv>
@@ -226,7 +272,12 @@ const Projects = () => {
           <RoadMapEmptyDiv>
             <RoadMapImageR>
               <RoadMapDivImg>
-                <img style={ImgStyle} src={Img6} alt="" />
+                <img
+                  style={ImgStyle}
+                  src={Img6}
+                  alt="Portfolio"
+                  onClick={() => handleImageClick(Img6)}
+                />
               </RoadMapDivImg>
             </RoadMapImageR>
           </RoadMapEmptyDiv>
@@ -238,7 +289,12 @@ const Projects = () => {
           <RoadMapEmptyDiv>
             <RoadMapImageL>
               <RoadMapDivImg>
-                <img style={ImgStyle} src={Img7} alt="" />
+              <img
+                  style={ImgStyle}
+                  src={Img7}
+                  alt="NPS"
+                  onClick={() => handleImageClick(Img7)}
+                />
               </RoadMapDivImg>
             </RoadMapImageL>
           </RoadMapEmptyDiv>
@@ -268,6 +324,13 @@ const Projects = () => {
           <RoadMapEmptyDiv />
         </RoadMapDiv>
       </RoadMapStyle>
+      <Dialog open={isModalOpen} onClose={handleClose}>
+        <img
+          src={currentImage}
+          alt="Full size"
+          style={{ width: "100%", height: "50vh" }}
+        />
+      </Dialog>
     </>
   );
 };

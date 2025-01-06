@@ -114,11 +114,8 @@ const RoadMapContentParagraph = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
-  /* or 150% */
-
   display: flex;
-  align-items: center;
-
+  flex-direction: column;
   color: #ffffffb3;
 `;
 const RoadMapGenticD2 = styled.div`

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Listitems, LogoWrapper, Navbar, Unorderli } from "style/Navbar";
 import { FaArrowUp } from "react-icons/fa"; // Add an icon for the scroll-up button
 
