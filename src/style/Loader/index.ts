@@ -1,27 +1,17 @@
 import styled from 'styled-components';
 
 export const Load = styled.div`
-    color: #8193a5;
+    color:#b39dc6;
     width: 100vw;
     height: 100vh;
-    font-family: monospace;
     font-weight: bold;
-    font-size: 150px;
+    font-size: 70px;
     opacity: 0.8;
+    font-family: Inter, math;
     display: flex;
     justify-content: center;
     align-items: center;
     span {
         display: inline-block;
-        animation: pulse 0.4s alternate infinite ease-in-out;
-        &:nth-child(odd) {
-            animation-delay: 0.4s;
-        }
-    }
-    @keyframes pulse {
-        to {
-            transform: scale(0.8);
-            opacity: 0.5;
-        }
     }
 `;

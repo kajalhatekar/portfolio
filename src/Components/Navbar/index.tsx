@@ -35,9 +35,15 @@ const NavbarComponent: React.FC = () => {
       <Navbar className={isSticky ? "sticky" : ""}>
         <div className="max-width">
           <LogoWrapper>
-            <div>{`{ KAJAL RAJ }`}</div>
+            <div>{`KAJAL RAJ`}</div>
           </LogoWrapper>
           <Unorderli>
+          <Listitems
+              isActive={activeLink === "home"}
+              onClick={() => handleLinkClick("home")}
+            >
+              <a href="#home">Home</a>
+            </Listitems>
             <Listitems
               isActive={activeLink === "skills"}
               onClick={() => handleLinkClick("skills")}
@@ -45,17 +51,24 @@ const NavbarComponent: React.FC = () => {
               <a href="#skills">Skills</a>
             </Listitems>
             <Listitems
-              isActive={activeLink === "contact"}
-              onClick={() => handleLinkClick("contact")}
-            >
-              <a href="#contact">Projects</a>
-            </Listitems>
-            <Listitems
               isActive={activeLink === "education"}
               onClick={() => handleLinkClick("education")}
             >
               <a href="#education">Education</a>
             </Listitems>
+            <Listitems
+              isActive={activeLink === "experience"}
+              onClick={() => handleLinkClick("experience")}
+            >
+              <a href="#experience">Experience</a>
+            </Listitems>
+            <Listitems
+              isActive={activeLink === "contact"}
+              onClick={() => handleLinkClick("contact")}
+            >
+              <a href="#contact">Projects</a>
+            </Listitems>
+            
           </Unorderli>
         </div>
       </Navbar>

@@ -16,7 +16,6 @@ export const Listitems = styled.li<ListItemProps>`
   margin-top: 10px;
   gap: 0;
   font-size: 20px;
-  font-family: sans-serif;
   font-weight: 400;
   color: ${(props) => props.theme.color.second};
 
@@ -29,7 +28,6 @@ export const Listitems = styled.li<ListItemProps>`
         ? "1.5px solid " + props.theme.color.second
         : "1px solid transparent"}; // Border based on active state
     font-size: 20px;
-    font-family: sans-serif;
     font-weight: 400;
     color: ${(props) => props.theme.color.second};
   }
@@ -63,6 +61,7 @@ export const LogoWrapper = styled.div`
   transition: all 0.3s ease;
   font-size: 30px;
   font-weight: 700;
+  font-family: "Rubik Puddles", serif;
 `;
 // export const Unorderli = styled.ul`
 
@@ -79,7 +78,6 @@ export const Navbar = styled.nav`
   width: 100%;
   z-index: 999;
   padding: 0px 100px;
-  font-family: "Ubuntu", sans-serif;
   transition: all 0.3s ease;
 
   &.sticky {
@@ -140,11 +138,6 @@ export const Section = styled.section`
 `;
 
 export const HomeContent = styled.div`
-  .text-1,
-  .text-2,
-  .text-3 {
-    font-family: "Ubuntu", sans-serif;
-  }
 
   .text-1 {
     font-size: 24px;

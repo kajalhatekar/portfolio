@@ -13,6 +13,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 45vh;
+  padding-top: 130px;
 `;
 const fadeInAndMoveDown = keyframes`
   0% {
@@ -25,7 +26,7 @@ const fadeInAndMoveDown = keyframes`
   }
 `;
 export const Heading = styled.div`
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   background: linear-gradient(to right, #8750f7 0%, #ffffff 100%);
   background-clip: text;
@@ -95,29 +96,21 @@ export const ToolsItem = styled(FlexItem)`
   background-color: #140c1c;
   border-radius: 25px;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
+  transition: all 0.5s linear;
+  filter: #808080;
+    -webkit-filter: grayscale(1);
+    -webkit-transition: all 0.8s ease-in-out;
 
   svg {
     animation: "unset";
     width: 54px;
-    filter: #808080;
-    -webkit-filter: grayscale(1);
-    -webkit-transition: all 0.8s ease-in-out;
-
-    &:hover {
-      filter: none;
-      -webkit-filter: grayscale(0);
-      -webkit-transform: scale(1.01);
-    }
   }
   &:hover {
     transition: 0.5s ease-out;
     background-color: #2a1454;
     border: 1px solid #8750f7;
+    filter: none;
+      -webkit-filter: grayscale(0);
+      -webkit-transform: scale(1.01);
   }
 `;
-// export const RightContainer = styled.div`
-//   max-width: 450px;
-// `;
-// export const Image = styled.div`
-//   font-size: 15px;
-// `;

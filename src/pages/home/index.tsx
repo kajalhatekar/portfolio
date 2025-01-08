@@ -1,3 +1,4 @@
+import Experience from "Components/Experience";
 import Loader from "Components/Loader";
 import StarryBackground from "Components/Spiral";
 import { useEffect, useState } from "react";
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
     let timer = setTimeout(() => {
       setIsLoading(false);
       return () => clearInterval(timer);
-    }, 1000);
+    }, 2000);
   }, []);
 
   return isLoading ? (
@@ -31,8 +32,12 @@ const Home: React.FC = () => {
         <div id="skills">
           <SkillHome />
         </div>
+        experience
         <div id="education">
           <EducationHome />
+        </div>
+        <div id="experience">
+          <Experience />
         </div>
         <div id="background">
           <StarryBackground />

@@ -3,6 +3,8 @@ import styled, { keyframes } from "styled-components";
 
 export const MainContainer = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 const fadeInAndMoveDown = keyframes`
   0% {
@@ -15,12 +17,14 @@ const fadeInAndMoveDown = keyframes`
   }
 `;
 export const Container = styled.div`
+  width: 87%;
   display: flex;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
-  padding: 215px 17px 70px 17px;
+  padding-top: 225px;
+  position: relative;
 
-  &.testomonial-class{
+  &.testomonial-class {
     flex-direction: column;
     /* margin-bottom: 100px; */
     padding: 80px 17px 70px 17px;
@@ -162,19 +166,21 @@ export const AnkerTag = styled.a<{ theme: ITheme }>`
     color: white;
     box-shadow: 0 0 20px ${(props) => props.theme.color.fourth};
     transition: all 0.75s ease;
-
   }
 `;
 export const SocialIcon = styled.div`
   font-size: 15px;
 `;
 export const RightContainer = styled.div`
-  width: 100%;
-  max-width: 345px;
+  /* width: 100%; */
+  /* max-width: 345px;
   height: 300px;
   display: flex;
   margin-top: 49px;
-  position: relative;
+  position: relative; */
+  position: absolute;
+  width: 64%;
+    right: -92px;
 `;
 
 export const BoxContainer = styled.div`
@@ -253,7 +259,7 @@ export const UploadFileModalContainer = styled.div`
   border: 1px solid #1b202b;
   padding: 40px 40px;
   background: #140c1c;
-`
+`;
 // export const NameContain = styled.div`
 //    font-size:15px;
 // `

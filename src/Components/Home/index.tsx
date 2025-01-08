@@ -2,7 +2,8 @@ import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
 import { GrSend } from "react-icons/gr";
 import { RiInstagramFill } from "react-icons/ri";
 import Typewriter from "typewriter-effect";
-import portimage from "assets/images/resume-image.jpg"
+// import home from "assets/home.mp4";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import {
   MainContainer,
   Container,
@@ -24,11 +25,8 @@ import fileSaver from "file-saver";
 
 const HomeSec = () => {
   const saveFile = () => {
-    fileSaver.saveAs(
-      process.env.PUBLIC_URL + "/resume/cv.pdf",
-      "MyCV.pdf"
-    );
-  }
+    fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
+  };
   return (
     <MainContainer>
       <Container>
@@ -43,7 +41,13 @@ const HomeSec = () => {
                     autoStart: true,
                     loop: true,
                     delay: 45,
-                    strings: ["Web Developer","Software Engineer", "Frontend Developer","Open Source Contributor", "UI Developer"],
+                    strings: [
+                      "Web Developer",
+                      "Software Engineer",
+                      "Frontend Developer",
+                      "Open Source Contributor",
+                      "UI Developer",
+                    ],
                   }}
                 />
               </span>
@@ -73,20 +77,32 @@ const HomeSec = () => {
           </SocialSec>
 
           <ButtonContainer>
-            <SButton href="https://www.linkedin.com/in/kajal-raj" target="_blank" rel="noopener noreferrer">Let's Talk<GrSend /></SButton>
-            <FButton onClick={saveFile}>Download CV
+            <SButton
+              href="https://www.linkedin.com/in/kajal-raj"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Let's Talk
+              <GrSend />
+            </SButton>
+            <FButton onClick={saveFile}>
+              Download CV
               {/* <TbCircleArrowUpRight /> */}
               <DownloadIcon />
-              </FButton>
+            </FButton>
           </ButtonContainer>
         </LeftContainer>
         <RightContainer>
-
-          <BoxContainer></BoxContainer>
+          {/* <BoxContainer></BoxContainer>
           <SecondBoxContainer></SecondBoxContainer>
           
-          <Image src={portimage} />
-
+          <Image src={portimage} /> */}
+          <DotLottieReact
+            src="https://lottie.host/44325f2f-8aad-4728-9d64-221fb243e31b/4hOpUuUWT3.lottie"
+            loop
+            autoplay
+            style={{width:'unset', height:'unset'}}
+          />
         </RightContainer>
       </Container>
     </MainContainer>

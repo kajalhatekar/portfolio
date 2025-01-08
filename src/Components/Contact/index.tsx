@@ -59,7 +59,7 @@ const Projects = () => {
         <RoadMapHeadingWrapper>
           <RoadMapHeadingWrapperD1 />
           <RoadMapHeadingWrapperD2>
-            <RoadMapHeadingH>PROJECTS</RoadMapHeadingH>
+            <RoadMapHeadingH>Projects</RoadMapHeadingH>
           </RoadMapHeadingWrapperD2>
           <RoadMapHeadingWrapperD3 />
         </RoadMapHeadingWrapper>
@@ -78,8 +78,9 @@ const Projects = () => {
           <RoadMapGenticD2>
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>01.</RoadMapContentNumber>Blog Project
-                (April2023-April2023 )
+                <RoadMapContentNumber>
+                  01. Blog Project (April2023-April2023 )
+                </RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
                 This Blog Website is made with Front-end and Back-end. In this
@@ -100,8 +101,9 @@ const Projects = () => {
           <RoadMapEleR>
             <RoadMapContentEleR>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>02.</RoadMapContentNumber>Music Player
-                Project (May2020-june2020 )
+                <RoadMapContentNumber>
+                  02. Music Player Project (May2020-june2020 )
+                </RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
                 Developed the user interface for an online music player using
@@ -147,7 +149,7 @@ const Projects = () => {
           <RoadMapEleL>
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>03.</RoadMapContentNumber>Plan-IT
+                <RoadMapContentNumber>03. Plan-IT</RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
                 Designed and implemented core features like task creation, story
@@ -178,7 +180,7 @@ const Projects = () => {
           <RoadMapEleR style={{ transform: " translate(48px, 8px)" }}>
             <RoadMapContentEleR>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>04.</RoadMapContentNumber>Basic Mining
+                <RoadMapContentNumber>04. Basic Mining</RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
                 Collaborated on developing a responsive e-commerce platform for
@@ -216,7 +218,7 @@ const Projects = () => {
           <RoadMapEmptyDiv>
             <RoadMapImageL>
               <RoadMapDivImg>
-              <img
+                <img
                   style={ImgStyle}
                   src={Img5}
                   alt="Earn Alliance"
@@ -228,8 +230,9 @@ const Projects = () => {
           <RoadMapEleL style={{ transform: " translate(10px, 4px)" }}>
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>05.</RoadMapContentNumber>Earn Alliance
-                Admin Portal
+                <RoadMapContentNumber>
+                  05. Earn Alliance Admin Portal
+                </RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
                 "Developed and managed a fully functional admin portal for Earn
@@ -254,7 +257,7 @@ const Projects = () => {
           <RoadMapEleR style={{ transform: " translate(40px, 1px)" }}>
             <RoadMapContentEleR>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>06.</RoadMapContentNumber>Portfolio
+                <RoadMapContentNumber>06. Portfolio</RoadMapContentNumber>
               </RoadMapContentHeading>
 
               <RoadMapContentParagraph>
@@ -289,7 +292,7 @@ const Projects = () => {
           <RoadMapEmptyDiv>
             <RoadMapImageL>
               <RoadMapDivImg>
-              <img
+                <img
                   style={ImgStyle}
                   src={Img7}
                   alt="NPS"
@@ -308,8 +311,9 @@ const Projects = () => {
           >
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>07.</RoadMapContentNumber>NPS (National
-                Pension Scheme)
+                <RoadMapContentNumber>
+                  07. NPS (National Pension Scheme)
+                </RoadMapContentNumber>
               </RoadMapContentHeading>
 
               <RoadMapContentParagraph>

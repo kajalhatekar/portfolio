@@ -21,25 +21,20 @@ const fadeInAndMoveDown = keyframes`
   }
 `;
 const RoadMapHeadingH = styled.h2`
-  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
-  font-size: 60px;
+  font-size: 45px;
+  padding-bottom: 20px;
   line-height: 79px;
-  background: linear-gradient(to right, #8750f7 0%, #ffffff 100%);
+  background: linear-gradient(to right, #8750f7 0%, #ffffff 45%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
-  /* or 132% */
-
   display: flex;
   align-items: center;
-
-  color: #ffffff;
 `;
 const RoadMapParagraphWrapper = styled.p`
-  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -65,8 +60,8 @@ const RoadMapDiv = styled.div`
 `;
 const RoadMapGenticD1 = styled.div`
   position: relative;
-  border-top: 3px solid #ffffff;
-  border-right: 3px solid #ffffff;
+  border-top: 3px solid #b3b9c5;
+  border-right: 3px solid #b3b9c5;
   z-index: 1;
   border-radius: 0px 30px 0px 0px;
   transform: translate(-8px, -19px);
@@ -89,7 +84,6 @@ const RoadMapDivImg = styled.div`
 const RoadMapContent = styled.div``;
 
 const RoadMapContentHeading = styled.h3`
-  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 300;
   font-size: 32px;
@@ -102,12 +96,11 @@ const RoadMapContentHeading = styled.h3`
   color: rgba(255, 255, 255, 0.66);
 `;
 const RoadMapContentNumber = styled.div`
-  font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 300;
   font-size: 33px;
   line-height: 86px;
-  color: #8750f7;
+  color: #9e81d9;
 `;
 const RoadMapContentParagraph = styled.p`
   font-style: normal;
@@ -116,11 +109,11 @@ const RoadMapContentParagraph = styled.p`
   line-height: 21px;
   display: flex;
   flex-direction: column;
-  color: #ffffffb3;
+  color: #b3b9c5b3;
 `;
 const RoadMapGenticD2 = styled.div`
-  border-left: 3px solid #ffffff;
-  border-bottom: 3px solid #ffffff;
+  border-left: 3px solid #b3b9c5;
+  border-bottom: 3px solid #b3b9c5;
   transform: translate(-11px, 17px);
   border-radius: 0px 0px 0px 30px;
   display: flex;
@@ -136,9 +129,9 @@ const RoadMapEmptyDiv = styled.div`
   z-index: 1;
 `;
 const RoadMapEleR = styled.div`
-  border-right: 3px solid #ffffff;
-  border-top: 3px solid #ffffff;
-  border-bottom: 3px solid #ffffff;
+  border-right: 3px solid #b3b9c5;
+  border-top: 3px solid #b3b9c5;
+  border-bottom: 3px solid #b3b9c5;
   border-radius: 0px 30px 30px 0px;
   transform: translate(42px, 14px);
   padding: 42px 130px 70px 0px;
@@ -182,9 +175,9 @@ const RoadMapImageL = styled.div`
   border-radius: 32px;
 `;
 const RoadMapEleL = styled.div`
-  border-top: 3px solid #ffffff;
-  border-left: 3px solid #ffffff;
-  border-bottom: 3px solid #ffffff;
+  border-top: 3px solid #b3b9c5;
+  border-left: 3px solid #b3b9c5;
+  border-bottom: 3px solid #b3b9c5;
   transform: translate(-11px, 11px);
   border-radius: 30px 0px 0px 30px;
   padding: 42px 0px 60px 124px;

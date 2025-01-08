@@ -10,12 +10,10 @@ import {
   EducationWrapper,
   SecondEduWrapper,
   IconWrap,
-  CarDivider,
-  CarTraveller,
 } from "style/Education";
 import { FaUserGraduate } from "react-icons/fa";
 import { CollegeHeading, Heading } from "style/Skill";
-import CarSvg from "assets/svg/CarSvg";
+
 
 const Educations = () => {
   const [ref, inView] = useInView({
@@ -31,7 +29,6 @@ const Educations = () => {
             animation: inView ? "fadeInAndMoveDown 2s ease-out" : "none",
           }}
         >
-          <FaUserGraduate />
           Education
         </Heading>
         <BoxContainer>
@@ -74,12 +71,6 @@ const Educations = () => {
             </SecondEduWrapper>
           </BoxWrapper>
         </BoxContainer>
-
-        <CarDivider>
-          <CarTraveller>
-            <CarSvg />
-          </CarTraveller>
-        </CarDivider>
       </EducationWrapper>
     </MainContainer>
   );

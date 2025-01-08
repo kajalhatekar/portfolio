@@ -220,7 +220,6 @@ export const UploadFileContentTitle = styled.div`
   color: #fff;
 
   span {
-    font-family: Inter;
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
@@ -270,7 +269,6 @@ export const InputWrapperContainer = styled.div`
 }
   ::placeholder {
     color: #64718c;
-    font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
