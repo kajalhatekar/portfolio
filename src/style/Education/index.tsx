@@ -38,7 +38,7 @@
 //      0% {
 //           transform: perspective(500px) rotateY(0);
 //           animation-timing-function: ease-in-out;
-          
+
 //      }
 //      40% {
 //           transform: perspective(500px) translateZ(150px) rotateY(170deg);
@@ -48,12 +48,12 @@
 //      50% {
 //           transform: perspective(500px) translateZ(150px) rotateY(190deg) scale(1);
 //           animation-timing-function: ease-in-out;
-     
+
 //      }
 //      80% {
 //           transform: perspective(500px) rotateY(360deg) scale(.95);
 //           animation-timing-function: ease-in-out;
-       
+
 //      }
 //      100% {
 //           transform: perspective(500px) scale(1);
@@ -78,16 +78,16 @@
 //   /* &:hover{
 //      box-shadow: lightgray 0px 0px 10px;
 //   } */
-//   @keyframes fadeInAndMoveRight1 {
-//     0% {
-//       opacity: 0;
-//       transform: translateX(-150px);
-//     }
-//     100% {
-//       opacity: 1;
-//       transform: translateX(0);
-//     }
-//   }
+  // @keyframes fadeInAndMoveRight1 {
+  //   0% {
+  //     opacity: 0;
+  //     transform: translateX(-150px);
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     transform: translateX(0);
+  //   }
+  // }
 
 // `;
 // export const BoxWrapper = styled(Box)`
@@ -175,7 +175,6 @@
 //   }
 // `
 
-
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
@@ -191,7 +190,7 @@ export const EducationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap:35px;
+  gap: 35px;
   padding: 50px 120px;
 `;
 export const BoxContainer = styled.div`
@@ -201,17 +200,17 @@ export const BoxContainer = styled.div`
   justify-content: center;
 `;
 export const IconWrap = styled.div`
-width: 100%;
-max-width: 100px;
-display: flex;
-justify-content: center;
-     svg{
-          width: 30px;
-          height: 42px;
-          backface-visibility: visible !important;
-          color:#ffffffb3;
-     }
-`
+  width: 100%;
+  max-width: 100px;
+  display: flex;
+  justify-content: center;
+  svg {
+    width: 30px;
+    height: 42px;
+    backface-visibility: visible !important;
+    color: #ffffffb3;
+  }
+`;
 
 export const Box = styled.div`
   width: 50%;
@@ -220,34 +219,56 @@ export const Box = styled.div`
   background-color: #140c1c;
   transition: background-color 0.3s ease, box-shadow 0.3s ease; 
   border-radius: 15px;
+  animation: fadeInAndMoveRight1 1.5s ease-out;
 
   &:hover{
-    /* box-shadow: #8d2cee 0px 0px 10px; */
-    /* box-shadow: #8d2cee 1.95px 1.95px 2.6px; */
-    /* box-shadow: #9e81d9 0px 0px 16px; */
-    border: 1px solid #9e81d9;
+    box-shadow: 0 0 10px lightgray;
     /* box-shadow: #8d2cee 0px 50px 10px -20px, #140c1c 0px 30px 60px -30px; */
   }
 
+  @keyframes fadeInAndMoveRight1 {
+    0% {
+      opacity: 0;
+      transform: translateX(-150px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
 `;
+
 export const BoxWrapper = styled(Box)`
-max-width: unset;
-padding: unset;
-border: none;
+  max-width: unset;
+  padding: unset;
+  border: none;
   display: flex;
   box-shadow: unset;
+  animation: fadeInAndMoveRight2 1.5s ease-out;
+
+  @keyframes fadeInAndMoveRight2 {
+   0% {
+     opacity: 0;
+     transform: translateX(150px);
+   }
+   100% {
+     opacity: 1;
+     transform: translateX(0);
+   }
+ }
 `;
 
 export const SecondEduWrapper = styled.div`
- width: 100%;
- background-color: #140c1c;
- padding: 20px 10px 10px 0;
- display: flex;
- transition: background-color 0.3s ease, box-shadow 0.3s ease; 
- border-radius: 15px;
+  width: 100%;
+  background-color: #140c1c;
+  padding: 20px 10px 10px 0;
+  display: flex;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
 
- &:hover{
-  /* box-shadow: #8d2cee 0px 0px 10px; */
+  &:hover {
+    /* box-shadow: #8d2cee 0px 0px 10px; */
   }
 `;
 export const DateWrapper = styled.div`
@@ -276,6 +297,3 @@ export const CollegeHeading = styled.div`
   font-weight: 600;
   line-height: 30px;
 `;
-
-
-

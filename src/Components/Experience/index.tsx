@@ -12,7 +12,6 @@ import {
   Circle,
   RoleText,
 } from "style/Experience";
-import { TbCircleDot } from "react-icons/tb";
 import { Heading } from "style/Skill";
 import { MainContainer } from "style/Education";
 import { useInView } from "react-intersection-observer";
@@ -62,7 +61,16 @@ const Experience = () => {
         </Heading>
         <MainWrapper>
           {serviceData.map((service, index) => (
-            <QuoteContainer key={index}>
+            <QuoteContainer
+              key={index}
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(20px)",
+                transition: `opacity 1s ease-out ${
+                  index * 0.5
+                }s, transform 1s ease-out ${index * 0.5}s`,
+              }}
+            >
               <p className="quote">
                 <QuoteContent>
                   <Circle> {service.icon}</Circle>

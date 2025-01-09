@@ -16,6 +16,18 @@ const fadeInAndMoveDown = keyframes`
     transform: translateY(0); /* Move to original position */
   }
 `;
+
+const fadeInAndMoveUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(0); /* Move from top (-50px) */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-20px); /* Move to original position */
+  }
+`;
+
 export const Container = styled.div`
   width: 87%;
   display: flex;
@@ -107,12 +119,13 @@ export const SButton = styled.a`
     }
   }
 `;
-export const FButton = styled.div`
+export const FButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
   border-radius: 10px;
+  text-decoration: none;
   width: 100%;
   max-width: 166px;
   cursor: pointer;
@@ -180,7 +193,8 @@ export const RightContainer = styled.div`
   position: relative; */
   position: absolute;
   width: 64%;
-    right: -92px;
+  right: -92px;
+  animation: ${fadeInAndMoveUp} 2s ease-in-out;
 `;
 
 export const BoxContainer = styled.div`

@@ -3,7 +3,7 @@ import { GrSend } from "react-icons/gr";
 import { RiInstagramFill } from "react-icons/ri";
 import Typewriter from "typewriter-effect";
 // import home from "assets/home.mp4";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import {
   MainContainer,
   Container,
@@ -16,17 +16,14 @@ import {
   SocialSec,
   AnkerTag,
   RightContainer,
-  Image,
-  BoxContainer,
-  SecondBoxContainer,
 } from "style/Home";
 import DownloadIcon from "assets/svg/DownloadIcon";
 import fileSaver from "file-saver";
 
 const HomeSec = () => {
-  const saveFile = () => {
-    fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
-  };
+  // const saveFile = () => {
+  //   fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
+  // };
   return (
     <MainContainer>
       <Container>
@@ -82,12 +79,15 @@ const HomeSec = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Let's Talk
+              Let's Connect
               <GrSend />
             </SButton>
-            <FButton onClick={saveFile}>
-              Download CV
-              {/* <TbCircleArrowUpRight /> */}
+            <FButton
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`${process.env.PUBLIC_URL}/resume/cv.pdf`}
+            >
+                Resume
               <DownloadIcon />
             </FButton>
           </ButtonContainer>
@@ -101,7 +101,7 @@ const HomeSec = () => {
             src="https://lottie.host/44325f2f-8aad-4728-9d64-221fb243e31b/4hOpUuUWT3.lottie"
             loop
             autoplay
-            style={{width:'unset', height:'unset'}}
+            style={{ width: "unset", height: "unset" }}
           />
         </RightContainer>
       </Container>
