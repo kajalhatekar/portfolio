@@ -18,7 +18,6 @@ import {
   RightContainer,
 } from "style/Home";
 import DownloadIcon from "assets/svg/DownloadIcon";
-import fileSaver from "file-saver";
 
 const HomeSec = () => {
   // const saveFile = () => {
