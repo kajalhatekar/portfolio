@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
-const fadeInAndMoveDown = keyframes`
+export const fadeInAndMoveDown = keyframes`
   0% {
     opacity: 0;
     transform: translateY(-50px); /* Move from top (-50px) */
@@ -74,7 +74,7 @@ export const ButtonContainer = styled.div`
   gap: 10px;
 `;
 
-export const SButton = styled.a`
+export const ConnectButton = styled.a`
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -119,6 +119,7 @@ export const SButton = styled.a`
     }
   }
 `;
+
 export const FButton = styled.a`
   display: flex;
   align-items: center;

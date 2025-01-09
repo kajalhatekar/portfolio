@@ -1,3 +1,4 @@
+import { fadeInAndMoveDown } from "style/Home";
 import styled from "styled-components";
 
 export const Header = styled.div`
@@ -10,6 +11,18 @@ export const WebName = styled.div`
   font-size: 24px;
   font-weight: 700;
   color: white;
+`;
+
+export const Wrapper = styled.div`
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  background-color: #140c1c;
+  animation: ${fadeInAndMoveDown} 2s ease-in-out;
+
+  &:hover{
+    box-shadow: 0 0 10px lightgray;
+  }
 `;
 
 export const CloseBtn = styled.div`
@@ -103,20 +116,26 @@ export const TextareaWrapper = styled.div`
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
-  margin-top: 1.5vw;
+  margin-top: 10px;
   gap: 10px;
   height: 45px;
 `;
-export const Button = styled.button`
-  font-size: 16px;
-  border-radius: 8px;
+
+export const SubmitButton = styled.button`
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  background-color: #e8e8e8;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  max-width: 166px;
   border: none;
-  padding: 10px 44px;
-  text-align: center;
+  background-color: ${(props) => props.theme.color.fifth};
+  text-decoration: none;
+  letter-spacing: 1px;
   font-weight: 600;
-  box-shadow: 0 0 20px #6600cc;
 `;
 
 export const OpenButton = styled.button`
@@ -247,9 +266,10 @@ export const ContactFormText = styled.div`
 `;
 export const ErrorMessageWrapper = styled.div`
   width: 100%;
-  font-size: 13.5px;
-  color: #ed832f;
+  font-size: 14px;
+  color: red;
   margin-left: 6px;  
+  padding-top: 8px;
 `;
 export const InputEditWrapper = styled.div`
   input {
@@ -307,8 +327,8 @@ export const InputWrapperContainer = styled.div`
   }
 `;
 export const InputText = styled.div`
-  color: #90a3bf;
-  font-size: 15px;
+  color:#d4d8df;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;

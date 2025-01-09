@@ -184,6 +184,16 @@ export const MainContainer = styled.div`
   width: 100%;
 `;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+  margin: 0px 0 90px 0;
+`;
+
 export const EducationWrapper = styled.div`
   display: flex;
   flex-direction: column;

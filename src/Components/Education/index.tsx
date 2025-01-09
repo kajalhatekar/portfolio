@@ -22,7 +22,7 @@ const Educations = () => {
   });
 
   return (
-    <MainContainer ref={ref}>
+    <MainContainer ref={ref} id="education">
       <EducationWrapper>
         <Heading
           style={{

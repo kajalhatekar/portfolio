@@ -50,7 +50,7 @@ const Experience = () => {
     threshold: 0.2,
   });
   return (
-    <MainContainer ref={ref}>
+    <MainContainer ref={ref} id="experience">
       <DataWrapper>
         <Heading
           style={{

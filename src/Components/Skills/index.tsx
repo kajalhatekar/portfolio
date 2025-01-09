@@ -18,7 +18,7 @@ import NextJsIcon from "assets/svg/NextJsIcon";
 const SkillsSec = () => {
   const key = new Date().getTime();
   return (
-    <WrapperContainer>
+    <WrapperContainer id="skills">
       <Container>
         <Heading key={key}>
           Professional Skills

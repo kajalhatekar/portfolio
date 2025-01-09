@@ -12,7 +12,7 @@ import {
   Paragraph,
   ButtonContainer,
   FButton,
-  SButton,
+  ConnectButton,
   SocialSec,
   AnkerTag,
   RightContainer,
@@ -24,7 +24,7 @@ const HomeSec = () => {
   //   fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
   // };
   return (
-    <MainContainer>
+    <MainContainer id="home">
       <Container>
         <LeftContainer>
           <Proffesion>
@@ -73,14 +73,14 @@ const HomeSec = () => {
           </SocialSec>
 
           <ButtonContainer>
-            <SButton
+            <ConnectButton
               href="https://www.linkedin.com/in/kajal-raj"
               target="_blank"
               rel="noopener noreferrer"
             >
               Let's Connect
               <GrSend />
-            </SButton>
+            </ConnectButton>
             <FButton
               target="_blank"
               rel="noopener noreferrer"

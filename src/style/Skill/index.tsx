@@ -39,9 +39,6 @@ export const Heading = styled.div`
   gap: 5px;
   margin-top: 0;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
-  svg {
-    color: #ddb8f9;
-  }
 `;
 export const CollegeHeading = styled(Heading)`
   justify-content: unset;

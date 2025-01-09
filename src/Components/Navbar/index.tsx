@@ -63,10 +63,17 @@ const NavbarComponent: React.FC = () => {
               <a href="#experience">Experience</a>
             </Listitems>
             <Listitems
+              isActive={activeLink === "project"}
+              onClick={() => handleLinkClick("project")}
+            >
+              <a href="#project">Projects</a>
+            </Listitems>
+
+            <Listitems
               isActive={activeLink === "contact"}
               onClick={() => handleLinkClick("contact")}
             >
-              <a href="#contact">Projects</a>
+              <a href="#contact">Contact</a>
             </Listitems>
             
           </Unorderli>

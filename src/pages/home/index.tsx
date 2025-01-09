@@ -1,13 +1,15 @@
+import { useEffect, useState } from "react";
 import Experience from "Components/Experience";
 import Loader from "Components/Loader";
 import StarryBackground from "Components/Spiral";
-import { useEffect, useState } from "react";
-import ContactHome from "views/Contact";
-import EducationHome from "views/Education";
-import FooterHome from "views/Footer";
-import HomePge from "views/Home";
-import NavHome from "views/Navbar";
-import SkillHome from "views/Skill";
+import Contact from "Components/Contact";
+import Navbar from 'Components/Navbar'
+import HomeSec from "Components/Home";
+import SkillsSec from "Components/Skills";
+import Educations from "Components/Education";
+import Projects from "Components/Project";
+import Footer from "Components/Footer";
+import ToolsSection from 'Components/Tools'
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,29 +26,16 @@ const Home: React.FC = () => {
     <Loader />
   ) : (
     <div>
-      <div>
-        <NavHome />
-        <div id="home">
-          <HomePge />
-        </div>
-        <div id="skills">
-          <SkillHome />
-        </div>
-        experience
-        <div id="education">
-          <EducationHome />
-        </div>
-        <div id="experience">
-          <Experience />
-        </div>
-        <div id="background">
-          <StarryBackground />
-        </div>
-        <div id="contact">
-          <ContactHome />
-        </div>
-        <FooterHome />
-      </div>
+      <Navbar />
+      <HomeSec />
+      <SkillsSec />
+      <ToolsSection />
+      <Educations /> 
+      <Experience />
+      <Projects />
+      <StarryBackground />
+      <Contact />
+      <Footer />
     </div>
   );
 };
