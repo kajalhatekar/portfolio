@@ -18,11 +18,28 @@ import {
   RightContainer,
 } from "style/Home";
 import DownloadIcon from "assets/svg/DownloadIcon";
+import { useEffect, useState } from "react";
 
 const HomeSec = () => {
   // const saveFile = () => {
   //   fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
   // };
+  const [isMobile, setIsMobile] = useState(false);
+  const [showNavMenuIpad, setNavMenuIpad] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1050);
+      setNavMenuIpad(window.innerWidth >= 768 && window.innerWidth <= 1224);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <MainContainer id="home">
       <Container>
@@ -41,7 +58,7 @@ const HomeSec = () => {
                       "Web Developer",
                       "Software Engineer",
                       "Frontend Developer",
-                      "Open Source Contributor",
+                      // "Open Source Contributor",
                       "UI Developer",
                     ],
                   }}
@@ -86,7 +103,7 @@ const HomeSec = () => {
               rel="noopener noreferrer"
               href={`${process.env.PUBLIC_URL}/resume/cv.pdf`}
             >
-                Resume
+              Resume
               <DownloadIcon />
             </FButton>
           </ButtonContainer>
@@ -96,12 +113,16 @@ const HomeSec = () => {
           <SecondBoxContainer></SecondBoxContainer>
           
           <Image src={portimage} /> */}
-          <DotLottieReact
-            src="https://lottie.host/44325f2f-8aad-4728-9d64-221fb243e31b/4hOpUuUWT3.lottie"
-            loop
-            autoplay
-            style={{ width: "unset", height: "unset" }}
-          />
+          {isMobile ? (
+            ""
+          ) : (
+            <DotLottieReact
+              src="https://lottie.host/44325f2f-8aad-4728-9d64-221fb243e31b/4hOpUuUWT3.lottie"
+              loop
+              autoplay
+              style={{ width: "unset", height: "unset" }}
+            />
+          )}
         </RightContainer>
       </Container>
     </MainContainer>

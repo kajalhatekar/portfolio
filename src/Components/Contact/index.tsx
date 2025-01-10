@@ -72,12 +72,12 @@ const Contact: FC = () => {
   };
   console.log(errors, "Form Data");
   return (
-    <Container id="contact">
+    <Container>
       <Heading>Contact</Heading>
       <Wrapper>
         <FormWrapper onSubmit={handleSubmit(onSubmit)}>
           <InputEditWrapper
-            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
           >
             <InputWrapperContainer>
               <InputText>Name</InputText>

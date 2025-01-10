@@ -23,6 +23,14 @@ export const Wrapper = styled.div`
   &:hover{
     box-shadow: 0 0 10px lightgray;
   }
+
+  @media (max-width: 767px) {
+    width: 84%;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    bottom: 40px;
+  }
 `;
 
 export const CloseBtn = styled.div`
@@ -119,6 +127,11 @@ export const ButtonWrapper = styled.div`
   margin-top: 10px;
   gap: 10px;
   height: 45px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const SubmitButton = styled.button`

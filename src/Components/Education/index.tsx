@@ -1,19 +1,41 @@
 import { useInView } from "react-intersection-observer";
 import {
   MainContainer,
-  Box,
   BoxContainer,
   DateWrapper,
   Degree,
   AboutDegree,
   BoxWrapper,
   EducationWrapper,
-  SecondEduWrapper,
   IconWrap,
 } from "style/Education";
 import { FaUserGraduate } from "react-icons/fa";
 import { CollegeHeading, Heading } from "style/Skill";
 
+const educationData = [
+  {
+    id: 1,
+    college: "Rajindra Mishra College",
+    degree: "Bachelor of Computer Application",
+    duration: "August 2017 - February 2021",
+    details: [
+      "Major: Electronics and Communication Engineering",
+      "Minor: Information Technology",
+    ],
+    animation: "fadeInAndMoveRight1",
+  },
+  {
+    id: 2,
+    college: "Lovely Professional University",
+    degree: "Master of Computer Application",
+    duration: "May 2021 - August 2023",
+    details: [
+      "Major: Electronics and Communication Engineering",
+      "Minor: Information Technology",
+    ],
+    animation: "fadeInAndMoveRight2",
+  },
+];
 
 const Educations = () => {
   const [ref, inView] = useInView({
@@ -32,44 +54,28 @@ const Educations = () => {
           Education
         </Heading>
         <BoxContainer>
-          <Box
-            style={{
-              animation: inView ? "fadeInAndMoveRight1 1.5s ease-out" : "none",
-            }}
-          >
-            <IconWrap>
-              <FaUserGraduate />
-            </IconWrap>
-            <div>
-              <CollegeHeading>Rajindra Mishra College</CollegeHeading>
-              <Degree>Bechlor of Computer Application</Degree>
-              <DateWrapper>August 2017 - February 2021</DateWrapper>
-              <AboutDegree>
-                - Major: Electronics and Communication Engineering
-              </AboutDegree>
-              <AboutDegree>- Minor: Information Technology</AboutDegree>
-            </div>
-          </Box>
-          <BoxWrapper
-            style={{
-              animation: inView ? "fadeInAndMoveRight2 1.5s ease-out" : "none",
-            }}
-          >
-            <SecondEduWrapper>
-              <IconWrap>
-                <FaUserGraduate />
-              </IconWrap>
-              <div>
-                <CollegeHeading>Lovely Professional University</CollegeHeading>
-                <Degree>Master of Computer Application</Degree>
-                <DateWrapper>May 2021 - August 2023</DateWrapper>
-                <AboutDegree>
-                  - Major: Electronics and Communication Engineering
-                </AboutDegree>
-                <AboutDegree>- Minor: Information Technology</AboutDegree>
-              </div>
-            </SecondEduWrapper>
-          </BoxWrapper>
+          {educationData.map(
+            ({ id, college, degree, duration, details, animation }) => (
+              <BoxWrapper
+                key={id}
+                style={{
+                  animation: inView ? `${animation} 1.5s ease-out` : "none",
+                }}
+              >
+                  <IconWrap>
+                    <FaUserGraduate />
+                  </IconWrap>
+                  <div>
+                    <CollegeHeading>{college}</CollegeHeading>
+                    <Degree>{degree}</Degree>
+                    <DateWrapper>{duration}</DateWrapper>
+                    {details.map((detail, index) => (
+                      <AboutDegree key={index}>{detail}</AboutDegree>
+                    ))}
+                  </div>
+              </BoxWrapper>
+            )
+          )}
         </BoxContainer>
       </EducationWrapper>
     </MainContainer>

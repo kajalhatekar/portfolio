@@ -29,12 +29,28 @@ const fadeInAndMoveUp = keyframes`
 `;
 
 export const Container = styled.div`
-  width: 87%;
+  width: 86%;
   display: flex;
   justify-content: start;
   align-items: center;
   padding-top: 225px;
   position: relative;
+  padding-bottom: 39px;
+
+  @media (max-width: 767px) {
+    position: unset;
+    flex-direction: column;
+    padding-top: 110px;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    padding-top: 133px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 85%;
+    padding-top: 184px;
+  }
 
   &.testomonial-class {
     flex-direction: column;
@@ -196,6 +212,20 @@ export const RightContainer = styled.div`
   width: 64%;
   right: -92px;
   animation: ${fadeInAndMoveUp} 2s ease-in-out;
+
+  @media (max-width: 767px) {
+    position: unset;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    width: 66%;
+  right: -60px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 66%;
+  right: -88px;
+  }
 `;
 
 export const BoxContainer = styled.div`
@@ -204,7 +234,6 @@ export const BoxContainer = styled.div`
   border-right: none;
   z-index: 1;
   animation: fadeInAndMoveRight1 1.5s ease-out;
-  /* background-color: rgb(29 15 30); */
 
   @keyframes fadeInAndMoveRight1 {
     0% {
@@ -275,18 +304,3 @@ export const UploadFileModalContainer = styled.div`
   padding: 40px 40px;
   background: #140c1c;
 `;
-// export const NameContain = styled.div`
-//    font-size:15px;
-// `
-// export const NameContain = styled.div`
-//    font-size:15px;
-// `
-// export const NameContain = styled.div`
-//    font-size:15px;
-// `
-// export const NameContain = styled.div`
-//    font-size:15px;
-// `
-// export const NameContain = styled.div`
-//    font-size:15px;
-// `

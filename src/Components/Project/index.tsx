@@ -212,80 +212,6 @@ const Projects = () => {
           </RoadMapEmptyDiv>
         </RoadMapDiv>
 
-        {/* Div 5 */}
-
-        <RoadMapDiv>
-          <RoadMapEmptyDiv>
-            <RoadMapImageL>
-              <RoadMapDivImg>
-                <img
-                  style={ImgStyle}
-                  src={Img5}
-                  alt="Earn Alliance"
-                  onClick={() => handleImageClick(Img5)}
-                />
-              </RoadMapDivImg>
-            </RoadMapImageL>
-          </RoadMapEmptyDiv>
-          <RoadMapEleL style={{ transform: " translate(10px, 4px)" }}>
-            <RoadMapContent>
-              <RoadMapContentHeading>
-                <RoadMapContentNumber>
-                  05. Earn Alliance Admin Portal
-                </RoadMapContentNumber>
-              </RoadMapContentHeading>
-              <RoadMapContentParagraph>
-                "Developed and managed a fully functional admin portal for Earn
-                Alliance using React. Led the creation of an intuitive and
-                responsive UI, ensuring a seamless user experience across the
-                platform. Integrated APIs for real-time data management and
-                created dynamic, reusable components to optimize performance and
-                scalability. The admin panel efficiently handled user
-                management, content updates, and badges, games, Challenges, NFT
-                and contributing to the streamlined administration of the
-                platform."
-              </RoadMapContentParagraph>
-            </RoadMapContent>
-          </RoadMapEleL>
-          <RoadMapEmptyDiv />
-        </RoadMapDiv>
-
-        {/* Div 6 */}
-
-        <RoadMapDiv>
-          <RoadMapEmptyDiv />
-          <RoadMapEleR style={{ transform: " translate(40px, 1px)" }}>
-            <RoadMapContentEleR>
-              <RoadMapContentHeading>
-                <RoadMapContentNumber>06. Portfolio</RoadMapContentNumber>
-              </RoadMapContentHeading>
-
-              <RoadMapContentParagraph>
-                Developed a fully responsive and dynamic portfolio website using
-                React, Ant Design, and TypeScript. Leveraged Ant Design's
-                library to create a clean, modern UI that effectively showcases
-                my projects, skills, and experience. Implemented TypeScript to
-                ensure strong typing and maintainable code, enhancing overall
-                project scalability. The portfolio includes smooth navigation,
-                interactive elements, and is optimized for performance across
-                all devices.
-              </RoadMapContentParagraph>
-            </RoadMapContentEleR>
-          </RoadMapEleR>
-          <RoadMapEmptyDiv>
-            <RoadMapImageR>
-              <RoadMapDivImg>
-                <img
-                  style={ImgStyle}
-                  src={Img6}
-                  alt="Portfolio"
-                  onClick={() => handleImageClick(Img6)}
-                />
-              </RoadMapDivImg>
-            </RoadMapImageR>
-          </RoadMapEmptyDiv>
-        </RoadMapDiv>
-
         {/* Div 7 */}
 
         <RoadMapDiv>
@@ -303,7 +229,7 @@ const Projects = () => {
           </RoadMapEmptyDiv>
           <RoadMapEleL
             style={{
-              transform: "translate(0px,-2px)",
+              transform: "translate(0px,5px)",
               borderRadius: "30px 0px 0px 0px",
               height: "10vw",
               borderBottom: "none",
@@ -316,7 +242,7 @@ const Projects = () => {
                 </RoadMapContentNumber>
               </RoadMapContentHeading>
 
-              <RoadMapContentParagraph>
+              <RoadMapContentParagraph id="contact">
                 `Orchestrator-workflow-manager` is designed to help manage
                 workflows, funnels, and rules through a set of RESTful APIs.
                 This system allows users to create, read, update, and delete
@@ -333,6 +259,7 @@ const Projects = () => {
           src={currentImage}
           alt="Full size"
           style={{ width: "100%", height: "50vh" }}
+          
         />
       </Dialog>
     </>

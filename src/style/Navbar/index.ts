@@ -30,6 +30,10 @@ export const Listitems = styled.li<ListItemProps>`
     font-size: 20px;
     font-weight: 400;
     color: ${(props) => props.theme.color.second};
+
+    @media (max-width: 767px) {
+      font-size: 35px;
+    }
   }
 
   &:hover {
@@ -63,15 +67,70 @@ export const LogoWrapper = styled.div`
   font-weight: 700;
   font-family: "Rubik Puddles", serif;
 `;
-// export const Unorderli = styled.ul`
 
-// `
-// export const Unorderli = styled.ul`
+export const InnerWrapper = styled.div`
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
-// `
-// export const Unorderli = styled.ul`
+export const MainContainer = styled.div`
+  .css-38tatp-MuiPaper-root-MuiDrawer-paper {
+    top: 105px;
+  }
+  .css-i9fmh8-MuiBackdrop-root-MuiModal-backdrop {
+    background-color: unset !important;
+  }
 
-// `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+    padding: 42px 22px 72px 22px;
+    text-align: unset;
+
+    &.dashboard-responsive {
+      padding: 0px 30px;
+      height: 89vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      gap: 32px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    padding: 42px 22px 0px 22px;
+    text-align: unset;
+    height: unset;
+
+    &.dashboard-responsive {
+      padding: 0px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    &.landing-nav {
+      flex-direction: column;
+      align-items: center;
+      padding: unset;
+      text-align: center;
+      justify-content: center;
+      height: 81vh;
+    }
+  }
+`;
 
 export const Navbar = styled.nav`
   position: fixed;
@@ -79,6 +138,13 @@ export const Navbar = styled.nav`
   z-index: 999;
   padding: 0px 100px;
   transition: all 0.3s ease;
+
+  @media (max-width: 767px) {
+    padding: 11px 34px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    padding: 21px 70px;
+  }
 
   &.sticky {
     backdrop-filter: blur(15px) !important;
@@ -94,6 +160,34 @@ export const Navbar = styled.nav`
     align-items: center;
     justify-content: space-between;
     /* padding-top: 15px; */
+  }
+`;
+
+export const LogoMenuWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+`;
+
+export const MobileRightSection = styled.div`
+  display: flex;
+  @media (max-width: 767px) {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5.278vw;
+  }
+`;
+
+export const MobileMenuIconWrapper = styled.div`
+  display: flex;
+  cursor: pointer;
+  @media (max-width: 767px) {
+    display: inline-flex;
+    align-items: center;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    svg {
+      margin-top: 5px;
+    }
   }
 `;
 
@@ -138,7 +232,6 @@ export const Section = styled.section`
 `;
 
 export const HomeContent = styled.div`
-
   .text-1 {
     font-size: 24px;
   }
@@ -151,3 +244,35 @@ export const HomeContent = styled.div`
     font-size: 24px;
   }
 `;
+
+export const Container = styled.div`
+  /* @media (max-width: 767px) {
+    padding-bottom: 93px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    padding-bottom: 50px;
+  } */
+`;
+
+export const BackToTopButton = styled.button`
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  background-color: #964fdd;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+
+  @media (max-width: 767px) {
+    bottom: 77px;
+    right: 12px;
+  }
+
+  /* @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    bottom: 40px;
+  } */
+`;
+

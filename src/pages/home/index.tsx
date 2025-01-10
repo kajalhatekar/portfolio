@@ -3,13 +3,15 @@ import Experience from "Components/Experience";
 import Loader from "Components/Loader";
 import StarryBackground from "Components/Spiral";
 import Contact from "Components/Contact";
-import Navbar from 'Components/Navbar'
+import Navbar from "Components/Navbar";
 import HomeSec from "Components/Home";
 import SkillsSec from "Components/Skills";
 import Educations from "Components/Education";
 import Projects from "Components/Project";
 import Footer from "Components/Footer";
-import ToolsSection from 'Components/Tools'
+import ToolsSection from "Components/Tools";
+import MobileViewProjects from "Components/Project/mobile-view";
+import { Container } from "style/Navbar";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,21 +24,35 @@ const Home: React.FC = () => {
     }, 2000);
   }, []);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1200);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return isLoading ? (
     <Loader />
   ) : (
-    <div>
+    <Container>
       <Navbar />
       <HomeSec />
       <SkillsSec />
       <ToolsSection />
-      <Educations /> 
+      <Educations />
       <Experience />
-      <Projects />
+      {isMobile ? <MobileViewProjects /> : <Projects />}
       <StarryBackground />
       <Contact />
       <Footer />
-    </div>
+    </Container>
   );
 };
 

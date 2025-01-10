@@ -15,7 +15,12 @@ export const QuoteContainer = styled.div`
     flex-direction: column;
   }
 
-  @media (max-width: 1920px) {
+  @media (max-width: 767px) {
+    padding: 0 25px 0 6px;
+    height: unset;
+  }
+
+  @media (min-width: 1920px) {
     height: auto;
     padding: 0 25px;
   }
@@ -72,6 +77,10 @@ export const MainWrapper = styled.div`
   flex-direction: column;
   gap: 20px;
   width: 80%;
+
+  @media (max-width: 767px) {
+    width: 88%;
+  }
 `;
 export const DataWrapper = styled.div`
   display: flex;
@@ -79,6 +88,10 @@ export const DataWrapper = styled.div`
   align-items: center;
   margin-top: 2em;
   gap: 50px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    gap: 25px;
+  }
 `;
 
 export const ServiceListItem = styled.li`

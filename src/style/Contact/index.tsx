@@ -158,10 +158,14 @@ const RoadMapImageR = styled.div`
   align-items: center;
   /* background-color: rgb(109, 159, 145); */
   border-radius: 32px;
+
+  @media (max-width: 1280px) {
+    left: -12vw;
+  }
 `;
 const RoadMapImageL = styled.div`
   position: absolute;
-  top: 8vw;
+  top: 9vw;
   right: 0;
   height: 100%;
   max-height: 150px;

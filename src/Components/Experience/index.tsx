@@ -50,12 +50,13 @@ const Experience = () => {
     threshold: 0.2,
   });
   return (
-    <MainContainer ref={ref} id="experience">
+    <MainContainer ref={ref}>
       <DataWrapper>
         <Heading
           style={{
             animation: inView ? "fadeInAndMoveDown 2s ease-out" : "none",
           }}
+          
         >
           Experience
         </Heading>

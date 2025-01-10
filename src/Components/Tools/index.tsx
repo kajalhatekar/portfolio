@@ -5,6 +5,7 @@ import {
   Heading,
   WrapperContainer,
   SkilName,
+  ToolsContainer,
 } from "style/Skill";
 import VsCodeIcon from "assets/svg/VsCodeIcon";
 import PostmanIcon from "assets/svg/PostmanIcon";
@@ -22,7 +23,7 @@ const SkillsSec = () => {
   });
   return (
     <WrapperContainer ref={ref}>
-      <Container>
+      <ToolsContainer>
         <Heading key={key}>Tools I Use</Heading>
         <FlexContainer>
           <SkilName>
@@ -62,7 +63,7 @@ const SkillsSec = () => {
             <h3>Hasura</h3>
           </SkilName>
         </FlexContainer>
-      </Container>
+      </ToolsContainer>
     </WrapperContainer>
   );
 };
