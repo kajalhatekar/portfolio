@@ -334,3 +334,19 @@ html {
     background: #140c1c !important;
   }
 }
+.css-1k86i4{
+  @media (max-width: 767px) {
+    top: 80px !important;
+    border-radius: unset !important;
+    background: #140c1c !important;
+
+    .dashboard-responsive {
+      background: #050819 !important;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    top: 75px !important;
+    border-radius: unset !important;
+    background: #140c1c !important;
+  }
+}
