@@ -14,4 +14,8 @@ export const Load = styled.div`
     span {
         display: inline-block;
     }
+
+    @media (max-width: 767px) {
+        font-size: 45px;
+  }
 `;
