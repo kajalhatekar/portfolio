@@ -163,11 +163,6 @@ export const Navbar = styled.nav`
   }
 `;
 
-export const LogoMenuWrapper = styled.div`
-  display: flex;
-  gap: 5px;
-`;
-
 export const MobileRightSection = styled.div`
   display: flex;
   @media (max-width: 767px) {

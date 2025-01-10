@@ -25,8 +25,6 @@ import Img1 from "assets/images/blog-project.png";
 import Img2 from "assets/images/music-player.png";
 import Img3 from "assets/images/plan-it.png";
 import Img4 from "assets/images/basic-mining.png";
-import Img5 from "assets/images/sparkle.avif";
-import Img6 from "assets/images/sparkle.avif";
 import Img7 from "assets/images/sparkle.avif";
 import { useState } from "react";
 const Projects = () => {

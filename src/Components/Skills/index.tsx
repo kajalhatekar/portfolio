@@ -7,7 +7,6 @@ import {
   ToolsItem,
 } from "style/Skill";
 import { skillData } from "./data";
-import { keyframes } from "@emotion/react";
 
 const SkillsSec = () => {
   const key = new Date().getTime();

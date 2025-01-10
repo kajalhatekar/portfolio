@@ -25,12 +25,10 @@ const HomeSec = () => {
   //   fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
   // };
   const [isMobile, setIsMobile] = useState(false);
-  const [showNavMenuIpad, setNavMenuIpad] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1050);
-      setNavMenuIpad(window.innerWidth >= 768 && window.innerWidth <= 1224);
     };
 
     handleResize();
