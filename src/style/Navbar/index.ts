@@ -32,7 +32,10 @@ export const Listitems = styled.li<ListItemProps>`
     color: ${(props) => props.theme.color.second};
 
     @media (max-width: 767px) {
-      font-size: 35px;
+      font-size: 30px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1224px) {
+    font-size: 30px;
     }
   }
 
@@ -95,7 +98,7 @@ export const MainContainer = styled.div`
     justify-content: center;
     height: 90vh;
     align-items: center;
-    padding: 42px 22px 72px 22px;
+    padding: 0px 22px 72px 22px;
     text-align: unset;
 
     &.dashboard-responsive {
