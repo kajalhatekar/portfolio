@@ -41,6 +41,7 @@ export const Container = styled.div`
     position: unset;
     flex-direction: column;
     padding-top: 110px;
+    padding-bottom: unset;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
