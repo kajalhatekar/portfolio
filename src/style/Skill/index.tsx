@@ -22,7 +22,6 @@ export const Container = styled.div`
 
   @media (max-width: 767px) {
     height: unset;
-    padding-top: 35px;
   }
 
   @media (min-width: 1920px) {
@@ -80,7 +79,7 @@ export const FlexContainer = styled.div`
 
   @media (max-width: 767px) {
     gap: 24px;
-    padding: 35px 21px;
+    padding: 35px 21px 0;
     justify-content: center;
   }
 

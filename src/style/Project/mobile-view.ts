@@ -12,7 +12,7 @@ export const DataWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2em;
+  margin-top: 65px;
   gap: 35px;
 `;
 

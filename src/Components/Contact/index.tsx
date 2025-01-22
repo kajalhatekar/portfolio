@@ -72,7 +72,7 @@ const Contact: FC = () => {
   };
   console.log(errors, "Form Data");
   return (
-    <Container>
+    <Container id="contact">
       <Heading>Contact</Heading>
       <Wrapper>
         <FormWrapper onSubmit={handleSubmit(onSubmit)}>

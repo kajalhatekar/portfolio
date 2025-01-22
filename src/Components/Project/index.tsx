@@ -239,7 +239,7 @@ const Projects = () => {
                 <RoadMapContentNumber>05. Plan-IT</RoadMapContentNumber>
               </RoadMapContentHeading>
 
-              <RoadMapContentParagraph id="contact">
+              <RoadMapContentParagraph>
                 Designed and implemented core features like task creation, story
                 points, drag-and-drop dashboards, and unlimited task management,
                 enhancing functionality and usability. Optimized UI with themes

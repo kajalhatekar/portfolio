@@ -31,7 +31,7 @@ export const EducationWrapper = styled.div`
   padding: 90px 120px 70px 120px;
 
   @media (max-width: 768px) {
-    padding: 44px 33px;
+    padding: 67px 33px 0px;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {

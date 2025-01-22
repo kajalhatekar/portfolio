@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { IProps } from "Components/Navbar/MobileNav/types";
-import {
-  InnerWrapper,
-  Listitems,
-  MainContainer,
-} from "style/Navbar";
+import { InnerWrapper, Listitems, MainContainer } from "style/Navbar";
 
-const MobileView: React.FC<IProps> = ({setStateFunc}) => {
+const MobileView: React.FC<IProps> = ({ setStateFunc }) => {
   const [activeLink, setActiveLink] = useState<string>("");
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
-    setStateFunc()
+    setStateFunc();
   };
 
   return (
