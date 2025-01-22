@@ -100,7 +100,7 @@ const RoadMapContentNumber = styled.div`
   font-style: normal;
   font-weight: 300;
   font-size: 33px;
-  line-height: 86px;
+  line-height: 70px;
   color: #9e81d9;
 `;
 const RoadMapContentParagraph = styled.p`
@@ -111,6 +111,24 @@ const RoadMapContentParagraph = styled.p`
   display: flex;
   flex-direction: column;
   color: #b3b9c5b3;
+`;
+
+export const ProjectsLink = styled.a`
+ display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  margin-top: 12px;
+  padding: 7px;
+  max-width: 110px;
+  border: none;
+  background-color: ${(props) => props.theme.color.fifth};
+  text-decoration: none;
+  letter-spacing: 1px;
 `;
 const RoadMapGenticD2 = styled.div`
   border-left: 3px solid #b3b9c5;

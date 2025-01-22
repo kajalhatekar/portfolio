@@ -19,14 +19,16 @@ import {
   RoadMapContentEleR,
   RoadMapImageR,
   RoadMapImageL,
+  ProjectsLink,
 } from "style/Contact/index";
 import { Dialog } from "@mui/material";
-import Img1 from "assets/images/blog-project.png";
-import Img2 from "assets/images/music-player.png";
-import Img3 from "assets/images/plan-it.png";
+import Img1 from "assets/images/linkedin-clone.png";
+import Img2 from "assets/images/blog-project.png";
+import Img3 from "assets/images/food-delivery.png";
 import Img4 from "assets/images/basic-mining.png";
-import Img7 from "assets/images/sparkle.avif";
+import Img5 from "assets/images/plan-it.png";
 import { useState } from "react";
+
 const Projects = () => {
   const ImgStyle = {
     width: "100%",
@@ -68,7 +70,7 @@ const Projects = () => {
               <img
                 style={ImgStyle}
                 src={Img1}
-                alt="Blog Project"
+                alt="Linkedin Clone"
                 onClick={() => handleImageClick(Img1)}
               />
             </RoadMapDivImg>
@@ -76,16 +78,20 @@ const Projects = () => {
           <RoadMapGenticD2>
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>
-                  01. Blog Project (April2023-April2023 )
-                </RoadMapContentNumber>
+                <RoadMapContentNumber>01. Linkedin Clone</RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
-                This Blog Website is made with Front-end and Back-end. In this
-                website, proper authentication is used. In the front-end, I have
-                used React, Redux with TypeScript using different react
-                libraries. In the back-end, I have used Nodejs and Express. For
-                Database, I used MongoDB which is no-sql database.
+                This is a LinkedIn Clone application built using modern web
+                development technologies. The app replicates key features of
+                LinkedIn, providing a social platform for professional
+                networking.
+                <ProjectsLink
+                  href="https://www.linkedin.com/in/kajal-raj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </ProjectsLink>
               </RoadMapContentParagraph>
             </RoadMapContent>
           </RoadMapGenticD2>
@@ -99,19 +105,14 @@ const Projects = () => {
           <RoadMapEleR>
             <RoadMapContentEleR>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>
-                  02. Music Player Project (May2020-june2020 )
-                </RoadMapContentNumber>
+                <RoadMapContentNumber>02. Blog Project</RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
-                Developed the user interface for an online music player using
-                HTML, CSS, and JavaScript. Added features like play, pause,
-                skip, shuffle, and volume control to enhance functionality and
-                user engagement. Designed a visually appealing and intuitive
-                layout, incorporating animations for smooth transitions. Ensured
-                full responsiveness using Flexbox and media queries, providing a
-                seamless experience across desktops, tablets, and mobile
-                devices.
+                This Blog Website is made with Front-end and Back-end. In this
+                website, proper authentication is used. In the front-end, I have
+                used React, Redux with TypeScript using different react
+                libraries. In the back-end, I have used Nodejs and Express. For
+                Database, I used MongoDB which is no-sql database.
               </RoadMapContentParagraph>
             </RoadMapContentEleR>
           </RoadMapEleR>
@@ -121,7 +122,7 @@ const Projects = () => {
                 <img
                   style={ImgStyle}
                   src={Img2}
-                  alt="Music Player Project"
+                  alt="Blog Project"
                   onClick={() => handleImageClick(Img2)}
                 />
               </RoadMapDivImg>
@@ -138,7 +139,7 @@ const Projects = () => {
                 <img
                   style={ImgStyle}
                   src={Img3}
-                  alt="Plan-IT"
+                  alt="Food Delivery"
                   onClick={() => handleImageClick(Img3)}
                 />
               </RoadMapDivImg>
@@ -147,24 +148,21 @@ const Projects = () => {
           <RoadMapEleL>
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>03. Plan-IT</RoadMapContentNumber>
+                <RoadMapContentNumber>03. Food Delivery</RoadMapContentNumber>
               </RoadMapContentHeading>
               <RoadMapContentParagraph>
-                Designed and implemented core features like task creation, story
-                points, drag-and-drop dashboards, and unlimited task management,
-                enhancing functionality and usability. Optimized UI with themes
-                and ensured cross-device responsiveness, delivering an engaging
-                and accessible user experience. Utilized Redux Toolkit, hooks,
-                and React Query for efficient state management and data
-                fetching, improving load time by 20% through code optimization.
-                Collaborated with designers and backend developers to refine
-                UI/UX and seamlessly integrate APIs for smooth functionality.
-                <div>
-                  Link:{" "}
-                  <a href="https://planit.thewitslab.com/">
-                    https://planit.thewitslab.com/
-                  </a>
-                </div>
+                This is a Food Deleviry built using modern web development
+                technologies like React, Redux, and Bootstrap, featuring a food
+                menu where users can add items to their cart, view and manage
+                cart contents, adjust quantities, and successfully place
+                orders and fully responsive.
+                <ProjectsLink
+                  href="https://github.com/kaaju-11/food-delivery"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </ProjectsLink>
               </RoadMapContentParagraph>
             </RoadMapContent>
           </RoadMapEleL>
@@ -189,10 +187,13 @@ const Projects = () => {
                 management and ensured cross-device responsiveness. Conducted
                 rigorous testing to enhance platform reliability, security, and
                 scalability.
-                <div>
-                  Link:{" "}
-                  <a href="https://basicmining.com">https://basicmining.com</a>
-                </div>
+                <ProjectsLink
+                  href="https://basicmining.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </ProjectsLink>
               </RoadMapContentParagraph>
             </RoadMapContentEleR>
           </RoadMapEleR>
@@ -218,9 +219,9 @@ const Projects = () => {
               <RoadMapDivImg>
                 <img
                   style={ImgStyle}
-                  src={Img7}
-                  alt="NPS"
-                  onClick={() => handleImageClick(Img7)}
+                  src={Img5}
+                  alt="Plan-IT"
+                  onClick={() => handleImageClick(Img5)}
                 />
               </RoadMapDivImg>
             </RoadMapImageL>
@@ -235,17 +236,26 @@ const Projects = () => {
           >
             <RoadMapContent>
               <RoadMapContentHeading>
-                <RoadMapContentNumber>
-                  07. NPS (National Pension Scheme)
-                </RoadMapContentNumber>
+                <RoadMapContentNumber>05. Plan-IT</RoadMapContentNumber>
               </RoadMapContentHeading>
 
               <RoadMapContentParagraph id="contact">
-                `Orchestrator-workflow-manager` is designed to help manage
-                workflows, funnels, and rules through a set of RESTful APIs.
-                This system allows users to create, read, update, and delete
-                workflows, funnels, and rules efficiently.The project follows a
-                modular structure to ensure scalability and maintainability
+                Designed and implemented core features like task creation, story
+                points, drag-and-drop dashboards, and unlimited task management,
+                enhancing functionality and usability. Optimized UI with themes
+                and ensured cross-device responsiveness, delivering an engaging
+                and accessible user experience. Utilized Redux Toolkit, hooks,
+                and React Query for efficient state management and data
+                fetching, improving load time by 20% through code optimization.
+                Collaborated with designers and backend developers to refine
+                UI/UX and seamlessly integrate APIs for smooth functionality.
+                <ProjectsLink
+                  href="https://planit.thewitslab.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Link
+                </ProjectsLink>
               </RoadMapContentParagraph>
             </RoadMapContent>
           </RoadMapEleL>
@@ -257,7 +267,6 @@ const Projects = () => {
           src={currentImage}
           alt="Full size"
           style={{ width: "100%", height: "50vh" }}
-          
         />
       </Dialog>
     </>

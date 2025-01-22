@@ -79,8 +79,8 @@ export const FlexContainer = styled.div`
   padding: 35px 0px;
 
   @media (max-width: 767px) {
-    gap: 25px;
-    padding: 35px;
+    gap: 24px;
+    padding: 35px 21px;
     justify-content: center;
   }
 

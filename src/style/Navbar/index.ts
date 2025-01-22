@@ -143,7 +143,7 @@ export const Navbar = styled.nav`
   transition: all 0.3s ease;
 
   @media (max-width: 767px) {
-    padding: 11px 34px;
+    padding: 11px 26px;
   }
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
     padding: 21px 70px;

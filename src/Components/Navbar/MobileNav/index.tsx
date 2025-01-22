@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IProps } from "Components/Navbar/MobileNav/types";
-
 import {
   InnerWrapper,
   Listitems,
