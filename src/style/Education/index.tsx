@@ -28,7 +28,7 @@ export const EducationWrapper = styled.div`
   align-items: center;
   width: 100%;
   gap: 35px;
-  padding: 90px 120px 70px 120px;
+  padding: 90px 120px 0px 120px;
 
   @media (max-width: 768px) {
     padding: 67px 33px 0px;
