@@ -37,6 +37,7 @@ import { VisuallyHidden } from 'reakit/VisuallyHidden';
 import { SkillCard } from './SkillCard/SkillCard';
 import { SkillVectors } from './SkillVectors/SkillVectors';
 import { getColors, skills } from './skills.const';
+
 import styles from './Skills.module.css';
 import { TestimonialDivider } from 'Components/Devider';
 
