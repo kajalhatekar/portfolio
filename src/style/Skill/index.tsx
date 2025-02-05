@@ -30,7 +30,7 @@ export const Container = styled.div`
 `;
 
 export const ToolsContainer = styled(Container)`
-  padding-top: 40px;
+  padding-top: 70px;
 
   @media (max-width: 767px) {
     padding-top: 55px;

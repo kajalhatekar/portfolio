@@ -1,12 +1,9 @@
 import { type FC } from "react";
 const NextJsIcon: FC = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
-    fill="#bdbaba"
-    width="88px"
-    height="88px"
+    fill="#ffffff"
     viewBox="0 0 32 32"
     xmlns="http://www.w3.org/2000/svg"
-    stroke="#bdbaba"
     {...props}
   >
     <g id="SVGRepo_bgCarrier" strokeWidth={0} />

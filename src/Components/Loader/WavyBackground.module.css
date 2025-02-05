@@ -1,0 +1,58 @@
+.waveBackground {
+  position: relative;
+  width: 99%;
+  height: 100vh;
+  /* background: radial-gradient(
+    80.91% 50.5% at 72.81% 32%,
+    rgb(80 42 89) 0%,
+    rgb(0, 5, 19) 100%
+  ); */
+}
+
+.typewriter {
+  position: absolute;
+  top: 36%; /* Adjust as needed for desired position */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.waveBackground svg {
+  transform: translateY(-20px);
+
+  width: calc(100% + 0px);
+  height: 98vh;
+
+  stroke-width: 0;
+
+  mask-image: linear-gradient(rgba(0, 0, 0, 50%) 0%, transparent 100%);
+}
+
+.wavePattern {
+  transition: fill 500ms ease-in-out;
+}
+
+.wave {
+  will-change: transform, fill;
+  animation: wave 10s infinite ease-in-out;
+}
+
+.wavePrimary {
+  animation-direction: alternate-reverse;
+}
+
+.waveSecondary {
+  animation-direction: alternate;
+}
+
+@keyframes wave {
+  from {
+    transform: translateX(100px);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+

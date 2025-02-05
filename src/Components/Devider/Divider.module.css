@@ -1,0 +1,71 @@
+.dividerStroke {
+  stroke-dasharray: 456px;
+  stroke-dashoffset: 456px;
+  stroke-linecap: round;
+  stroke-width: 1.5px;
+}
+
+.divider {
+  z-index: 1;
+
+  display: block;
+
+  filter: drop-shadow(0 35px 0 #c332bc);
+
+  fill: #1a1a1a00;
+  stroke: #8417ac;
+}
+
+.dividerGlow {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+
+  fill: none;
+  stroke: #8417ac;
+}
+
+.dividerGlow > path {
+  filter: drop-shadow(10px 10px 20px #ea47ff);
+}
+
+.dividerBottom {
+  transform: translateY(-5%);
+  fill: #1e072800;
+  stroke: #e01ffa;
+  stroke-dasharray: 1300px;
+  stroke-dashoffset: 1300px;
+  stroke-linecap: round;
+  stroke-width: 8px;
+}
+
+.animate {
+  stroke-dashoffset: 0;
+  transition-timing-function: cubic-bezier(0.65, 0.18, 0.21, 0.65);
+  transition-property: stroke-dashoffset;
+}
+
+.animate.divider,
+.animate.dividerGlow {
+  transition-delay: 0;
+  transition-duration: 1.5s;
+}
+
+.animate.dividerBottom {
+  transition-duration: 1s;
+}
+
+@media screen and (width <= 42rem) {
+  .dividerStroke {
+    stroke-width: 3px;
+  }
+
+  .dividerGlow > path {
+    filter: drop-shadow(10px 10px 16px #7f00ff);
+  }
+
+  .dividerBottom {
+    stroke-width: 20px;
+    transform: translateY(20%);
+  }
+}

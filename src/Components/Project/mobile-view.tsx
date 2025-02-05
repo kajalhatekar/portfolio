@@ -37,7 +37,7 @@ const data = [
     image: IMG3,
     project_name: "Food Delivery",
     title:
-      "This is a Food Deleviry built using modern web development technologies like React, Redux, and Bootstrap, featuring a food menu where users can add items to their cart, view and manage cart contents, adjust quantities, and successfully place orders and fully responsive.",
+      "This is a Food Delivery built using modern web development technologies like React, Redux, and Bootstrap, featuring a food menu where users can add items to their cart, view and manage cart contents, adjust quantities, and successfully place orders and fully responsive.",
     github: "https://github.com/kaaju-11/food-delivery",
   },
   {

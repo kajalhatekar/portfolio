@@ -12,6 +12,8 @@ import Footer from "Components/Footer";
 import ToolsSection from "Components/Tools";
 import MobileViewProjects from "Components/Project/mobile-view";
 import { Container } from "style/Navbar";
+import { TestimonialDivider } from "Components/Devider";
+import { TestimonialSectionTransition } from "Components/TestimonialSectionTransition/TestimonialSectionTransition";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,10 +45,13 @@ const Home: React.FC = () => {
   ) : (
     <Container>
       <Navbar />
+      {/* <ScrollText content={content} /> */}
       <HomeSec />
+      <TestimonialSectionTransition />
       <SkillsSec />
       <ToolsSection />
       <Educations />
+      <TestimonialDivider position="top" />
       <Experience />
       {isMobile ? <MobileViewProjects /> : <Projects />}
       <StarryBackground />

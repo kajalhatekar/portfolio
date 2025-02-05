@@ -86,8 +86,11 @@ export const DataWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 65px;
   gap: 40px;
+
+  @media (max-width: 767px) {
+    padding-top: 30px;
+  }
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
     gap: 25px;

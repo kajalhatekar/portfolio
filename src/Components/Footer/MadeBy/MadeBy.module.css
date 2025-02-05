@@ -1,0 +1,131 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+
+  font-family: 'Major Mono Display', monospace;
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+.name[data-caret='true']::after {
+  content: '_';
+  animation: blink ease 1s infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+/* SVG */
+.handwriting {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.5px;
+}
+
+.visible > path {
+  stroke-dashoffset: 0;
+  transition-timing-function: cubic-bezier(0.51, 0.1, 0.13, 0.72);
+  transition-property: stroke-dashoffset;
+}
+
+.madeM {
+  stroke-dasharray: 226.8606px;
+  stroke-dashoffset: 226.8606px;
+}
+
+.visible > .madeM {
+  transition-delay: 0;
+  transition-duration: 0.75s;
+}
+
+.madeA {
+  stroke-dasharray: 91.6089px;
+  stroke-dashoffset: 91.6089px;
+}
+
+.visible > .madeA {
+  transition-delay: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.madeDe {
+  stroke-dasharray: 235.0834px;
+  stroke-dashoffset: 235.0834px;
+}
+
+.visible > .madeDe {
+  transition-delay: 0.75s;
+  transition-duration: 1s;
+}
+
+.with {
+  stroke-dasharray: 493.6622px;
+  stroke-dashoffset: 493.6622px;
+}
+
+.visible > .with {
+  transition-delay: 1.5s;
+  transition-duration: 1.5s;
+}
+
+.withIDot {
+  stroke-dasharray: 36.0695px;
+  stroke-dashoffset: 36.0695px;
+}
+
+.visible > .withIDot {
+  transition-delay: 3s;
+  transition-duration: 0.25s;
+}
+
+.withTCross {
+  stroke-dasharray: 29.9854px;
+  stroke-dashoffset: 29.9854px;
+}
+
+.visible > .withTCross {
+  transition-delay: 3.25s;
+  transition-duration: 0.25s;
+}
+
+.heart {
+  fill: transparent;
+  stroke: #7d54ff;
+  stroke-dasharray: 233.1723px;
+  stroke-dashoffset: 233.1723px;
+}
+
+.visible > .heart {
+  fill: rgba( 72, 0, 145, 25%);
+  stroke-width: 6px;
+
+  transition-delay: 3.5s, 4s;
+  transition-duration: 0.5s, 0.5s;
+  transition-property: stroke-dashoffset, fill;
+}
+
+.by {
+  stroke-dasharray: 497.6337px;
+  stroke-dashoffset: 497.6337px;
+}
+
+.visible > .by {
+  transition-delay: 4.25s;
+  transition-duration: 0.75s;
+}

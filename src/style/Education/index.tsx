@@ -35,7 +35,7 @@ export const EducationWrapper = styled.div`
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
-    padding: 55px 72px;
+    padding: 55px 72px 0;
   }
 `;
 export const BoxContainer = styled.div`

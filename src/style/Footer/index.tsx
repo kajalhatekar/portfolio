@@ -7,8 +7,8 @@ export const FooterContainer = styled.div`
       /* backdrop-filter: blur(15px) !important;
     background-color: rgba(38, 28, 55, 0.66) !important;
     box-shadow: rgba(9, 5, 29, 0.173) 0px 10px 10px 0px !important; */
-    background-color: #0f0715;
-    padding: 20px;
+    /* background-color: #0f0715; */
+    padding: 20px 0 30px 0;
 `
 export const ChildContainer = styled.div`
      display: flex;

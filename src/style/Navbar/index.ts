@@ -35,7 +35,7 @@ export const Listitems = styled.li<ListItemProps>`
       font-size: 30px;
     }
     @media only screen and (min-width: 768px) and (max-width: 1224px) {
-    font-size: 30px;
+      font-size: 30px;
     }
   }
 
@@ -136,14 +136,23 @@ export const MainContainer = styled.div`
 `;
 
 export const Navbar = styled.nav`
-  position: fixed;
+  /* position: fixed;
   width: 100%;
   z-index: 999;
-  padding: 0px 100px;
+  padding: 0px 100px; */
+  position: fixed;
+  width: 96%;
+  z-index: 999;
+  padding: 0px 41px;
+  transition: 0.3s;
+  margin-top: 15px;
+  margin-left: 26px;
+  border-radius: 39px;
   transition: all 0.3s ease;
 
   @media (max-width: 767px) {
     padding: 11px 33px;
+    margin-left: 9px;
   }
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
     padding: 21px 70px;
@@ -273,4 +282,3 @@ export const BackToTopButton = styled.button`
     bottom: 40px;
   } */
 `;
-

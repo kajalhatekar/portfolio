@@ -33,24 +33,24 @@ export const Container = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  padding-top: 225px;
+  padding-top: 250px;
   position: relative;
   padding-bottom: 39px;
 
   @media (max-width: 767px) {
     position: unset;
     flex-direction: column;
-    padding-top: 110px;
-    padding-bottom: unset;
+    padding-top: 118px;
+    padding-bottom: 50px;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
-    padding-top: 133px;
+    padding-top: 150px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1260px) {
     width: 85%;
-    padding-top: 184px;
+    padding-top: 176px;
   }
 
   &.testomonial-class {

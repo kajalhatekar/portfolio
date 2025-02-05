@@ -8,11 +8,12 @@
   width: 500px;
 } */
 body {
-  background: radial-gradient(
+  /* background: radial-gradient(
     80.91% 50.5% at 72.81% 32%,
     rgb(80 42 89) 0%,
     rgb(0, 5, 19) 100%
-  );
+  ); */
+  background: radial-gradient(80.91% 50.5% at 72.81% 32%, rgb(78 35 89) 0%, rgb(0 2 8) 100%);
   font-family: Inter, math;
 }
 
@@ -320,7 +321,7 @@ html {
 
 .css-862dam-MuiPaper-root-MuiDrawer-paper {
   @media (max-width: 767px) {
-    top: 55px !important;
+    top: 80px !important;
     border-radius: unset !important;
     background: radial-gradient(80.91% 50.5% at 72.81% 32%, rgb(63 30 71) 0%, rgb(0 0 0) 100%) !important;
 
@@ -329,14 +330,14 @@ html {
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
-    top: 55px !important;
+    top: 80px !important;
     border-radius: unset !important;
     background: radial-gradient(80.91% 50.5% at 72.81% 32%, rgb(63 30 71) 0%, rgb(0 0 0) 100%) !important;
   }
 }
 .css-1k86i4{
   @media (max-width: 767px) {
-    top: 55px !important;
+    top: 60px !important;
     border-radius: unset !important;
     background: radial-gradient(80.91% 50.5% at 72.81% 32%, rgb(63 30 71) 0%, rgb(0 0 0) 100%) !important;
 
@@ -345,8 +346,9 @@ html {
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
-    top: 55px !important;
+    top: 60px !important;
     border-radius: unset !important;
     background: radial-gradient(80.91% 50.5% at 72.81% 32%, rgb(63 30 71) 0%, rgb(0 0 0) 100%) !important;
   }
 }
+
