@@ -13,8 +13,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.25",
-    "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
     "@types/styled-components": "^5.1.26",
     "antd": "^5.4.7",
@@ -65,6 +63,8 @@
     ]
   },
   "devDependencies": {
-    "@types/body-parser": "^1.19.5"
+    "@types/body-parser": "^1.19.5",
+    "@types/node": "^22.13.1",
+    "@types/react": "^18.3.18"
   }
 }

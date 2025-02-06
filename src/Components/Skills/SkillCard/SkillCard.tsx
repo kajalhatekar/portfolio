@@ -13,7 +13,7 @@ import { ChevronTripleUpIcon } from 'assets/svg/ChevronTripleUpIcon';
 import { ChevronUpIcon } from 'assets/svg/ChevronUpIcon';
 import { OpenBookIcon } from 'assets/svg/OpenBookIcon';
 
-import styles from './SkillCard.module.css';
+import styles from "./SkillCard.module.css";
 
 // const SkillCardDialog = dynamic(() =>
 //   import('./SkillCardDialog/SkillCardDialog').then(
