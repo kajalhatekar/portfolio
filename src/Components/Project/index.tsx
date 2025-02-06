@@ -8,7 +8,6 @@ import {
   RoadMapDiv,
   RoadMapGenticD1,
   RoadMapGenticD2,
-  RoadMapHeadingH,
   RoadMapHeadingWrapper,
   RoadMapHeadingWrapperD1,
   RoadMapHeadingWrapperD2,
@@ -27,7 +26,11 @@ import Img2 from "assets/images/blog-project.png";
 import Img3 from "assets/images/food-delivery.png";
 import Img4 from "assets/images/basic-mining.png";
 import Img5 from "assets/images/plan-it.png";
+import { useInView } from 'react-intersection-observer';
+import { Fragment, type CSSProperties} from "react";
 import { useState } from "react";
+import styles from "./Projects.module.css";
+import classNames from "classnames";
 
 const Projects = () => {
   const ImgStyle = {
@@ -53,13 +56,75 @@ const Projects = () => {
     setCurrentImage("");
   };
 
+  const VisuallyHidden = ({ children }: any) => (
+    <div
+      style={{
+        position: "absolute",
+        width: "1px",
+        height: "1px",
+        padding: "0",
+        margin: "-1px",
+        overflow: "hidden",
+        clip: "rect(0, 0, 0, 0)",
+        whiteSpace: "nowrap",
+        border: "0",
+      }}
+    >
+      {children}
+    </div>
+  );
+
+  const title = "personal projects";
+
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   return (
     <>
       <RoadMapStyle id="project">
         <RoadMapHeadingWrapper>
           <RoadMapHeadingWrapperD1 />
           <RoadMapHeadingWrapperD2>
-            <RoadMapHeadingH>Projects</RoadMapHeadingH>
+            {/* <RoadMapHeadingH>Projects</RoadMapHeadingH> */}
+            {/* <div aria-hidden className={styles.anchor} id="projects" /> */}
+            <h2 className={styles.title} ref={ref}>
+              <VisuallyHidden>{title}</VisuallyHidden>
+
+              <span aria-hidden>
+                {title.split(" ").map((word) => {
+                  const wordIndex = title.indexOf(word);
+
+                  return (
+                    <Fragment key={word}>
+                      <span>
+                        {Array.from(word).map((character, characterIndex) => {
+                          const index = wordIndex + characterIndex;
+
+                          return (
+                            <span
+                              className={classNames({
+                                [styles.animate]: inView,
+                              })}
+                              key={index}
+                              style={
+                                {
+                                  "--i": 0.3 + 0.1 * index,
+                                } as CSSProperties
+                              }
+                            >
+                              {character}
+                            </span>
+                          );
+                        })}
+                      </span>
+                      {wordIndex === 0 && <br />}
+                    </Fragment>
+                  );
+                })}
+              </span>
+            </h2>
           </RoadMapHeadingWrapperD2>
           <RoadMapHeadingWrapperD3 />
         </RoadMapHeadingWrapper>
@@ -154,8 +219,8 @@ const Projects = () => {
                 This is a Food Deleviry built using modern web development
                 technologies like React, Redux, and Bootstrap, featuring a food
                 menu where users can add items to their cart, view and manage
-                cart contents, adjust quantities, and successfully place
-                orders and fully responsive.
+                cart contents, adjust quantities, and successfully place orders
+                and fully responsive.
                 <ProjectsLink
                   href="https://github.com/kaaju-11/food-delivery"
                   target="_blank"

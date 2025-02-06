@@ -50,8 +50,7 @@ const RoadMapParagraphWrapper = styled.p`
 const RoadMapHeadingWrapperD1 = styled.div``;
 const RoadMapHeadingWrapperD2 = styled.div`
   display: flex;
-  flex-direction: column;
-  padding: 10px 10px 10px 88px;
+  flex-direction: column; 
 `;
 const RoadMapHeadingWrapperD3 = styled.div``;
 

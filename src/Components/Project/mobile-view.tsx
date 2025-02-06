@@ -12,8 +12,11 @@ import {
   MainContainer,
   DataWrapper,
 } from "style/Project/mobile-view";
-import { Heading } from "style/Skill";
 import { ProjectsLink } from "style/Contact";
+import { useInView } from "react-intersection-observer";
+import { Fragment, type CSSProperties } from "react";
+import styles from "./Projects.module.css";
+import classNames from "classnames";
 
 const data = [
   {
@@ -59,10 +62,71 @@ const data = [
 ];
 
 const MobileViewProjects = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const VisuallyHidden = ({ children }: any) => (
+    <div
+      style={{
+        position: "absolute",
+        width: "1px",
+        height: "1px",
+        padding: "0",
+        margin: "-1px",
+        overflow: "hidden",
+        clip: "rect(0, 0, 0, 0)",
+        whiteSpace: "nowrap",
+        border: "0",
+      }}
+    >
+      {children}
+    </div>
+  );
+
+  const title = "personal projects";
+
   return (
     <MainContainer id="project">
       <DataWrapper>
-        <Heading>Projects</Heading>
+        <div aria-hidden className={styles.anchor} id="projects" />
+        <h2 className={styles.title} ref={ref}>
+          <VisuallyHidden>{title}</VisuallyHidden>
+
+          <span aria-hidden>
+            {title.split(" ").map((word) => {
+              const wordIndex = title.indexOf(word);
+
+              return (
+                <Fragment key={word}>
+                  <span>
+                    {Array.from(word).map((character, characterIndex) => {
+                      const index = wordIndex + characterIndex;
+
+                      return (
+                        <span
+                          className={classNames({
+                            [styles.animate]: inView,
+                          })}
+                          key={index}
+                          style={
+                            {
+                              "--i": 0.3 + 0.1 * index,
+                            } as CSSProperties
+                          }
+                        >
+                          {character}
+                        </span>
+                      );
+                    })}
+                  </span>
+                  {wordIndex === 0 && <br />}
+                </Fragment>
+              );
+            })}
+          </span>
+        </h2>
         <PortfolioContainer>
           {data.map(({ id, image, project_name, title, github }) => (
             <PortfolioItem key={id}>

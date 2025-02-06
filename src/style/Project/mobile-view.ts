@@ -14,6 +14,10 @@ export const DataWrapper = styled.div`
   align-items: center;
   margin-top: 65px;
   gap: 35px;
+
+  @media (max-width: 767px) {
+    margin-top: 0px;
+  }
 `;
 
 export const PortfolioContainer = styled.div`

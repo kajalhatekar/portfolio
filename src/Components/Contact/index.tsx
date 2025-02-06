@@ -80,7 +80,7 @@ const Contact: FC = () => {
             style={{ display: "flex", flexDirection: "column", gap: "10px" }}
           >
             <InputWrapperContainer>
-              <InputText>Name</InputText>
+              <InputText>What's your name?</InputText>
               <Controller
                 name="name"
                 control={control}
@@ -94,7 +94,7 @@ const Contact: FC = () => {
             </InputWrapperContainer>
 
             <InputWrapperContainer>
-              <InputText>Email</InputText>
+              <InputText>Your email</InputText>
               <Controller
                 name="email"
                 control={control}
@@ -102,7 +102,7 @@ const Contact: FC = () => {
                   <Input
                     {...field}
                     type="email"
-                    placeholder="rak11kajal@gmail.com"
+                    placeholder="E-mail"
                   />
                 )}
               />
@@ -111,14 +111,14 @@ const Contact: FC = () => {
               </ErrorMessageWrapper>
             </InputWrapperContainer>
             <InputWrapperContainer className="textarea-height">
-              <InputText>Message</InputText>
+              <InputText>Speak your mind</InputText>
               <Controller
                 name="message"
                 control={control}
                 render={({ field }) => (
                   <Textarea
                     {...field}
-                    placeholder="Type your message"
+                    placeholder="Type your message here..."
                     maxLength={600}
                   />
                 )}

@@ -220,12 +220,12 @@ export const RightContainer = styled.div`
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
     width: 66%;
-  right: -60px;
+    right: -60px;
   }
 
   @media (min-width: 1280px) {
     width: 66%;
-  right: -88px;
+    right: -88px;
   }
 `;
 

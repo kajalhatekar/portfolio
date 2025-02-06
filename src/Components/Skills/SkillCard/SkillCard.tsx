@@ -74,8 +74,6 @@ export const SkillCard: FC<Props> = ({
 
   const { Icon, description: usageDescription } = USAGE[usageLevel];
 
-  // const dialog = useDialogState();
-
   const  isContrastMode = true
 
   const VisuallyHidden = ({ children }: any) => (
@@ -176,13 +174,12 @@ export const SkillCard: FC<Props> = ({
           </span>
         </span>
       </Dialog.Trigger>
-      <Dialog.Portal>
+      {/* <Dialog.Portal>
         <Dialog.Overlay className={styles.dialogOverlay} />
         <Dialog.Content className={styles.dialogContent}>
-          {/* Your dialog content here */}
           <Dialog.Close>Close</Dialog.Close>
         </Dialog.Content>
-      </Dialog.Portal>
+      </Dialog.Portal> */}
     </Dialog.Root>
       </div>
     </div>

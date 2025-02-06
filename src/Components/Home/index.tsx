@@ -1,4 +1,5 @@
 import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
+import { MdEmail } from "react-icons/md";
 import { GrSend } from "react-icons/gr";
 import { RiInstagramFill } from "react-icons/ri";
 import Typewriter from "typewriter-effect";
@@ -25,6 +26,7 @@ const HomeSec = () => {
   //   fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
   // };
   const [isMobile, setIsMobile] = useState(false);
+    const [activeLink, setActiveLink] = useState<string>("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,6 +39,10 @@ const HomeSec = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const handleLinkClick = (link: string) => {
+    setActiveLink(link);
+  };
 
   return (
     <MainContainer id="home">
@@ -65,9 +71,9 @@ const HomeSec = () => {
             </h3>
           </Proffesion>
           <Paragraph>
-            Hi, I'm Kajal Raj,Frontend Web Developer - creating bold & brave
-            interface design and web application for companies all across the
-            world.
+            Hi, I'm Kajal Raj, A Web Developer with 2.6 years of
+            experience Skilled in creating user-centric web applications. Proficient in agile
+            methodologies and delivering quality results on time.
           </Paragraph>
           <SocialSec>
             {/* <AnkerTag href="#">
@@ -76,8 +82,8 @@ const HomeSec = () => {
             <AnkerTag href="https://www.instagram.com/kaaju_.12/?next=%2F&hl=en">
               <RiInstagramFill />
             </AnkerTag>
-            <AnkerTag href="https://www.linkedin.com/in/kajal-raj">
-              <AiFillLinkedin />
+            <AnkerTag href="#contact" onClick={() => handleLinkClick("contact")}>
+              <MdEmail />
             </AnkerTag>
             <AnkerTag href="https://github.com/kaaju-11">
               <AiOutlineGithub />
