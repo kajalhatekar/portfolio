@@ -97,7 +97,7 @@
   
   @media screen and (width <= 60rem) {
     .grid {
-      grid-template-columns: repeat(2, 160px);
+      grid-template-columns: repeat(2, 150px);
     }
   
     .title {
