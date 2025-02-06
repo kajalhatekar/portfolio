@@ -50,7 +50,7 @@ export const TestimonialSectionTransition = () => {
     <svg aria-hidden className={styles.transition}>
       <defs>
         <pattern
-          fill="#e01ffa"
+          fill="#b10fc7"
           // fill="#8c49ce"
           height="304"
           id="circuit-board"

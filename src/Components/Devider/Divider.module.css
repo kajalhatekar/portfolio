@@ -32,7 +32,7 @@
 .dividerBottom {
   transform: translateY(-5%);
   fill: #1e072800;
-  stroke: #e01ffa;
+  stroke: #b10fc7;
   stroke-dasharray: 1300px;
   stroke-dashoffset: 1300px;
   stroke-linecap: round;
