@@ -1,10 +1,7 @@
 import { type FC, type ReactElement, type ReactNode } from 'react';
-// import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import { useInView } from 'react-intersection-observer';
-import { DialogDisclosure, useDialogState } from 'reakit/Dialog';
-import { VisuallyHidden } from 'reakit/VisuallyHidden';
-
+import * as Dialog from '@radix-ui/react-dialog';
 import { ChevronDoubleDownIcon } from 'assets/svg/ChevronDoubleDownIcon';
 import { ChevronDoubleUpIcon } from 'assets/svg/ChevronDoubleUpIcon';
 import { ChevronDownIcon } from 'assets/svg/ChevronDownIcon';
@@ -14,12 +11,6 @@ import { ChevronUpIcon } from 'assets/svg/ChevronUpIcon';
 import { OpenBookIcon } from 'assets/svg/OpenBookIcon';
 
 import styles from "./SkillCard.module.css";
-
-// const SkillCardDialog = dynamic(() =>
-//   import('./SkillCardDialog/SkillCardDialog').then(
-//     ({ SkillCardDialog }) => SkillCardDialog,
-//   ),
-// );
 
 type Props = {
   backgroundColor: string;
@@ -83,9 +74,25 @@ export const SkillCard: FC<Props> = ({
 
   const { Icon, description: usageDescription } = USAGE[usageLevel];
 
-  const dialog = useDialogState();
+  // const dialog = useDialogState();
 
   const  isContrastMode = true
+
+  const VisuallyHidden = ({ children }: any) => (
+    <div style={{
+      position: 'absolute',
+      width: '1px',
+      height: '1px',
+      padding: '0',
+      margin: '-1px',
+      overflow: 'hidden',
+      clip: 'rect(0, 0, 0, 0)',
+      whiteSpace: 'nowrap',
+      border: '0',
+    }}>
+      {children}
+    </div>
+  );
 
   return (
     <div
@@ -115,83 +122,68 @@ export const SkillCard: FC<Props> = ({
         />
       </div>
       <div className={styles.content}>
-        <DialogDisclosure {...dialog} className={styles.button}>
-          <span className={styles.image}>{icon}</span>
-
-          <span className={styles.name}>
-            {name}
-            <VisuallyHidden>.</VisuallyHidden>
+      <Dialog.Root>
+      <Dialog.Trigger className={styles.button}>
+        <span className={styles.image}>{icon}</span>
+        <span className={styles.name}>
+          {name}
+          <VisuallyHidden>.</VisuallyHidden>
+        </span>
+        {featured && brief && (
+          <span className={classNames(styles.brief, { [styles.contrast]: isContrastMode })}>
+            {brief}
           </span>
-
-          {featured && brief && (
-            <span
-              className={classNames(styles.brief, {
-                [styles.contrast]: isContrastMode,
-              })}
-            >
-              {brief}
-            </span>
-          )}
-
-          <span className={styles.info}>
-            <span
-              className={classNames(styles.contentWrapper, {
-                [styles.contrast]: isContrastMode,
-              })}
-            >
-              {yearsExperience && (
-                <>
-                  <span className={styles.content}>
-                    <span
-                      className={styles.contentTitle}
-                      title="experience"
-                    >
-                      {featured ? 'experience' : 'exp.'}
-                    </span>
-                    <span
-                      title={`${yearsExperience} year${
-                        yearsExperience >= 2 ? 's' : ''
-                      }`}
-                    >
-                      {yearsExperience} yr
-                      {yearsExperience >= 2 ? 's' : ''}
-                    </span>
-                    <VisuallyHidden>.</VisuallyHidden>
+        )}
+        <span className={styles.info}>
+          <span className={classNames(styles.contentWrapper, { [styles.contrast]: isContrastMode })}>
+            {yearsExperience && (
+              <>
+                <span className={styles.content}>
+                  <span className={styles.contentTitle} title="experience">
+                    {featured ? 'experience' : 'exp.'}
                   </span>
-
-                  <span className={styles.divider} />
-                </>
-              )}
-              <span className={styles.content}>
-                <span className={styles.contentTitle} title="usage">
-                  {featured ? '' : ''}
+                  <span title={`${yearsExperience} year${yearsExperience >= 2 ? 's' : ''}`}>
+                    {yearsExperience} yr{yearsExperience >= 2 ? 's' : ''}
+                  </span>
+                  <VisuallyHidden>.</VisuallyHidden>
                 </span>
-                <span title={usageDescription}>
-                  <Icon aria-label={usageDescription} />
-                </span>
-                <VisuallyHidden>.</VisuallyHidden>
+                <span className={styles.divider} />
+              </>
+            )}
+            <span className={styles.content}>
+              <span className={styles.contentTitle} title="usage">
+                {featured ? '' : ''}
               </span>
-              {studying && (
-                <>
-                  <span className={styles.divider} />
-
-                  <span className={styles.content}>
-                    <span
-                      className={styles.contentTitle}
-                      title="studying"
-                    >
-                      {featured ? 'studying' : 'stu.'}
-                    </span>
-                    <span title={STUDYING_LABEL}>
-                      <OpenBookIcon aria-label={STUDYING_LABEL} />
-                    </span>
-                    <VisuallyHidden>.</VisuallyHidden>
-                  </span>
-                </>
-              )}
+              <span title={usageDescription}>
+                <Icon aria-label={usageDescription} />
+              </span>
+              <VisuallyHidden>.</VisuallyHidden>
             </span>
+            {studying && (
+              <>
+                <span className={styles.divider} />
+                <span className={styles.content}>
+                  <span className={styles.contentTitle} title="studying">
+                    {featured ? 'studying' : 'stu.'}
+                  </span>
+                  <span title={STUDYING_LABEL}>
+                    <OpenBookIcon aria-label={STUDYING_LABEL} />
+                  </span>
+                  <VisuallyHidden>.</VisuallyHidden>
+                </span>
+              </>
+            )}
           </span>
-        </DialogDisclosure>
+        </span>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className={styles.dialogOverlay} />
+        <Dialog.Content className={styles.dialogContent}>
+          {/* Your dialog content here */}
+          <Dialog.Close>Close</Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
       </div>
     </div>
   );

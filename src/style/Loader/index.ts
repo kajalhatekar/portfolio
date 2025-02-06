@@ -1,9 +1,5 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-interface ScrollDownDivProps {
-    bottom?: number;
-    delay?: number;
-  }
 
 export const Load = styled.div`
     color:#b39dc6;

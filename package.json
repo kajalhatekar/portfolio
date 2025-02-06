@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ariakit/react": "^0.4.15",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@hookform/resolvers": "^3.3.4",
     "@lottiefiles/dotlottie-react": "^0.12.1",
     "@mui/material": "^6.3.1",
+    "@radix-ui/react-dialog": "^1.1.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

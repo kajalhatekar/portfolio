@@ -33,7 +33,6 @@
 
 
 import { useInView } from 'react-intersection-observer';
-import { VisuallyHidden } from 'reakit/VisuallyHidden';
 import { SkillCard } from './SkillCard/SkillCard';
 import { SkillVectors } from './SkillVectors/SkillVectors';
 import { getColors, skills } from './skills.const';
@@ -57,6 +56,22 @@ const SkillsSec = () => {
   );
 
   const isContrastMode = true
+
+const VisuallyHidden = ({ children }: any) => (
+    <div style={{
+      position: 'absolute',
+      width: '1px',
+      height: '1px',
+      padding: '0',
+      margin: '-1px',
+      overflow: 'hidden',
+      clip: 'rect(0, 0, 0, 0)',
+      whiteSpace: 'nowrap',
+      border: '0',
+    }}>
+      {children}
+    </div>
+  );
 
   return (
     <section className={styles.section}>

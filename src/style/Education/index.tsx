@@ -27,7 +27,7 @@ export const EducationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 35px;
+  gap: 45px;
   padding: 90px 120px 0px 120px;
 
   @media (max-width: 768px) {
@@ -105,7 +105,7 @@ export const BoxWrapper = styled(Box)`
   border: none;
   display: flex;
   box-shadow: unset;
-  padding: 20px 10px 10px 0;
+  padding: 30px 10px 30px 0;
   animation: fadeInAndMoveRight2 1.5s ease-out;
 
   @keyframes fadeInAndMoveRight2 {
