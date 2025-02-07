@@ -41,7 +41,7 @@ export const Container = styled.div`
     position: unset;
     flex-direction: column;
     padding-top: 110px;
-    padding-bottom: 50px;
+    padding-bottom: 45px;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
@@ -106,6 +106,10 @@ export const ConnectButton = styled.a`
   text-decoration: none;
   letter-spacing: 1px;
   font-weight: 600;
+
+  &:hover {
+    background-color: ${(props) => props.theme.color.sixth};
+  }
 
   svg {
     font-size: 20px;

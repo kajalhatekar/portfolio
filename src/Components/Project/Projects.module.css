@@ -3,67 +3,70 @@
   height: 1px;
 }
 
-.section {
-  position: relative;
-  z-index: 1;
-}
-
 .title {
   display: flex;
+  align-items: center; /* Ensures proper alignment */
   justify-content: center;
-
-  margin: 1em 0 1.5em;
-
+  text-align: center;
+  width: 100%; /* Ensures full-width responsiveness */
+  margin: 1em auto 1.5em;
   font-family: "Major Mono Display", monospace;
   font-size: min(8vw, 10em);
   font-weight: bolder;
   line-height: 1em;
   color: #e100ff2b;
   text-shadow: 0 0 #190e1b;
-
   background: linear-gradient(
     90deg,
     rgba(225, 0, 255, 100%) 5%,
     rgba(72, 0, 145, 100%) 100%
   );
   background-clip: text;
-
   -webkit-text-stroke: 0.08em;
+  position: relative; /* Ensures proper alignment of pseudo-elements */
+  padding: 0 1em; /* Adds spacing for the pseudo-elements */
 }
 
 @media (max-width: 767px) {
   .title {
     margin: 20px;
-    font-size: min(8vw, 10em);
+    font-size: min(10vw, 10em);
   }
 }
 
 .title::before,
 .title::after {
   content: "";
-
   flex: 1;
-  align-self: center;
-
-  height: 0.1em;
-
+  height: 10px;
+  min-width: 220px;
   background: linear-gradient(
     90deg,
     rgba(72, 0, 145, 100%) 0%,
     rgba(225, 0, 255, 100%) 100%
   );
+  display: block;
 }
 
 .title::before {
-  margin-right: 0.15em;
+  margin-right: 0.4em;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
 }
 
 .title::after {
-  margin-left: 0.15em;
+  margin-left: 0.4em;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
+}
+
+/* Fix for smaller screens */
+@media (max-width: 1200px) {
+  .title::before,
+  .title::after {
+    min-width: 30px; /* Reduce width slightly for better scaling */
+    height: 8px; /* Reduce thickness for aesthetics */
+  }
 }
 
 .animate {
@@ -76,13 +79,10 @@
 
 .getInTouch {
   cursor: pointer;
-
   margin: 0;
   padding: 0;
-
   font-weight: bolder;
   color: transparent;
-
   background: none;
   background: linear-gradient(90deg, #7d54ff, #ea47ff);
   background-clip: text;

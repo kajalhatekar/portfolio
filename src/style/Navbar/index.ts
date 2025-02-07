@@ -96,7 +96,6 @@ export const MainContainer = styled.div`
   @media (max-width: 767px) {
     flex-direction: column;
     justify-content: center;
-    height: 90vh;
     align-items: center;
     padding: 0px 22px 72px 22px;
     text-align: unset;

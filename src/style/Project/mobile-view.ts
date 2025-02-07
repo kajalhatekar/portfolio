@@ -27,10 +27,11 @@ export const PortfolioContainer = styled.div`
   width: 85%;
   gap: 47px 36px;
 
-  @media (max-width: 850px) {
+  @media (max-width: 1200px) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 50px;
   }
 `;
 
@@ -42,6 +43,8 @@ export const PortfolioItem = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 350px;
 
   &:hover {
     box-shadow: 0 0 10px lightgray;

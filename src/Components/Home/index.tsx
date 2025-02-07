@@ -1,4 +1,4 @@
-import { AiFillLinkedin, AiOutlineGithub } from "react-icons/ai";
+import {AiOutlineGithub } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
 import { GrSend } from "react-icons/gr";
 import { RiInstagramFill } from "react-icons/ri";
@@ -26,7 +26,6 @@ const HomeSec = () => {
   //   fileSaver.saveAs(process.env.PUBLIC_URL + "/resume/cv.pdf", "MyCV.pdf");
   // };
   const [isMobile, setIsMobile] = useState(false);
-    const [activeLink, setActiveLink] = useState<string>("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,10 +38,6 @@ const HomeSec = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const handleLinkClick = (link: string) => {
-    setActiveLink(link);
-  };
 
   return (
     <MainContainer id="home">
@@ -82,7 +77,7 @@ const HomeSec = () => {
             <AnkerTag href="https://www.instagram.com/kaaju_.12/?next=%2F&hl=en">
               <RiInstagramFill />
             </AnkerTag>
-            <AnkerTag href="#contact" onClick={() => handleLinkClick("contact")}>
+            <AnkerTag href="#contact">
               <MdEmail />
             </AnkerTag>
             <AnkerTag href="https://github.com/kaaju-11">

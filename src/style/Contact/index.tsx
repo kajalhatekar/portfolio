@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 const RoadMapStyle = styled.div`
   width: 100%;
   min-height: 100vh;
-  padding-bottom: 180px;
+  padding-bottom: 230px;
 `;
 
 const RoadMapHeadingWrapper = styled.div`
