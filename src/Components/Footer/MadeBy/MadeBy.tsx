@@ -20,15 +20,17 @@ export const MadeBy = () => {
     targetText: handWritingFinished ? 'kajalRaj' : '',
   });
 
-  const isReducedMotion = true
+  const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   useEffect(() => {
     if (isReducedMotion) setHandwritingFinished(true);
   }, [isReducedMotion, inView]);
 
-  useEffect(() => {
-    if (!inView) setHandwritingFinished(false);
-  }, [inView]);
+ useEffect(() => {
+  if (!inView && handWritingFinished) {
+    setHandwritingFinished(false);
+  }
+}, [inView, handWritingFinished]);
 
   useEffect(() => {
     setHaltTypingEffect(!handWritingFinished && name === '');
