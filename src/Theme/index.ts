@@ -5,10 +5,10 @@ export const theme: ITheme = {
     first: "#000000",
     second: "#ffffff",
     third: " #964fdd",
-    // third: " rgb(12, 158, 231)",
     fourth: "#c770f0",
     fifth: "#5b2c89",
     sixth: "rgba(99, 30, 167, 0.46)",
+    seventh: "#eaeaea",
   },
   font: {
     primary: `"Rajdhani", sans-serif`,

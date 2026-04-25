@@ -17,7 +17,7 @@ export interface ITheme{
         fourth: string;
         fifth: string;
         sixth: string;
-        // seventh: string;
+        seventh: string;
         // eighth: string;
         // ninth: string;
         // tenth: string;

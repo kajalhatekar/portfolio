@@ -62,6 +62,7 @@ export const Container = styled.div`
 export const LeftContainer = styled.div`
   max-width: 600px;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
+  z-index: 10;
 `;
 export const Proffesion = styled.div<{ theme: ITheme }>`
   font-size: 30px;
@@ -157,9 +158,13 @@ export const FButton = styled.a`
   letter-spacing: 1px;
   font-weight: 600;
   text-align: center;
+  transition: all 0.75s ease-in-out;
+
 
   &:hover {
-    box-shadow: 0 0 10px lightgray;
+    background-color: ${(props) => props.theme.color.third};
+    color: ${(props) => props.theme.color.second};
+    box-shadow: 0 0 20px ${(props) => props.theme.color.third};
   }
 
   svg {
@@ -167,7 +172,7 @@ export const FButton = styled.a`
     height: 40px;
     margin-left: 8px;
     text-align: center;
-    animation: fadein 2.5s linear infinite;
+    animation: fadein s linear infinite;
 
     @keyframes fadein {
       from {
@@ -182,7 +187,7 @@ export const FButton = styled.a`
 export const SocialSec = styled.div`
   display: inline-flex;
 `;
-export const AnkerTag = styled.a<{ theme: ITheme }>`
+export const AnchorTag = styled.a<{ theme: ITheme }>`
   width: 40px;
   height: 40px;
   background: transparent;
@@ -195,12 +200,13 @@ export const AnkerTag = styled.a<{ theme: ITheme }>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.75s ease-in-out;
+  font: ${(props) => props.theme.font.secondary};
 
   &:hover {
     background-color: ${(props) => props.theme.color.third};
     color: white;
     box-shadow: 0 0 20px ${(props) => props.theme.color.fourth};
-    transition: all 0.75s ease;
   }
 `;
 export const SocialIcon = styled.div`

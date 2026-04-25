@@ -1,7 +1,6 @@
 import {AiOutlineGithub } from "react-icons/ai";
-import { MdEmail } from "react-icons/md";
-import { GrSend } from "react-icons/gr";
-import { RiInstagramFill } from "react-icons/ri";
+import { MdEmail, MdDownload } from "react-icons/md";
+import { FaLinkedinIn } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
 // import home from "assets/home.mp4";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -13,12 +12,10 @@ import {
   Paragraph,
   ButtonContainer,
   FButton,
-  ConnectButton,
   SocialSec,
-  AnkerTag,
+  AnchorTag,
   RightContainer,
 } from "style/Home";
-import DownloadIcon from "assets/svg/DownloadIcon";
 import { useEffect, useState } from "react";
 
 const HomeSec = () => {
@@ -71,39 +68,35 @@ const HomeSec = () => {
             methodologies and delivering quality results on time.
           </Paragraph>
           <SocialSec>
-            {/* <AnkerTag href="#">
-              <FaFacebookF />
-            </AnkerTag> */}
-            <AnkerTag href="https://www.instagram.com/kaaju_.12/?next=%2F&hl=en">
-              <RiInstagramFill />
-            </AnkerTag>
-            <AnkerTag href="#contact">
+            <AnchorTag href="https://www.linkedin.com/in/kajal-raj">
+              <FaLinkedinIn />
+            </AnchorTag>
+            <AnchorTag href="#contact">
               <MdEmail />
-            </AnkerTag>
-            <AnkerTag href="https://github.com/kaaju-11">
+            </AnchorTag>
+            <AnchorTag href="https://github.com/kaaju-11">
               <AiOutlineGithub />
-            </AnkerTag>
-            {/* <AnkerTag href="#">
+            </AnchorTag>
+            {/* <AnchorTag href="#">
               <RiGitlabFill />
-            </AnkerTag> */}
+            </AnchorTag> */}
           </SocialSec>
 
           <ButtonContainer>
-            <ConnectButton
+            {/* <ConnectButton
               href="https://www.linkedin.com/in/kajal-raj"
-              target="_blank"
               rel="noopener noreferrer"
             >
               Let's Connect
               <GrSend />
-            </ConnectButton>
+            </ConnectButton> */}
             <FButton
               target="_blank"
               rel="noopener noreferrer"
               href={`${process.env.PUBLIC_URL}/resume/cv.pdf`}
             >
               Resume
-              <DownloadIcon />
+              <MdDownload />
             </FButton>
           </ButtonContainer>
         </LeftContainer>
