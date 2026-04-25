@@ -49,7 +49,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1260px) {
-    width: 85%;
+    width: 91%;
     padding-top: 176px;
   }
 
@@ -60,13 +60,14 @@ export const Container = styled.div`
   }
 `;
 export const LeftContainer = styled.div`
+width: 100%;
   max-width: 600px;
   animation: ${fadeInAndMoveDown} 2s ease-in-out;
   z-index: 10;
 `;
 export const Proffesion = styled.div<{ theme: ITheme }>`
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 600;
 
   span {
     /* color: ${(props) => props.theme.color.third};  */
@@ -83,9 +84,13 @@ export const Proffesion = styled.div<{ theme: ITheme }>`
   }
 `;
 export const Paragraph = styled.div<{ theme: ITheme }>`
-  font-size: 15px;
+width: 100%;
+  max-width: 500px;
+  font-size: 17px;
   color: ${(props) => props.theme.color.second};
-  margin-top: 10px;
+  margin-top: 16px;
+  line-height: 1.5;
+  text-align: justify;
 `;
 export const ButtonContainer = styled.div`
   display: flex;

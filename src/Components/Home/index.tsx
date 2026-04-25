@@ -1,8 +1,7 @@
-import {AiOutlineGithub } from "react-icons/ai";
+import { AiOutlineGithub } from "react-icons/ai";
 import { MdEmail, MdDownload } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
 import Typewriter from "typewriter-effect";
-// import home from "assets/home.mp4";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import {
   MainContainer,
@@ -56,6 +55,7 @@ const HomeSec = () => {
                       "Frontend Developer",
                       // "Open Source Contributor",
                       "UI Developer",
+                      "Full-Stack Learner",
                     ],
                   }}
                 />
@@ -63,9 +63,7 @@ const HomeSec = () => {
             </h3>
           </Proffesion>
           <Paragraph>
-            Hi, I'm Kajal Raj, A Web Developer with 2.6 years of
-            experience Skilled in creating user-centric web applications. Proficient in agile
-            methodologies and delivering quality results on time.
+            Frontend Developer passionate about building fast, scalable, and visually appealing web applications.
           </Paragraph>
           <SocialSec>
             <AnchorTag href="https://www.linkedin.com/in/kajal-raj">
