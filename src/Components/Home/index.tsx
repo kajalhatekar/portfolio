@@ -91,7 +91,7 @@ const HomeSec = () => {
             <FButton
               target="_blank"
               rel="noopener noreferrer"
-              href={`${process.env.PUBLIC_URL}/resume/cv.pdf`}
+              href={`${process.env.PUBLIC_URL}/resume/kajal-resume.pdf`}
             >
               Resume
               <MdDownload />
