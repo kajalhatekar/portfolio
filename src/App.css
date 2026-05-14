@@ -13,11 +13,7 @@ body {
     rgb(80 42 89) 0%,
     rgb(0, 5, 19) 100%
   ); */
-  background: radial-gradient(
-    80.91% 50.5% at 72.81% 32%,
-    rgb(78 35 89) 0%,
-    rgb(0 2 8) 100%
-  );
+  background: var(--theme-background);
   font-family: "Inter", sans-serif;
 }
 
@@ -253,17 +249,25 @@ html {
 
 ::-webkit-scrollbar-track {
   /* background: #18406e; */
-  background: #5b2c89;
+  background: var(--theme-background);
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 12px;
   /* background: linear-gradient(135deg, rgb(12, 158, 231), #0c3ab0, rgb(12, 158, 231)); */
-  background: linear-gradient(135deg, #8750f7, #964fdd, #c770f0);
+  background: linear-gradient(
+    135deg,
+    var(--theme-secondary-bright),
+    var(--theme-primary-bright)
+  );
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #1a6ad2, #fff);
+  background: linear-gradient(
+    135deg,
+    var(--theme-primary-bright),
+    var(--theme-text)
+  );
 }
 
 .BlurredBackground {
@@ -402,55 +406,31 @@ html {
   @media (max-width: 767px) {
     top: 80px !important;
     border-radius: unset !important;
-    background: radial-gradient(
-      80.91% 50.5% at 72.81% 32%,
-      rgb(63 30 71) 0%,
-      rgb(0 0 0) 100%
-    ) !important;
+    background: var(--theme-background) !important;
 
     .dashboard-responsive {
-      background: radial-gradient(
-        80.91% 50.5% at 72.81% 32%,
-        rgb(63 30 71) 0%,
-        rgb(0 0 0) 100%
-      ) !important;
+      background: var(--theme-background) !important;
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
     top: 80px !important;
     border-radius: unset !important;
-    background: radial-gradient(
-      80.91% 50.5% at 72.81% 32%,
-      rgb(63 30 71) 0%,
-      rgb(0 0 0) 100%
-    ) !important;
+    background: var(--theme-background) !important;
   }
 }
 .css-1k86i4 {
   @media (max-width: 767px) {
     top: 60px !important;
     border-radius: unset !important;
-    background: radial-gradient(
-      80.91% 50.5% at 72.81% 32%,
-      rgb(63 30 71) 0%,
-      rgb(0 0 0) 100%
-    ) !important;
+    background: var(--theme-background) !important;
 
     .dashboard-responsive {
-      background: radial-gradient(
-        80.91% 50.5% at 72.81% 32%,
-        rgb(63 30 71) 0%,
-        rgb(0 0 0) 100%
-      ) !important;
+      background: var(--theme-background) !important;
     }
   }
   @media only screen and (min-width: 768px) and (max-width: 1224px) {
     top: 60px !important;
     border-radius: unset !important;
-    background: radial-gradient(
-      80.91% 50.5% at 72.81% 32%,
-      rgb(63 30 71) 0%,
-      rgb(0 0 0) 100%
-    ) !important;
+    background: var(--theme-background) !important;
   }
 }

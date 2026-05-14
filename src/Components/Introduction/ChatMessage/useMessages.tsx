@@ -1,0 +1,49 @@
+import { useEffect, useState } from "react";
+
+import { useInView } from "react-intersection-observer";
+
+import type { Message, Option } from "./messages.types";
+import { messageService } from "./messageService";
+
+type Options = {
+  onMessage?: () => void;
+};
+
+type Return = {
+  messages: Message[];
+  messagesInViewRef: (node: HTMLDivElement | null) => void;
+  onResponse: (option: Option) => void;
+};
+
+export const useMessages = ({ onMessage }: Options): Return => {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [messagesInViewRef, messagesInView] = useInView();
+
+  useEffect(() => {
+    messageService.onMessage = (message) => {
+      setMessages((currentMessages) => {
+        if (currentMessages.find((msg) => msg.id === message.id)) {
+          return currentMessages.map((msg) => {
+            if (msg.id === message.id) return message;
+            return msg;
+          });
+        }
+
+        return [...currentMessages, message];
+      });
+
+      onMessage?.();
+    };
+
+    if (messagesInView) messageService.connect();
+    else messageService.disconnect();
+
+    return () => messageService.disconnect();
+  }, [messagesInView, onMessage]);
+
+  return {
+    messages,
+    messagesInViewRef,
+    onResponse: messageService.onResponse.bind(messageService),
+  };
+};

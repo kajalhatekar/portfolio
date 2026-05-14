@@ -5,6 +5,7 @@ import StarryBackground from "Components/Spiral";
 import Contact from "Components/Contact";
 import Navbar from "Components/Navbar";
 import HomeSec from "Components/Home";
+import Introduction from "Components/Introduction";
 import SkillsSec from "Components/Skills";
 import Educations from "Components/Education";
 import Projects from "Components/Project";
@@ -47,6 +48,7 @@ const Home: React.FC = () => {
       <Navbar />
       {/* <ScrollText content={content} /> */}
       <HomeSec />
+      <Introduction />
       <TestimonialSectionTransition />
       <SkillsSec />
       <ToolsSection />

@@ -1,5 +1,44 @@
+:root {
+  --theme-accent-color: #7f00ff;
+  --theme-backdrop: rgba(255, 255, 255, 0.05);
+  --theme-background: #0e141b;
+  --theme-background-opaque: rgba(0, 0, 0, 0.2);
+  --theme-chat-accent: #ff7aec;
+  --theme-chat-background: #1f242a;
+  --theme-chat-border-soft: rgba(255, 255, 255, 0.055);
+  --theme-chat-outgoing-background: #630370;
+  --theme-code-accent-rgb: 225, 0, 255;
+  --theme-experience-transition-adjust: #ffffffc7;
+  --theme-glass-background: rgba(0, 0, 0, 0.85);
+  --theme-glass-border: 1px solid rgba(0, 0, 0, 0.5);
+  --theme-highlight-accent-rgb: 225, 0, 255;
+  --theme-highlight-rgb: 72, 0, 145;
+  --theme-is-contrast: 0;
+  --theme-is-dark: 1;
+  --theme-list-style-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjUiIHkxPSIxNiIgeDI9IjE5IiB5Mj0iMTYiLz48cG9seWxpbmUgcG9pbnRzPSIxMiA5IDE5IDE2IDEyIDIzIi8+PC9zdmc+");
+  --theme-menu-background: rgba(255, 255, 255, 0.05);
+  --theme-menu-background-fallback: rgba(0, 0, 0, 0.75);
+  --theme-muted-text: rgba(255, 255, 255, 0.78);
+  --theme-primary-bright: #7d54ff;
+  --theme-primary-dark: #5435b3;
+  --theme-primary-soft: rgba(72, 0, 145, 0.18);
+  --theme-scrollbar-track-color: #424242;
+  --theme-secondary-bright: #ea47ff;
+  --theme-secondary-dark: #9a24ab;
+  --theme-shadow: rgba(127, 0, 255, 0.24);
+  --theme-surface: #1f242a;
+  --theme-table-cell-background: rgba(255, 255, 255, 0.02);
+  --theme-testimonial-background: #1a1a1a;
+  --theme-testimonial-card-background: #282828;
+  --theme-testimonial-card-border: #3e3e3e;
+  --theme-testimonial-card-text: #f3f3f3;
+  --theme-text: #ffffff;
+  --theme-text-rgb: 255, 255, 255;
+}
+
 body {
   margin: 0;
+  background: var(--theme-background);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

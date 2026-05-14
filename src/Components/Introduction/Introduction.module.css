@@ -1,0 +1,283 @@
+.section {
+  position: relative;
+  z-index: 9;
+  overflow: hidden;
+  min-height: 100vh;
+  color: var(--theme-text);
+  background:
+    var(--theme-background);
+}
+
+.signalLayer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.signalLayer::before {
+  content: "";
+  position: absolute;
+  inset: 7% 14% auto;
+  height: 42vh;
+  border-radius: 999px;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      color-mix(in srgb, var(--theme-secondary-bright) 18%, transparent),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 58% 55%,
+      color-mix(in srgb, var(--theme-primary-bright) 12%, transparent),
+      transparent 56%
+    );
+  filter: blur(28px);
+  animation: signalGlow 6.5s ease-in-out infinite alternate;
+}
+
+.signalLayer span,
+.signalLayer i {
+  position: absolute;
+  display: block;
+  border: 1px solid color-mix(in srgb, var(--theme-secondary-bright) 42%, transparent);
+  background: color-mix(in srgb, var(--theme-background) 72%, transparent);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--theme-primary-bright) 12%, transparent);
+  opacity: 0.28;
+  animation: signalFloat 8s ease-in-out infinite;
+}
+
+.signalLayer span {
+  width: clamp(90px, 10vw, 160px);
+  height: clamp(34px, 4vw, 54px);
+  border-radius: 18px;
+}
+
+.signalLayer span::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  bottom: -7px;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  border-right: inherit;
+  border-bottom: inherit;
+  transform: rotate(45deg);
+}
+
+.signalLayer span:nth-child(1) {
+  top: 23%;
+  left: 15%;
+}
+
+.signalLayer span:nth-child(2) {
+  top: 44%;
+  right: 12%;
+  animation-delay: -2.2s;
+}
+
+.signalLayer span:nth-child(3) {
+  top: 70%;
+  left: 22%;
+  animation-delay: -4.4s;
+}
+
+.signalLayer i {
+  width: clamp(7px, 0.8vw, 12px);
+  height: clamp(7px, 0.8vw, 12px);
+  border-radius: 50%;
+  background: var(--theme-secondary-bright);
+}
+
+.signalLayer i:nth-child(4) {
+  top: 35%;
+  left: 70%;
+  animation-delay: -1.4s;
+}
+
+.signalLayer i:nth-child(5) {
+  top: 63%;
+  left: 11%;
+  animation-delay: -3.4s;
+}
+
+.scroll {
+  position: relative;
+  z-index: 1;
+  height: 123vh;
+}
+
+.anchor {
+  transform: translateY(-200px);
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: min(1600px, 80vw);
+  margin: 0 auto;
+}
+
+.animatedMessage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding-bottom: 1em;
+}
+
+.messageListContainer {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-260px, -22vh, -120px);
+  padding-bottom: 8vh;
+}
+
+.messageList {
+  position: relative;
+  overflow: hidden auto;
+  height: 50vh;
+  gap: 20px;
+  padding-right: 1em;
+  font-size: clamp(1rem, 1.25vw, 1.28rem);
+  line-height: 1.4;
+}
+
+.messageList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.messageList::-webkit-scrollbar-track {
+  border-radius: 100px;
+  background-color: rgb(var(--theme-highlight-rgb), 10%);
+}
+
+.messageList::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 100px;
+  background-color: var(--theme-accent-color);
+  background-clip: content-box;
+}
+
+.messageList::before,
+.messageList::after {
+  pointer-events: none;
+  will-change: opacity;
+  content: "";
+  position: sticky;
+  z-index: 1;
+  left: 0;
+  display: flex;
+  flex: 0 1 auto;
+  width: calc(100% + 1em);
+  min-height: 3em;
+  opacity: 0%;
+  transition: opacity 250ms ease-in-out;
+}
+
+.messageList::before {
+  top: 0;
+  margin-top: -4em;
+  background: linear-gradient(
+    to bottom,
+    var(--theme-background),
+    rgb(0, 0, 0, 0%)
+  );
+}
+
+.messageList::after {
+  bottom: 0;
+  margin-top: -3em;
+  background: linear-gradient(
+    to top,
+    var(--theme-background),
+    rgb(0, 0, 0, 0%)
+  );
+}
+
+.messageList:not(
+    [data-scroll-position="not-scrolling"],
+    [data-scroll-position="top"]
+  )::before,
+.messageList:not(
+    [data-scroll-position="not-scrolling"],
+    [data-scroll-position="bottom"]
+  )::after {
+  opacity: 100%;
+}
+
+.scrollButton {
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  top: 0.5em;
+  left: 50%;
+  display: flex;
+  gap: 8px;
+  padding: 0.5em 1.5em;
+  border: 1px dashed var(--theme-accent-color);
+  border-radius: 50px;
+  color: var(--theme-text);
+  background: var(--theme-chat-outgoing-background);
+  font: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  opacity: 100%;
+  transform: translateX(-50%);
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+.scrollButton:disabled {
+  opacity: 0%;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media screen and (width <= 42rem) {
+  .messageList {
+    height: 75vh;
+  }
+}
+
+@media screen and (width <= 82rem) {
+  .scroll {
+    height: 122vh;
+  }
+}
+
+@keyframes signalFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes signalGlow {
+  0% {
+    opacity: 0.62;
+    transform: translate3d(-2%, 0, 0) scale(0.98);
+  }
+
+  100% {
+    opacity: 0.9;
+    transform: translate3d(2%, 2%, 0) scale(1.03);
+  }
+}
