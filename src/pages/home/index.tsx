@@ -14,6 +14,7 @@ import ToolsSection from "Components/Tools";
 import MobileViewProjects from "Components/Project/mobile-view";
 import { Container } from "style/Navbar";
 import { TestimonialDivider } from "Components/Devider";
+import { RedesignNotice } from "Components/RedesignNotice";
 import { TestimonialSectionTransition } from "Components/TestimonialSectionTransition/TestimonialSectionTransition";
 
 const Home: React.FC = () => {
@@ -46,6 +47,7 @@ const Home: React.FC = () => {
   ) : (
     <Container>
       <Navbar />
+      <RedesignNotice />
       {/* <ScrollText content={content} /> */}
       <HomeSec />
       <Introduction />

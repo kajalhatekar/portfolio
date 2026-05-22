@@ -1,0 +1,128 @@
+.notice {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 80;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: flex-start;
+  width: min(520px, calc(100vw - 2rem));
+  padding: 0.95rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--theme-secondary-bright) 32%, var(--theme-chat-border-soft));
+  border-radius: 0.5rem;
+  color: var(--theme-text);
+  background: color-mix(in srgb, var(--theme-surface) 92%, var(--theme-background));
+  box-shadow:
+    0 18px 52px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: noticeEnter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.notice::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--theme-primary-bright) 24%, transparent),
+      transparent 38%,
+      color-mix(in srgb, var(--theme-secondary-bright) 20%, transparent)
+    );
+  opacity: 0.55;
+  pointer-events: none;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  padding: 1px;
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: var(--theme-secondary-bright);
+  background: color-mix(in srgb, var(--theme-secondary-bright) 14%, transparent);
+}
+
+.icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.content {
+  min-width: 0;
+}
+
+.content strong {
+  display: block;
+  margin-bottom: 0.22rem;
+  font-size: 0.94rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.content p {
+  margin: 0;
+  color: var(--theme-muted-text);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.closeButton {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--theme-muted-text);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.closeButton svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  color: var(--theme-text);
+  background: color-mix(in srgb, var(--theme-text) 8%, transparent);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+@keyframes noticeEnter {
+  from {
+    opacity: 0%;
+    transform: translate3d(0, 0.75rem, 0) scale(0.98);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media screen and (width <= 42rem) {
+  .notice {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    left: 0.85rem;
+    width: auto;
+    padding: 0.85rem;
+  }
+}

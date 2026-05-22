@@ -1,0 +1,1 @@
+export { RedesignNotice } from "./RedesignNotice";

@@ -8,8 +8,10 @@ import {
 
 import classNames from "classnames";
 
+import { AIChatInlineForm } from "./AIChat/AIChatInlineForm";
 import { AnimatedChatMessage } from "./ChatMessage/AnimatedChatMessage/AnimatedChatMessage";
 import { ChatMessage } from "./ChatMessage/ChatMessage";
+import type { TextMessage } from "./ChatMessage/messages.types";
 import { useMessages } from "./ChatMessage/useMessages";
 import { useIntroductionProgress } from "./useIntroductionProgress";
 
@@ -19,6 +21,11 @@ const VisuallyHidden = ({ children }: { children: ReactNode }) => (
   <div className={styles.visuallyHidden}>{children}</div>
 );
 
+type EditingQuestion = {
+  content: string;
+  id: string;
+};
+
 const Introduction = () => {
   const { scrollRef, setIntroductionRefs } = useIntroductionProgress();
   const [messagesScrollPosition, setMessagesScrollPosition] = useState<
@@ -26,8 +33,10 @@ const Introduction = () => {
   >("not-scrolling");
   const messagesRef = useRef<HTMLDivElement | null>(null);
   const scrollTimeoutRef = useRef<number | null>(null);
+  const [editingQuestion, setEditingQuestion] =
+    useState<EditingQuestion | null>(null);
 
-  const scrollBottom = useCallback(() => {
+  const scrollBottom = useCallback((delay = 100) => {
     if (scrollTimeoutRef.current) {
       window.clearTimeout(scrollTimeoutRef.current);
     }
@@ -41,17 +50,54 @@ const Introduction = () => {
         behavior: "smooth",
         top: messagesElement.scrollHeight,
       });
-    }, 100);
+    }, delay);
   }, []);
 
   const onMessage = useCallback(() => {
     if (!messagesScrollPosition) return;
     scrollBottom();
   }, [messagesScrollPosition, scrollBottom]);
+  const onTypingProgress = useCallback(() => {
+    scrollBottom(0);
+  }, [scrollBottom]);
 
-  const { messages, messagesInViewRef, onResponse } = useMessages({
-    onMessage,
-  });
+  const {
+    isAILoading,
+    isLiveChatOpen,
+    messages,
+    messagesInViewRef,
+    onEditQuestion,
+    onLiveQuestion,
+    onResponse,
+    onTypingComplete,
+  } = useMessages({ onMessage });
+
+  const onEditMessage = useCallback(
+    (message: TextMessage) => {
+      if (typeof message.content !== "string") return;
+
+      setEditingQuestion({
+        content: message.content,
+        id: message.id,
+      });
+      scrollBottom(0);
+    },
+    [scrollBottom],
+  );
+
+  const onSubmitLiveQuestion = useCallback(
+    (question: string) => {
+      if (editingQuestion) {
+        onEditQuestion(editingQuestion.id, question);
+      } else {
+        onLiveQuestion(question);
+      }
+
+      setEditingQuestion(null);
+      scrollBottom();
+    },
+    [editingQuestion, onEditQuestion, onLiveQuestion, scrollBottom],
+  );
 
   const setMessagesRefs = useCallback(
     (node: HTMLDivElement | null) => {
@@ -105,7 +151,7 @@ const Introduction = () => {
           disabled={["bottom", "near-bottom", "not-scrolling"].includes(
             messagesScrollPosition,
           )}
-          onClick={scrollBottom}
+          onClick={() => scrollBottom()}
           type="button"
         >
           <span aria-hidden="true">↓</span>
@@ -128,10 +174,22 @@ const Introduction = () => {
               <ChatMessage
                 key={message.id}
                 message={message}
+                onEditMessage={onEditMessage}
                 onResponse={onResponse}
+                onTypingComplete={onTypingComplete}
+                onTypingProgress={onTypingProgress}
               />
             ))}
         </div>
+
+        {(isLiveChatOpen || editingQuestion !== null) && (
+          <AIChatInlineForm
+            initialQuestion={editingQuestion?.content}
+            loading={isAILoading}
+            onCancelEdit={() => setEditingQuestion(null)}
+            onSubmit={onSubmitLiveQuestion}
+          />
+        )}
       </div>
     </section>
   );
