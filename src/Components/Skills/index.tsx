@@ -38,7 +38,6 @@ import { SkillVectors } from './SkillVectors/SkillVectors';
 import { getColors, skills } from './skills.const';
 
 import styles from './Skills.module.css';
-import { TestimonialDivider } from 'Components/Devider';
 
 const HEADER = 'skills';
 
@@ -75,7 +74,6 @@ const VisuallyHidden = ({ children }: any) => (
 
   return (
     <section className={styles.section}>
-      <TestimonialDivider position="bottom" />
       <SkillVectors />
 
       <div className={styles.scroll}>

@@ -66,6 +66,7 @@ const Introduction = () => {
     isLiveChatOpen,
     messages,
     messagesInViewRef,
+    onCloseLiveChat,
     onEditQuestion,
     onLiveQuestion,
     onResponse,
@@ -98,6 +99,14 @@ const Introduction = () => {
     },
     [editingQuestion, onEditQuestion, onLiveQuestion, scrollBottom],
   );
+
+  const onCancelLiveQuestion = useCallback(() => {
+    setEditingQuestion(null);
+
+    if (!editingQuestion) {
+      onCloseLiveChat();
+    }
+  }, [editingQuestion, onCloseLiveChat]);
 
   const setMessagesRefs = useCallback(
     (node: HTMLDivElement | null) => {
@@ -186,7 +195,7 @@ const Introduction = () => {
           <AIChatInlineForm
             initialQuestion={editingQuestion?.content}
             loading={isAILoading}
-            onCancelEdit={() => setEditingQuestion(null)}
+            onCancel={onCancelLiveQuestion}
             onSubmit={onSubmitLiveQuestion}
           />
         )}

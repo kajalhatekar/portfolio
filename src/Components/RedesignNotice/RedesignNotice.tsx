@@ -4,11 +4,11 @@ import { FiInfo, FiX } from "react-icons/fi";
 
 import styles from "./RedesignNotice.module.css";
 
-const STORAGE_KEY = "portfolio-redesign-notice-dismissed";
+const STORAGE_KEY = "portfolio-redesign-notice-dismissed-v2";
 
 const getInitialDismissedState = () => {
   try {
-    return window.localStorage.getItem(STORAGE_KEY) === "true";
+    return window.sessionStorage.getItem(STORAGE_KEY) === "true";
   } catch {
     return false;
   }
@@ -21,7 +21,7 @@ export const RedesignNotice = () => {
     setDismissed(true);
 
     try {
-      window.localStorage.setItem(STORAGE_KEY, "true");
+      window.sessionStorage.setItem(STORAGE_KEY, "true");
     } catch {
       // Keep the notice dismissible even if storage is unavailable.
     }

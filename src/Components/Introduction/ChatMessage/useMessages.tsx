@@ -14,6 +14,7 @@ type Return = {
   isLiveChatOpen: boolean;
   messages: Message[];
   messagesInViewRef: (node: HTMLDivElement | null) => void;
+  onCloseLiveChat: () => void;
   onEditQuestion: (messageId: string, question: string) => void;
   onLiveQuestion: (question: string) => void;
   onResponse: (option: Option) => void;
@@ -66,6 +67,7 @@ export const useMessages = ({ onMessage }: Options): Return => {
     isLiveChatOpen,
     messages,
     messagesInViewRef,
+    onCloseLiveChat: messageService.closeLiveChat.bind(messageService),
     onEditQuestion: messageService.onEditQuestion.bind(messageService),
     onLiveQuestion: messageService.onLiveQuestion.bind(messageService),
     onResponse: messageService.onResponse.bind(messageService),

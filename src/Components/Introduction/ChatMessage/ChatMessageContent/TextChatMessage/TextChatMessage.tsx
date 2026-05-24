@@ -21,7 +21,7 @@ export const TextChatMessage: FC<Props> = ({
   const typedText = useTypingText(
     canAnimateText ? textContent : "",
     Boolean(canAnimateText),
-    14,
+    9,
     canAnimateText ? () => onTypingComplete?.(message) : undefined,
   );
 

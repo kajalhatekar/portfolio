@@ -3,10 +3,11 @@ import type { AIChatMessage } from "../AIChat/types";
 import { messages, optionSelect } from "./messages.const";
 import type { Message, Option, OptionSelectMessage, TextMessage } from "./messages.types";
 
-const MESSAGE_START_BASE_MS = 1000;
-const MESSAGE_START_VARIANCE_MS = 500;
-const MESSAGE_WRITE_BASE_MS = 2750;
-const MESSAGE_WRITE_VARIANCE_MS = 750;
+const MESSAGE_START_BASE_MS = 360;
+const MESSAGE_START_VARIANCE_MS = 140;
+const MESSAGE_WRITE_BASE_MS = 1550;
+const MESSAGE_WRITE_VARIANCE_MS = 360;
+const LIVE_CHAT_OPTION_ID = "live-ai-chat";
 
 const createId = (prefix: string) =>
   `${prefix}-${Date.now().toString(36)}-${Math.random()
@@ -88,7 +89,7 @@ class MessageService {
     if (option.disabled || this.aiLoading) return;
 
     if (option.action === "open-live-chat") {
-      this.openLiveChat(option.id);
+      this.openLiveChat();
       return;
     }
 
@@ -112,6 +113,15 @@ class MessageService {
     this.askAI(question.trim(), { resendOptions: false });
   }
 
+  closeLiveChat() {
+    this.liveChatOpen = false;
+    this.selectedResponses = this.selectedResponses.filter(
+      (responseId) => responseId !== LIVE_CHAT_OPTION_ID,
+    );
+    this.onAIChatOpen(false);
+    this.resendOptionSelect();
+  }
+
   onTypingComplete(message: TextMessage) {
     if (
       !message.resendOptionsOnTypingComplete ||
@@ -124,11 +134,7 @@ class MessageService {
     this.queueResendOptionSelect();
   }
 
-  openLiveChat(optionId?: string) {
-    if (optionId && !this.selectedResponses.includes(optionId)) {
-      this.selectedResponses.push(optionId);
-    }
-
+  openLiveChat() {
     if (this.liveChatOpen) {
       this.onAIChatOpen(true);
       return;

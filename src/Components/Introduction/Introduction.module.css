@@ -133,7 +133,6 @@
   position: relative;
   z-index: 2;
   margin-top: clamp(-260px, -22vh, -120px);
-  padding-bottom: 8vh;
 }
 
 .messageList {

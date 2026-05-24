@@ -63,32 +63,28 @@
 }
 
 .cancelButton {
-  display: inline-grid;
-  place-items: center;
-  width: 3rem;
-  padding: 0;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
   border: 1px solid color-mix(in srgb, var(--theme-chat-border-soft) 82%, transparent);
   border-radius: 0.45rem;
-  color: var(--theme-text);
+  color: var(--theme-muted-text);
   background: var(--theme-chat-background);
-  cursor: pointer;
   font: inherit;
+  font-weight: 700;
+  letter-spacing: 0;
   transition:
     border-color 180ms ease,
+    background 180ms ease,
     color 180ms ease,
     opacity 180ms ease,
     transform 180ms ease;
-}
-
-.cancelButton svg {
-  width: 1.1rem;
-  height: 1.1rem;
 }
 
 .cancelButton:hover,
 .cancelButton:focus-visible {
   border-color: var(--theme-secondary-bright);
   color: var(--theme-secondary-bright);
+  background: color-mix(in srgb, var(--theme-chat-background) 84%, var(--theme-secondary-bright));
   outline: none;
   transform: translateY(-1px);
 }

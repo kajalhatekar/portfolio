@@ -1,20 +1,18 @@
 import { FormEvent, useEffect, useRef, useState, type FC } from "react";
 
-import { FiX } from "react-icons/fi";
-
 import styles from "./AIChat.module.css";
 
 type Props = {
   initialQuestion?: string;
   loading: boolean;
-  onCancelEdit?: () => void;
+  onCancel: () => void;
   onSubmit: (question: string) => void;
 };
 
 export const AIChatInlineForm: FC<Props> = ({
   initialQuestion,
   loading,
-  onCancelEdit,
+  onCancel,
   onSubmit,
 }) => {
   const [draft, setDraft] = useState(initialQuestion || "");
@@ -40,12 +38,11 @@ export const AIChatInlineForm: FC<Props> = ({
 
     onSubmit(question);
     setDraft("");
-    onCancelEdit?.();
   };
 
-  const cancelEdit = () => {
+  const cancelQuestion = () => {
     setDraft("");
-    onCancelEdit?.();
+    onCancel();
   };
 
   return (
@@ -61,24 +58,20 @@ export const AIChatInlineForm: FC<Props> = ({
         value={draft}
       />
       <button
+        className={styles.cancelButton}
+        disabled={loading}
+        onClick={cancelQuestion}
+        type="button"
+      >
+        Cancel
+      </button>
+      <button
         className={styles.sendButton}
         disabled={loading || !draft.trim()}
         type="submit"
       >
         Send
       </button>
-      {isEditing && (
-        <button
-          aria-label="Cancel edit"
-          className={styles.cancelButton}
-          disabled={loading}
-          onClick={cancelEdit}
-          title="Cancel edit"
-          type="button"
-        >
-          <FiX aria-hidden="true" />
-        </button>
-      )}
     </form>
   );
 };

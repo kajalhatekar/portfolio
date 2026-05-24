@@ -160,7 +160,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Contact and links: Contact form powered by EmailJS. Navbar links include email/contact section, resume PDF at /resume/kajal-resume.pdf, LinkedIn at https://www.linkedin.com/in/kajal-raj, and GitHub at https://github.com/kaaju-11.",
+      "Contact and links: Contact form powered by EmailJS. Navbar links include email/contact section, resume PDF at /resume/resume.pdf, LinkedIn at https://www.linkedin.com/in/kajal-raj, and GitHub at https://github.com/kaaju-11.",
     id: "contact",
     keywords: ["contact", "email", "github", "linkedin", "resume", "social"],
     title: "Contact and Links",

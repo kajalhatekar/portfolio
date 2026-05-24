@@ -1,0 +1,170 @@
+.card {
+  --testimonial-accent: var(--theme-secondary-bright);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid var(--theme-testimonial-card-border);
+  border-radius: 15px 15px 25px 25px;
+  color: var(--theme-testimonial-card-text);
+  background: var(--theme-testimonial-card-background);
+}
+
+.quote {
+  z-index: 1;
+  margin: 0;
+  padding: 32px;
+  font-size: clamp(16px, 1vw, 20px);
+  line-height: 1.55;
+  transition: opacity 0.24s ease;
+}
+
+.quote p {
+  margin: 0;
+}
+
+.quote p + p {
+  margin-top: 1.2em;
+}
+
+.quote strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.quote em {
+  color: inherit;
+  font-style: italic;
+}
+
+.author {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-color: var(--theme-secondary-bright);
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-color: var(--theme-primary-dark);
+  border-radius: 25px;
+  overflow: hidden;
+  transition: opacity 0.24s ease;
+}
+
+.author::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: calc(0.08 * (1 - var(--theme-is-contrast, 0)));
+  background: var(--theme-primary-bright);
+}
+
+.authorPicture {
+  z-index: 1;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 10px 5px 5px;
+  border: 2px solid color-mix(in srgb, var(--testimonial-accent) 78%, #ffffff);
+  border-radius: 50%;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 34% 24%, rgb(255 255 255 / 34%), transparent 30%),
+    linear-gradient(135deg, var(--testimonial-accent), var(--theme-primary-dark));
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.authorTitle {
+  z-index: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.24s ease;
+}
+
+.authorName {
+  overflow: hidden;
+  margin-right: 0.5em;
+  color: #ffffff;
+  font-size: clamp(16px, 1.05vw, 20px);
+  font-weight: 800;
+  line-height: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.authorRole {
+  color: color-mix(in srgb, var(--theme-testimonial-card-text) 82%, transparent);
+  font-size: clamp(12px, 0.82vw, 16px);
+  font-style: italic;
+  line-height: 1em;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.card[data-active="false"] .quote {
+  opacity: 0;
+}
+
+.card[data-stack="next"] .author,
+.card[data-stack="previous"] .author {
+  opacity: 0.9;
+}
+
+.card[data-stack="next"] .authorTitle,
+.card[data-stack="previous"] .authorTitle {
+  opacity: 0.86;
+}
+
+.card[data-stack="next"] .authorPicture,
+.card[data-stack="previous"] .authorPicture {
+  opacity: 0.96;
+}
+
+.card[data-stack="nextFar"] .author,
+.card[data-stack="previousFar"] .author {
+  opacity: 0.68;
+}
+
+.card[data-stack="nextFar"] .authorTitle,
+.card[data-stack="previousFar"] .authorTitle {
+  opacity: 0.62;
+}
+
+.card[data-stack="nextFar"] .authorPicture,
+.card[data-stack="previousFar"] .authorPicture {
+  opacity: 0.82;
+}
+
+.card[data-stack="hidden"] .author,
+.card[data-stack="hidden"] .authorTitle,
+.card[data-stack="hidden"] .authorPicture {
+  opacity: 0;
+}
+
+@media screen and (width <= 42rem) {
+  .card {
+    min-height: 280px;
+  }
+
+  .quote {
+    font-size: 0.95rem;
+  }
+}
