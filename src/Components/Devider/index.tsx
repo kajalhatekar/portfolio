@@ -21,7 +21,7 @@ export const TestimonialDivider: FC<Props> = ({ position }) => {
 
   if (position === 'top') {
     return (
-      <>
+      <div className={styles.dividerTop} ref={ref}>
         <svg
           aria-hidden
           className={classNames(
@@ -32,11 +32,10 @@ export const TestimonialDivider: FC<Props> = ({ position }) => {
             },
           )}
           preserveAspectRatio="xMinYMax slice"
-          ref={ref}
           viewBox={TOP_VIEWBOX}
         >
           <path
-            d="M-30.7 201.426C-24.514 203.225-6.801 208.333-6.3 208.5C21.6 220.5 49.8 231.8 77.2 244.7C115 262.4 154.5 270.7 196.1 269.8C227.3 269.1 258.1 264.2 289 259.7C313.1 256.2 337.3 253 361.7 254.2C379.91 255.09 397.464 258.601 413.94 266.003L413.94 343.161L-30.7 343.829L-30.7 201.426"
+            d="M -30.7 201.426 C -24.514 203.225 -6.801 208.333 -6.3 208.5 C 21.6 220.5 49.8 231.8 77.2 244.7 C 115 262.4 154.5 270.7 196.1 269.8 C 227.3 269.1 258.1 264.2 289 259.7 C 313.1 256.2 337.3 253 361.7 254.2 C 379.91 255.09 397.464 258.601 413.94 266.003 L 413.94 343.161 L -30.7 343.829 L -30.7 201.426 Z"
             stroke="none"
           />
           <path d={TOP_STROKE_PATH} fill="none" />
@@ -53,9 +52,9 @@ export const TestimonialDivider: FC<Props> = ({ position }) => {
           preserveAspectRatio="xMinYMax slice"
           viewBox={TOP_VIEWBOX}
         >
-          {/* <path d={TOP_STROKE_PATH} /> */}
+          <path d={TOP_STROKE_PATH} />
         </svg>
-      </>
+      </div>
     );
   }
 

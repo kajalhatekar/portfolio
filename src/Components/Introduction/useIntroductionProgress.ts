@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useRef, type RefObject } from "react";
 
-import { useInView } from "react-intersection-observer";
-
 type Return = {
   scrollRef: RefObject<HTMLDivElement>;
-  setIntroductionRefs: (node: HTMLDivElement) => void;
+  setIntroductionRefs: (node: HTMLDivElement | null) => void;
 };
 
 const clamp = (value: number, min = 0, max = 1) =>
@@ -16,19 +14,13 @@ export const useIntroductionProgress = (): Return => {
   const animationFrameRef = useRef<number | null>(null);
   const currentProgressRef = useRef(0);
   const targetProgressRef = useRef(0);
-  const [introductionInViewRef, introductionInView] = useInView();
 
-  const setIntroductionRefs = useCallback(
-    (node: HTMLDivElement) => {
-      introductionRef.current = node;
-      introductionInViewRef(node);
-    },
-    [introductionInViewRef],
-  );
+  const setIntroductionRefs = useCallback((node: HTMLDivElement | null) => {
+    introductionRef.current = node;
+    node?.style.setProperty("--scroll", `${currentProgressRef.current}`);
+  }, []);
 
   useEffect(() => {
-    if (!introductionInView) return;
-
     const setProgress = (progress: number) => {
       introductionRef.current?.style.setProperty("--scroll", `${progress}`);
     };
@@ -81,9 +73,10 @@ export const useIntroductionProgress = (): Return => {
 
       if (animationFrameRef.current !== null) {
         window.cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
       }
     };
-  }, [introductionInView]);
+  }, []);
 
   return { scrollRef, setIntroductionRefs };
 };

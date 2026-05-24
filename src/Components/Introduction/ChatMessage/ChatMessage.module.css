@@ -59,6 +59,14 @@
   animation: portraitArcFill 620ms 520ms ease-out both;
 }
 
+.messageBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: min(58ch, calc(100vw - 240px));
+}
+
 .bubble {
   position: relative;
   width: fit-content;
@@ -119,6 +127,67 @@
   font-weight: 700;
 }
 
+.messageBody .bubble {
+  max-width: 100%;
+}
+
+.messageActions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-self: flex-end;
+  gap: 0.35rem;
+  justify-content: flex-end;
+  height: 1.9rem;
+  margin-top: 0.4rem;
+  opacity: 0%;
+  pointer-events: none;
+  transform: translateY(-0.25rem);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease,
+    visibility 160ms ease;
+  visibility: hidden;
+}
+
+.actionButton {
+  display: inline-grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: color-mix(in srgb, var(--theme-text) 90%, transparent);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.actionButton svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.actionButton:hover,
+.actionButton:focus-visible {
+  color: var(--theme-secondary-bright);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.container:hover .messageActionsReady,
+.container:focus-within .messageActionsReady {
+  opacity: 100%;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+
 .outgoing.fadeIn {
   animation: fadeInLeft 1s;
 }
@@ -129,6 +198,10 @@
 
 .outgoing .picture {
   display: none;
+}
+
+.outgoing .messageBody {
+  align-items: flex-end;
 }
 
 .outgoing .bubble {
@@ -153,6 +226,10 @@
   border-top-left-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
   border-bottom-left-radius: 0.4em;
+}
+
+.outgoing .messageActions {
+  justify-content: flex-end;
 }
 
 .visuallyHidden {
@@ -219,5 +296,18 @@
   .bubble {
     max-width: calc(100vw - 88px);
     font-size: 0.8em;
+  }
+
+  .messageBody {
+    max-width: calc(100vw - 88px);
+  }
+}
+
+@media (hover: none) {
+  .messageActionsReady {
+    opacity: 100%;
+    pointer-events: auto;
+    transform: none;
+    visibility: visible;
   }
 }

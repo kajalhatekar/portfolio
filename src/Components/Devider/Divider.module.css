@@ -1,42 +1,63 @@
+.dividerTop {
+  --divider-top-offset: clamp(00px, 1vw, 80px);
+
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: var(--divider-top-offset);
+  background: var(--theme-background);
+  line-height: 0;
+}
+
 .dividerStroke {
   stroke-dasharray: 456px;
   stroke-dashoffset: 456px;
   stroke-linecap: round;
-  stroke-width: 1.5px;
+  stroke-width: 15px;
 }
 
 .divider {
   z-index: 1;
 
   display: block;
+  width: 100%;
+  height: auto;
 
-  filter: drop-shadow(0 35px 0 #c332bc);
+  filter: drop-shadow(0 35px 0 var(--theme-primary-bright));
 
-  fill: #1a1a1a00;
-  stroke: #8417ac;
+  fill: var(--theme-testimonial-background);
+  stroke: var(--theme-primary-dark);
 }
 
 .dividerGlow {
   position: absolute;
   z-index: 2;
-  top: 0;
+  top: var(--divider-top-offset);
+  left: 0;
 
+  width: 100%;
+  height: auto;
   fill: none;
-  stroke: #8417ac;
+  pointer-events: none;
+  stroke: var(--theme-primary-dark);
 }
 
 .dividerGlow > path {
-  filter: drop-shadow(10px 10px 20px #ea47ff);
+  filter: drop-shadow(10px 10px 20px var(--theme-accent-color));
 }
 
 .dividerBottom {
-  transform: translateY(-5%);
-  fill: #1e072800;
-  stroke: #b10fc7;
+  transform: translateY(10%);
+
+  width: 100%;
+  height: clamp(100px, 12vw, 220px);
+
+  fill: var(--theme-testimonial-background);
+  stroke: var(--theme-secondary-bright);
   stroke-dasharray: 1300px;
   stroke-dashoffset: 1300px;
   stroke-linecap: round;
-  stroke-width: 8px;
+  stroke-width: 10px;
 }
 
 .animate {
@@ -47,7 +68,7 @@
 
 .animate.divider,
 .animate.dividerGlow {
-  transition-delay: 0;
+  transition-delay: 0s;
   transition-duration: 1.5s;
 }
 
@@ -57,15 +78,20 @@
 
 @media screen and (width <= 42rem) {
   .dividerStroke {
-    stroke-width: 3px;
+    stroke-width: 35px;
+  }
+
+  .dividerTop {
+    --divider-top-offset: 64px;
   }
 
   .dividerGlow > path {
-    filter: drop-shadow(10px 10px 16px #7f00ff);
+    filter: drop-shadow(10px 10px 16px var(--theme-accent-color));
   }
 
   .dividerBottom {
-    stroke-width: 20px;
+    height: 110px;
     transform: translateY(20%);
+    stroke-width: 50px;
   }
 }

@@ -3,7 +3,6 @@ import { Drawer } from "@mui/material";
 import {
   BackToTopButton,
   ControlCluster,
-  Listitems,
   LogoWrapper,
   MobileMenuIconWrapper,
   MobileRightSection,
@@ -23,11 +22,10 @@ import {
   ThemeSwatchButton,
   ThemeSwatchLabel,
   ThemeSwatchOption,
-  Unorderli,
 } from "style/Navbar";
 import { FaArrowUp } from "react-icons/fa"; // Add an icon for the scroll-up button
 import { BsMoonStars, BsPalette, BsStars, BsSun } from "react-icons/bs";
-import { FiCheck, FiFileText, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiCheck, FiFileText, FiGithub, FiLinkedin } from "react-icons/fi";
 import MobileNav from "./MobileNav";
 import CloseNavMenu from "assets/svg/CloseNavMenu";
 import KajalLogo from "assets/svg/KajalLogo";
@@ -41,20 +39,22 @@ import {
 } from "store/themeSlice";
 import type { ThemeName } from "store/themeSlice";
 
-const navLinks = [
-  { id: "home", label: "Home", href: "#home" },
-  { id: "skills", label: "Skills", href: "#skills" },
-  { id: "education", label: "Education", href: "#education" },
-  { id: "experience", label: "Experience", href: "#experience" },
-  { id: "project", label: "Projects", href: "#project" },
-  { id: "contact", label: "Contact", href: "#contact" },
-];
+const EmailIcon = () => (
+  <svg aria-hidden="true" viewBox="0 0 24 24">
+    <path
+      data-icon-fill="true"
+      d="M3.75 6.25 L12 12.35 L20.25 6.25 Z"
+    />
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <polyline points="4 7 12 13 20 7" />
+  </svg>
+);
 
 const socialLinks = [
-  { label: "Email", href: "#contact", icon: <FiMail /> },
+  { label: "Email", href: "#contact", icon: <EmailIcon /> },
   {
     label: "Resume",
-    href: `${process.env.PUBLIC_URL}/resume/kajal-resume.pdf`,
+    href: `${process.env.PUBLIC_URL}/resume/resume.pdf`,
     icon: <FiFileText />,
   },
   {
@@ -79,9 +79,7 @@ const NavbarComponent: React.FC = () => {
   const [isSticky, setSticky] = useState(false);
   const [isLogoDocked, setLogoDocked] = useState(false);
   const [isLogoReturning, setLogoReturning] = useState(false);
-  const [showNavLinks, setShowNavLinks] = useState(false);
   const [scrollUpBtnVisible, setScrollUpBtnVisible] = useState(false);
-  const [activeLink, setActiveLink] = useState<string>("home");
   const [showMenu, setShowMenu] = useState(false);
   const [isThemePickerOpen, setThemePickerOpen] = useState(false);
   const [hasNavbarIconIntroPlayed, setNavbarIconIntroPlayed] = useState(false);
@@ -150,14 +148,9 @@ const NavbarComponent: React.FC = () => {
     const logoReturnPoint = window.innerHeight * 0.58;
     const isScrollingUp = scrollY < previousScrollY.current - 1;
     const isScrollingDown = scrollY > previousScrollY.current + 1;
-    const skillsSection = document.getElementById("skills");
-    const navLinksRevealPoint = skillsSection
-      ? skillsSection.offsetTop - window.innerHeight * 0.16
-      : window.innerHeight * 2.2;
 
     setSticky(scrollY > navRevealPoint);
     setLogoDocked(scrollY >= logoDockPoint);
-    setShowNavLinks(scrollY >= navLinksRevealPoint);
     if (isScrollingUp && scrollY > 8 && scrollY < logoReturnPoint) {
       setLogoReturning(true);
     }
@@ -167,16 +160,6 @@ const NavbarComponent: React.FC = () => {
     }
 
     setScrollUpBtnVisible(scrollY > 500);
-
-    let currentSection = "home";
-    navLinks.forEach((link) => {
-      const section = document.getElementById(link.id);
-      if (section && section.offsetTop - 180 <= scrollY) {
-        currentSection = link.id;
-      }
-    });
-
-    setActiveLink(currentSection);
     previousScrollY.current = scrollY;
   };
 
@@ -191,10 +174,6 @@ const NavbarComponent: React.FC = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleLinkClick = (link: string) => {
-    setActiveLink(link);
   };
 
   const handleThemeSelect = (selectedThemeName: ThemeName) => {
@@ -213,7 +192,7 @@ const NavbarComponent: React.FC = () => {
           isLogoDocked ? "logo-docked" : ""
         } ${isLogoReturning ? "logo-returning" : ""} ${
           hasNavbarIconIntroPlayed ? "icons-ready" : ""
-        } ${showNavLinks ? "nav-links-visible" : ""}`}
+        }`}
       >
         <div className="max-width">
           <LogoWrapper>
@@ -320,24 +299,13 @@ const NavbarComponent: React.FC = () => {
             </ControlCluster>
           </LogoWrapper>
 
-          <Unorderli aria-label="Primary navigation">
-            {navLinks.map((link) => (
-              <Listitems
-                key={link.id}
-                isActive={activeLink === link.id}
-                onClick={() => handleLinkClick(link.id)}
-              >
-                <a href={link.href}>{link.label}</a>
-              </Listitems>
-            ))}
-          </Unorderli>
-
           <SocialCluster aria-label="Social links">
             {socialLinks.map((link) => (
               <SocialIconLink
                 key={link.label}
                 href={link.href}
                 aria-label={link.label}
+                data-social={link.label.toLowerCase()}
                 target={
                   link.href.startsWith("http") || link.href.endsWith(".pdf")
                     ? "_blank"

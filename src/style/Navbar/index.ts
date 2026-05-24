@@ -25,6 +25,7 @@ const drawIconAnimation = keyframes`
   0% {
     stroke-dasharray: 200;
     stroke-dashoffset: 200;
+    fill: transparent;
     fill-opacity: 0;
     stroke: currentColor;
     stroke-width: var(--icon-draw-stroke, 1.4px);
@@ -32,6 +33,7 @@ const drawIconAnimation = keyframes`
 
   70% {
     stroke-dashoffset: 0;
+    fill: transparent;
     fill-opacity: 0;
     stroke: currentColor;
     stroke-width: var(--icon-draw-stroke, 1.4px);
@@ -39,9 +41,20 @@ const drawIconAnimation = keyframes`
 
   100% {
     stroke-dashoffset: 0;
+    fill: var(--icon-draw-fill-color, transparent);
     fill-opacity: 1;
     stroke: currentColor;
     stroke-width: var(--icon-final-stroke, 1.4px);
+  }
+`;
+
+const iconFillReveal = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--icon-fill-opacity, 1);
   }
 `;
 
@@ -197,14 +210,16 @@ export const ControlCluster = styled.div`
   align-items: center;
   gap: clamp(22px, 2.2vw, 34px);
   --icon-draw-stroke: 0.8px;
+  --icon-draw-duration: 1.75s;
   --icon-final-stroke: 0px;
+  --icon-draw-fill-color: currentColor;
 
   > button:first-child {
-    --icon-draw-delay: 1.25s;
+    --icon-draw-delay: 1.45s;
   }
 
   > div button {
-    --icon-draw-delay: 1.52s;
+    --icon-draw-delay: 1.8s;
   }
 `;
 
@@ -218,31 +233,42 @@ const drawnIconBase = css`
   color: var(--theme-text, #ffffff);
   text-decoration: none;
   transition:
-    color 0.22s ease,
-    transform 0.22s ease,
-    filter 0.22s ease;
+    color 0.14s ease,
+    transform 0.14s cubic-bezier(0.2, 0, 0.2, 1),
+    filter 0.14s ease;
 
   svg {
     width: 30px;
     height: 30px;
     filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.08));
 
-    path,
-    circle,
-    rect,
-    line,
-    polyline,
-    polygon {
+    path:not([data-icon-fill]),
+    circle:not([data-icon-fill]),
+    rect:not([data-icon-fill]),
+    line:not([data-icon-fill]),
+    polyline:not([data-icon-fill]),
+    polygon:not([data-icon-fill]) {
       stroke: currentColor;
       stroke-width: var(--icon-draw-stroke, 1.4px);
       stroke-linecap: round;
       stroke-linejoin: round;
       vector-effect: non-scaling-stroke;
+      fill: var(--icon-draw-fill-color, transparent);
       animation: var(
         --icon-draw-animation,
-        ${drawIconAnimation} 1.9s ease-in-out both
+        ${drawIconAnimation} var(--icon-draw-duration, 1.25s) ease-in-out both
       );
       animation-delay: var(--icon-draw-delay, 1.25s);
+    }
+
+    [data-icon-fill] {
+      fill: var(--icon-part-fill-color, transparent);
+      stroke: none;
+      opacity: 0;
+      animation: ${iconFillReveal} 180ms ease both;
+      animation-delay: calc(
+        var(--icon-draw-delay, 1.25s) + var(--icon-draw-duration, 1.25s)
+      );
     }
   }
 
@@ -266,8 +292,15 @@ const drawnIconBase = css`
       polyline,
       polygon {
         animation: none;
+        fill: var(--icon-draw-fill-color, transparent);
         stroke-dashoffset: 0;
         fill-opacity: 1;
+      }
+
+      [data-icon-fill] {
+        fill: var(--icon-part-fill-color, transparent);
+        opacity: var(--icon-fill-opacity, 1);
+        stroke: none;
       }
     }
   }
@@ -285,7 +318,7 @@ export const ThemePickerWrapper = styled.div`
 
 export const ThemeControlButton = styled.button`
   ${drawnIconBase}
-  --mode-icon-draw-duration: 1.15s;
+  --mode-icon-draw-duration: 1.75s;
   padding: 0;
   border: none;
   background: transparent;
@@ -303,6 +336,7 @@ export const ThemeControlButton = styled.button`
     polygon {
       stroke: currentColor;
       stroke-width: var(--icon-draw-stroke, 0.8px);
+      fill: var(--icon-draw-fill-color, transparent);
       animation: ${drawIconAnimation} var(--mode-icon-draw-duration, 1.15s)
         ease-in-out both;
       animation-delay: var(--icon-draw-delay, 1.25s);
@@ -591,23 +625,24 @@ export const SocialCluster = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: clamp(20px, 2vw, 30px);
+  gap: clamp(12px, 1.25vw, 18px);
   margin-left: auto;
+  --icon-draw-duration: 1.75s;
 
   > a:nth-child(4) {
-    --icon-draw-delay: 1.25s;
+    --icon-draw-delay: 1.45s;
   }
 
   > a:nth-child(3) {
-    --icon-draw-delay: 1.52s;
+    --icon-draw-delay: 1.8s;
   }
 
   > a:nth-child(2) {
-    --icon-draw-delay: 1.79s;
+    --icon-draw-delay: 2.15s;
   }
 
   > a:nth-child(1) {
-    --icon-draw-delay: 2.06s;
+    --icon-draw-delay: 2.5s;
   }
 
   @media (max-width: 767px) {
@@ -617,10 +652,56 @@ export const SocialCluster = styled.div`
 
 export const SocialIconLink = styled.a`
   ${drawnIconBase}
+  --icon-final-stroke: 1px;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
 
   svg {
+    width: 30px;
+    height: 30px;
+    overflow: visible;
+  }
+
+  &[data-social="email"] svg {
     width: 31px;
     height: 31px;
+  }
+
+  &[data-social="resume"] {
+    --icon-draw-fill-color: color-mix(in srgb, var(--theme-text, #ffffff) 34%, transparent);
+    --icon-final-stroke: 1.25px;
+  }
+
+  &[data-social="resume"] svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  &[data-social="linkedin"] {
+    --icon-draw-fill-color: color-mix(in srgb, var(--theme-text, #ffffff) 78%, transparent);
+    --icon-final-stroke: 0.35px;
+  }
+
+  &[data-social="linkedin"] svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  &[data-social="github"] {
+    --icon-draw-fill-color: color-mix(in srgb, var(--theme-text, #ffffff) 46%, var(--theme-background, #0e141b));
+    --icon-final-stroke: 0.9px;
+  }
+
+  &[data-social="github"] svg {
+    width: 29px;
+    height: 29px;
+  }
+
+  &[data-social="email"] {
+    --icon-part-fill-color: color-mix(in srgb, var(--theme-text, #ffffff) 34%, transparent);
+    --icon-fill-opacity: 0.85;
+    --icon-final-stroke: 1.35px;
   }
 `;
 
@@ -690,8 +771,9 @@ export const Navbar = styled.nav`
   min-height: 56px;
   z-index: 1000;
   padding: 0;
+  border: none;
+  outline: none;
   border-radius: 0;
-  border: 1px solid transparent;
   background: transparent;
   backdrop-filter: blur(0);
   transform: translateX(-50%);
@@ -706,48 +788,30 @@ export const Navbar = styled.nav`
     box-shadow 0.24s ease;
 
   &.sticky {
-    top: 14px;
-    min-height: 58px;
-    padding: 0 18px;
+    top: 20px;
+    min-height: 80px;
+    padding: 0 clamp(26px, 2.5vw, 44px);
+    border: none;
+    outline: none;
     border-radius: 999px;
-    background: var(--theme-surface, rgba(8, 13, 20, 0.68));
-    backdrop-filter: blur(14px);
-    border-color: var(--theme-shadow, rgba(255, 255, 255, 0.1));
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.26);
+    background: rgba(31, 36, 42, 0.61);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(22px) saturate(125%);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
   }
 
-  &.sticky:not(.nav-links-visible) {
-    top: 9px;
-    width: calc(100% - 4px);
-    min-height: 100px;
-    padding: 0 44px;
-    border-color: transparent;
-    background: color-mix(
-      in srgb,
-      var(--theme-surface, rgba(27, 32, 40, 0.96)) 94%,
-      var(--theme-background, #101720) 6%
-    );
-    box-shadow: none;
-  }
-
-  &.sticky.logo-docked:not(.nav-links-visible) {
-    top: 14px;
+  &.sticky.logo-docked {
+    top: 20px;
     width: calc(100% - 64px);
-    min-height: 58px;
-    padding: 0 18px;
+    min-height: 80px;
+    padding: 0 clamp(26px, 2.5vw, 44px);
+    border: none;
+    outline: none;
     border-radius: 999px;
-    border-color: var(--theme-shadow, rgba(255, 255, 255, 0.1));
-    background: var(--theme-surface, rgba(8, 13, 20, 0.68));
-    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.26);
-  }
-
-  &.sticky.nav-links-visible {
-    ${Unorderli} {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translate(-50%, -50%);
-    }
+    background: rgba(31, 36, 42, 0.84);
+    backdrop-filter: blur(22px) saturate(125%);
+    -webkit-backdrop-filter: blur(22px) saturate(125%);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
   }
 
   &.icons-ready {
@@ -794,7 +858,7 @@ export const Navbar = styled.nav`
     min-height: 60px;
 
     &.sticky {
-      top: 10px;
+      top: 20px;
       padding: 0 12px;
     }
   }
@@ -816,6 +880,7 @@ export const MobileRightSection = styled.div`
 
 export const MobileMenuIconWrapper = styled.button`
   --icon-draw-delay: 1.25s;
+  --icon-final-stroke: 0.85px;
 
   width: 44px;
   height: 44px;
@@ -848,7 +913,7 @@ export const MobileMenuIconWrapper = styled.button`
       stroke-linecap: round;
       stroke-linejoin: round;
       vector-effect: non-scaling-stroke;
-      animation: ${drawIconAnimation} 1.9s ease-in-out both;
+      animation: ${drawIconAnimation} 2.6s ease-in-out both;
       animation-delay: var(--icon-draw-delay, 1.25s);
     }
   }
@@ -873,6 +938,7 @@ export const MobileMenuIconWrapper = styled.button`
       polyline,
       polygon {
         animation: none;
+        fill: var(--icon-fill-color, transparent);
         stroke-dashoffset: 0;
         fill-opacity: 1;
       }
