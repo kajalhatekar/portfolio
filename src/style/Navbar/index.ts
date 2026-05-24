@@ -808,9 +808,9 @@ export const Navbar = styled.nav`
     border: none;
     outline: none;
     border-radius: 999px;
-    background: rgba(31, 36, 42, 0.84);
-    backdrop-filter: blur(22px) saturate(125%);
-    -webkit-backdrop-filter: blur(22px) saturate(125%);
+    background: rgba(31, 36, 42, 0.61);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
   }
 
