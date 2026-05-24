@@ -13,22 +13,6 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     author: {
-      accent: "#9d5cff",
-      initials: "SJ",
-      name: "Sakshi Jha",
-      role: "Frontend Developer",
-    },
-    quote: (
-      <>
-        <p>
-          Working with Kajal has always been smooth. She writes clean and
-          manageable code and handles tasks with good attention to detail.
-        </p>
-      </>
-    ),
-  },
-  {
-    author: {
       accent: "#7ebcff",
       initials: "RJ",
       name: "Ritu Jaiswal",
@@ -43,6 +27,22 @@ export const testimonials: Testimonial[] = [
         <p>
           She checks API responses properly, handles loading and error states,
           and makes sure frontend logic works correctly with backend data.
+        </p>
+      </>
+    ),
+  },
+  {
+    author: {
+      accent: "#9d5cff",
+      initials: "SJ",
+      name: "Sakshi Jha",
+      role: "Frontend Developer",
+    },
+    quote: (
+      <>
+        <p>
+          Working with Kajal has always been smooth. She writes clean and
+          manageable code and handles tasks with good attention to detail.
         </p>
       </>
     ),
@@ -80,6 +80,10 @@ export const testimonials: Testimonial[] = [
           Kajal is proactive when issues are reported and works quickly on fixes
           without affecting existing functionality. She understands bugs
           properly before making changes, which helps avoid repeated issues.
+        </p>
+        <p>
+          She understands bugs properly before making changes, which helps avoid
+          repeated issues.
         </p>
       </>
     ),
