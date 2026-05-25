@@ -2,7 +2,7 @@ import { FC } from "react";
 import emailjs from "emailjs-com";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 import {
   FormWrapper,
   Input,
@@ -43,34 +43,33 @@ const Contact: FC = () => {
 
   const sendEmail = (data: FormValues) => {
     const emailData: Record<string, unknown> = {
-      to_name: "Kajal", 
-      from_name: data.name, // Replace with sender's name (from form data)
-      message: data.message, // Replace with message content (from form data)
+      to_name: "Kajal",
+      from_name: data.name,
+      message: data.message,
     };
+
     emailjs
-    .send(
-      "service_2lsjira", 
-      "template_dy6hw1x", 
-      emailData,
-      "f9NIKz5CVBYF2nzg0" 
-    )
+      .send(
+        "service_2lsjira",
+        "template_dy6hw1x",
+        emailData,
+        "f9NIKz5CVBYF2nzg0",
+      )
       .then(
-        (result) => {
-          console.log(result.text); 
-          toast.success('Message sent successfully!')
+        () => {
+          toast.success("Message sent successfully!");
         },
-        (error) => {
-          console.log(error.text); 
+        () => {
           toast.error("Failed to send message, please try again.");
-        }
+        },
       );
   };
+
   const onSubmit = (data: FormValues) => {
-    console.log(data);
     sendEmail(data);
     reset();
   };
-  console.log(errors, "Form Data");
+
   return (
     <Container id="contact">
       <Heading>Contact</Heading>

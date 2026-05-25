@@ -26,6 +26,7 @@ import Img2 from "assets/images/blog-project.png";
 import Img3 from "assets/images/food-delivery.png";
 import Img4 from "assets/images/basic-mining.png";
 import Img5 from "assets/images/plan-it.png";
+import { VisuallyHidden } from "Components/VisuallyHidden/VisuallyHidden";
 import { useInView } from 'react-intersection-observer';
 import { Fragment, type CSSProperties} from "react";
 import { useState } from "react";
@@ -45,7 +46,6 @@ const Projects = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState<string>("");
 
-  // Explicitly typing the imageSrc parameter as string
   const handleImageClick = (imageSrc: string) => {
     setCurrentImage(imageSrc);
     setModalOpen(true);
@@ -55,24 +55,6 @@ const Projects = () => {
     setModalOpen(false);
     setCurrentImage("");
   };
-
-  const VisuallyHidden = ({ children }: any) => (
-    <div
-      style={{
-        position: "absolute",
-        width: "1px",
-        height: "1px",
-        padding: "0",
-        margin: "-1px",
-        overflow: "hidden",
-        clip: "rect(0, 0, 0, 0)",
-        whiteSpace: "nowrap",
-        border: "0",
-      }}
-    >
-      {children}
-    </div>
-  );
 
   const title = "personal projects";
 
