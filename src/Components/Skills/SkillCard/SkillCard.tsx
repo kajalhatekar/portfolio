@@ -9,6 +9,7 @@ import { ChevronTripleDownIcon } from 'assets/svg/ChevronTripleDownIcon';
 import { ChevronTripleUpIcon } from 'assets/svg/ChevronTripleUpIcon';
 import { ChevronUpIcon } from 'assets/svg/ChevronUpIcon';
 import { OpenBookIcon } from 'assets/svg/OpenBookIcon';
+import { VisuallyHidden } from "Components/VisuallyHidden/VisuallyHidden";
 
 import styles from "./SkillCard.module.css";
 
@@ -66,7 +67,6 @@ export const SkillCard: FC<Props> = ({
   usageLevel,
   yearsExperience,
 }) => {
-
   const { inView, ref } = useInView({
     threshold: 0,
     triggerOnce: true,
@@ -74,23 +74,7 @@ export const SkillCard: FC<Props> = ({
 
   const { Icon, description: usageDescription } = USAGE[usageLevel];
 
-  const  isContrastMode = true
-
-  const VisuallyHidden = ({ children }: any) => (
-    <div style={{
-      position: 'absolute',
-      width: '1px',
-      height: '1px',
-      padding: '0',
-      margin: '-1px',
-      overflow: 'hidden',
-      clip: 'rect(0, 0, 0, 0)',
-      whiteSpace: 'nowrap',
-      border: '0',
-    }}>
-      {children}
-    </div>
-  );
+  const isContrastMode = true;
 
   return (
     <div
@@ -102,18 +86,14 @@ export const SkillCard: FC<Props> = ({
       ref={ref}
       style={{
         backgroundImage: `linear-gradient(#160e1b, #0e141b), radial-gradient(circle at top, ${backgroundColor}, transparent 90%)`,
-        // borderColor: isContrastMode ? backgroundColor : '',
         boxShadow: `${backgroundColor}${
             isContrastMode ? 20 : 40
         } 0 5px 50px`,
-        // border: `2px solid ${backgroundColor}`
       }}
     >
       <div className={styles.blurContainer}>
         <div
-          className={classNames(styles.blur, {
-            // [styles.light]: colorScheme === 'light',
-          })}
+          className={styles.blur}
           style={{
             background: "#5b2c89",
           }}
@@ -174,12 +154,6 @@ export const SkillCard: FC<Props> = ({
           </span>
         </span>
       </Dialog.Trigger>
-      {/* <Dialog.Portal>
-        <Dialog.Overlay className={styles.dialogOverlay} />
-        <Dialog.Content className={styles.dialogContent}>
-          <Dialog.Close>Close</Dialog.Close>
-        </Dialog.Content>
-      </Dialog.Portal> */}
     </Dialog.Root>
       </div>
     </div>

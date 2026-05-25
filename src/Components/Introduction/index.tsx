@@ -2,11 +2,12 @@ import {
   useCallback,
   useRef,
   useState,
-  type ReactNode,
   type UIEvent,
 } from "react";
 
 import classNames from "classnames";
+
+import { VisuallyHidden } from "Components/VisuallyHidden/VisuallyHidden";
 
 import { AIChatInlineForm } from "./AIChat/AIChatInlineForm";
 import { AnimatedChatMessage } from "./ChatMessage/AnimatedChatMessage/AnimatedChatMessage";
@@ -16,10 +17,6 @@ import { useMessages } from "./ChatMessage/useMessages";
 import { useIntroductionProgress } from "./useIntroductionProgress";
 
 import styles from "./Introduction.module.css";
-
-const VisuallyHidden = ({ children }: { children: ReactNode }) => (
-  <div className={styles.visuallyHidden}>{children}</div>
-);
 
 type EditingQuestion = {
   content: string;
@@ -129,7 +126,7 @@ const Introduction = () => {
 
   return (
     <section className={styles.section} id="introduction">
-      <VisuallyHidden>
+      <VisuallyHidden as="div">
         <h2>About Kajal Raj</h2>
       </VisuallyHidden>
 
