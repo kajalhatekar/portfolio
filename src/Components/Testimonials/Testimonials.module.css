@@ -63,6 +63,22 @@
   margin-top: clamp(76px, 7vw, 112px);
 }
 
+@keyframes navigationArrowDraw {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 96;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
 .cardStage {
   position: relative;
   width: 600px;
@@ -141,26 +157,41 @@
   color: #ffffff;
   font-size: 3.5em;
   background: none;
+  opacity: 0;
   transform: translateY(-50%);
   transition:
+    opacity 0.18s ease,
     filter 0.22s ease,
     transform 0.22s ease;
+}
+
+.carouselVisible .navigationButton {
+  opacity: 1;
 }
 
 .navigationButton svg {
   width: 1em;
   height: 1em;
   stroke-width: 2.4px;
+  overflow: visible;
 }
 
 .navigationButton svg > * {
-  stroke-dasharray: 90;
-  stroke-dashoffset: 90;
-  transition: stroke-dashoffset 1.15s cubic-bezier(0.65, 0.18, 0.21, 0.65);
+  opacity: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-dasharray: 96;
+  stroke-dashoffset: 96;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .carouselVisible .navigationButton svg > * {
-  stroke-dashoffset: 0;
+  animation: navigationArrowDraw 1.15s cubic-bezier(0.65, 0.18, 0.21, 0.65) both;
+}
+
+.carouselVisible .nextButton svg > * {
+  animation-delay: 0.08s;
 }
 
 .navigationButton:hover,
@@ -233,12 +264,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cardShell,
-  .navigationButton,
-  .navigationButton svg > * {
+  .navigationButton {
     transition: none;
   }
 
+  .navigationButton {
+    opacity: 1;
+  }
+
   .navigationButton svg > * {
+    opacity: 1;
+    animation: none;
     stroke-dashoffset: 0;
   }
 }

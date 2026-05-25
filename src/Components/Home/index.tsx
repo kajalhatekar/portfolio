@@ -36,14 +36,15 @@ const clamp = (value: number, min = 0, max = 1) =>
 
 const easeInOut = (value: number) => value * value * (3 - 2 * value);
 const HERO_LOGO_START_RATIO = 0.1;
-const HERO_LOGO_END_RATIO = 0.72;
+const HERO_LOGO_END_RATIO = 0.62;
 const HERO_NAME_HOLD_PROGRESS = 0.18;
 const HERO_NAME_FADE_END_PROGRESS = 0.32;
 const HERO_LOGO_APPEAR_PROGRESS = 0.31;
 const HERO_LOGO_FORM_PROGRESS = 0.4;
-const HERO_LOGO_TAKEOFF_PROGRESS = 0.46;
+const HERO_LOGO_TAKEOFF_PROGRESS = 0.4;
 const HERO_LOGO_WIDTH = 54;
 const HERO_LOGO_HEIGHT = 38;
+const FLYING_LOGO_SETTLE_MS = 880;
 const RETURN_CURSOR_VISIBLE_PROGRESS = 0.14;
 
 const Waves = () => (
@@ -100,6 +101,7 @@ export const WavyBackground = memo(Waves);
 const HomeSec = () => {
   const [typingResetKey, setTypingResetKey] = useState(0);
   const [heroDockProgress, setHeroDockProgress] = useState(0);
+  const [isFlyingLogoSettled, setFlyingLogoSettled] = useState(false);
   const [isReturningHome, setReturningHome] = useState(false);
   const [hasHeroIntroCompleted, setHeroIntroCompleted] = useState(false);
   const [logoOrigin, setLogoOrigin] = useState<{ x: number; y: number } | null>(
@@ -203,6 +205,21 @@ const HomeSec = () => {
     };
   }, [isReturningHome, measureLogoOrigin]);
 
+  useEffect(() => {
+    if (isReturningHome || heroDockProgress < 1) {
+      setFlyingLogoSettled(false);
+      return;
+    }
+
+    const settleTimer = window.setTimeout(() => {
+      setFlyingLogoSettled(true);
+    }, FLYING_LOGO_SETTLE_MS);
+
+    return () => {
+      window.clearTimeout(settleTimer);
+    };
+  }, [heroDockProgress, isReturningHome]);
+
   const nameConvertProgress = easeInOut(
     clamp(
       (heroDockProgress - HERO_NAME_HOLD_PROGRESS) /
@@ -224,18 +241,13 @@ const HomeSec = () => {
   const logoOpacity =
     isReturningHome || heroDockProgress <= HERO_LOGO_APPEAR_PROGRESS
       ? 0
-      : heroDockProgress >= 0.98
-        ? clamp((1 - heroDockProgress) / 0.02)
-        : logoFormProgress;
+      : logoFormProgress;
   const logoStartX = logoOrigin?.x ?? 0;
   const logoStartY = logoOrigin?.y ?? 0;
-  const logoEndX = 50;
-  const logoEndY = 27;
+  const logoEndX = 76;
+  const logoEndY = 41;
   const logoX = logoStartX + (logoEndX - logoStartX) * logoFlyProgress;
-  const logoY =
-    heroDockProgress <= HERO_LOGO_TAKEOFF_PROGRESS
-      ? logoStartY
-      : logoStartY + (logoEndY - logoStartY) * logoFlyProgress;
+  const logoY = logoStartY + (logoEndY - logoStartY) * logoFlyProgress;
   const logoScale = 2.65 + (1 - 2.65) * logoFlyProgress;
   const returnCursorProgress = easeInOut(1 - heroDockProgress);
   const returnCursorX =
@@ -258,7 +270,11 @@ const HomeSec = () => {
   } as CSSProperties;
   const flyingLogoStyle = {
     "--logo-opacity": String(
-      isReturningHome ? returnCursorOpacity : logoOpacity,
+      isReturningHome
+        ? returnCursorOpacity
+        : isFlyingLogoSettled
+          ? 0
+          : logoOpacity,
     ),
     "--logo-scale": String(isReturningHome ? returnCursorScale : logoScale),
     "--logo-x": `${isReturningHome ? returnCursorX : logoX}px`,
@@ -327,7 +343,9 @@ const HomeSec = () => {
           ((isReturningHome &&
             heroDockProgress > 0 &&
             returnCursorOpacity > 0.02) ||
-            (heroDockProgress > 0 && heroDockProgress < 0.98))
+            (heroDockProgress > 0 &&
+              heroDockProgress <= 1 &&
+              !isFlyingLogoSettled))
         }
         data-returning={isReturningHome}
         style={flyingLogoStyle}

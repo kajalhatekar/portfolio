@@ -90,8 +90,8 @@ const blinkCursor = keyframes`
 
 export const MainContainer = styled.section`
   width: 100%;
-  min-height: 106vh;
-  min-height: 106svh;
+  min-height: 178vh;
+  min-height: 178svh;
   display: grid;
   place-items: center;
   position: relative;
@@ -222,7 +222,7 @@ export const FlyingHeroLogo = styled.span`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1600;
+  z-index: 1200;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -241,8 +241,8 @@ export const FlyingHeroLogo = styled.span`
   transform-origin: center;
   will-change: opacity, transform;
   transition:
-    opacity 0.12s linear,
-    transform 0.12s linear;
+    opacity 0.16s ease,
+    transform 0.82s cubic-bezier(0.16, 1, 0.3, 1);
 
   svg {
     display: block;

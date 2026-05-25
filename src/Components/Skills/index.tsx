@@ -1,73 +1,38 @@
-// import {
-//   Container,
-//   FlexContainer,
-//   Heading,
-//   WrapperContainer,
-//   SkilName,
-//   ToolsItem,
-// } from "style/Skill";
-// import { skillData } from "./data";
+import { useInView } from "react-intersection-observer";
+import { SkillCard } from "./SkillCard/SkillCard";
+import { SkillVectors } from "./SkillVectors/SkillVectors";
+import { getColors, skills } from "./skills.const";
 
-// const SkillsSec = () => {
-//   const key = new Date().getTime();
-//   return (
-//     <WrapperContainer id="skills">
-//       <Container>
-//         <Heading key={key}>Professional Skills</Heading>
-//         <FlexContainer>
-//           {skillData.map(({ id, name, Icon }) => (
-//             <SkilName key={id}>
-//               <ToolsItem>
-//                 <Icon />
-//               </ToolsItem>
-//               <h3>{name}</h3>
-//             </SkilName>
-//           ))}
-//         </FlexContainer>
-//       </Container>
-//     </WrapperContainer>
-//   );
-// };
+import styles from "./Skills.module.css";
 
-// export default SkillsSec;
-
-
-import { useInView } from 'react-intersection-observer';
-import { SkillCard } from './SkillCard/SkillCard';
-import { SkillVectors } from './SkillVectors/SkillVectors';
-import { getColors, skills } from './skills.const';
-
-import styles from './Skills.module.css';
-
-const HEADER = 'skills';
+const HEADER = "skills";
 
 const SkillsSec = () => {
-
   const { entry, ref } = useInView({
-    rootMargin: '100% 0% -25% 0%',
-    threshold: Array.from(`${HEADER} `).map(
-      (_, i) => i / HEADER.length,
-    ),
+    rootMargin: "100% 0% -25% 0%",
+    threshold: Array.from(`${HEADER} `).map((_, i) => i / HEADER.length),
   });
 
   const currentCharacterIndex = Math.round(
     HEADER.length * (entry?.intersectionRatio || 0),
   );
 
-  const isContrastMode = true
+  const isContrastMode = true;
 
-const VisuallyHidden = ({ children }: any) => (
-    <div style={{
-      position: 'absolute',
-      width: '1px',
-      height: '1px',
-      padding: '0',
-      margin: '-1px',
-      overflow: 'hidden',
-      clip: 'rect(0, 0, 0, 0)',
-      whiteSpace: 'nowrap',
-      border: '0',
-    }}>
+  const VisuallyHidden = ({ children }: any) => (
+    <div
+      style={{
+        position: "absolute",
+        width: "1px",
+        height: "1px",
+        padding: "0",
+        margin: "-1px",
+        overflow: "hidden",
+        clip: "rect(0, 0, 0, 0)",
+        whiteSpace: "nowrap",
+        border: "0",
+      }}
+    >
       {children}
     </div>
   );
@@ -76,7 +41,7 @@ const VisuallyHidden = ({ children }: any) => (
     <section className={styles.section}>
       <SkillVectors />
 
-      <div className={styles.scroll}>
+      {/* <div className={styles.scroll}>
         <h2 className={styles.title}>
           <span aria-hidden>{`>${HEADER.slice(
             0,
@@ -90,7 +55,7 @@ const VisuallyHidden = ({ children }: any) => (
         </h2>
 
         <div className={styles.trigger} ref={ref} />
-      </div>
+      </div> */}
 
       <div aria-hidden className={styles.anchor} id="skills" />
       <div className={styles.grid}>

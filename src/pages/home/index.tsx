@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Experience from "Components/Experience";
-import Loader from "Components/Loader";
 import Contact from "Components/Contact";
 import Navbar from "Components/Navbar";
 import HomeSec from "Components/Home";
@@ -17,16 +16,6 @@ import { RedesignNotice } from "Components/RedesignNotice";
 import Testimonials from "Components/Testimonials";
 
 const Home: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(true);
-    let timer = setTimeout(() => {
-      setIsLoading(false);
-      return () => clearInterval(timer);
-    }, 2000);
-  }, []);
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -41,9 +30,7 @@ const Home: React.FC = () => {
     };
   }, []);
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <Container>
       <Navbar />
       <RedesignNotice />
