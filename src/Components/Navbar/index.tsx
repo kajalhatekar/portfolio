@@ -69,7 +69,9 @@ const socialLinks = [
   },
 ];
 
-const HERO_LOGO_DOCK_RATIO = 0.72;
+const HERO_LOGO_DOCK_RATIO = 0.62;
+const HERO_LOGO_NAV_REVEAL_RATIO = 0.3;
+const HERO_LOGO_SLOT_RATIO = 0.56;
 
 const NavbarComponent: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -77,6 +79,7 @@ const NavbarComponent: React.FC = () => {
     (state) => state.theme,
   );
   const [isSticky, setSticky] = useState(false);
+  const [isLogoSlotOpen, setLogoSlotOpen] = useState(false);
   const [isLogoDocked, setLogoDocked] = useState(false);
   const [isLogoReturning, setLogoReturning] = useState(false);
   const [scrollUpBtnVisible, setScrollUpBtnVisible] = useState(false);
@@ -143,13 +146,15 @@ const NavbarComponent: React.FC = () => {
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    const navRevealPoint = window.innerHeight * 0.52;
+    const navRevealPoint = window.innerHeight * HERO_LOGO_NAV_REVEAL_RATIO;
+    const logoSlotPoint = window.innerHeight * HERO_LOGO_SLOT_RATIO;
     const logoDockPoint = window.innerHeight * HERO_LOGO_DOCK_RATIO;
     const logoReturnPoint = window.innerHeight * 0.58;
     const isScrollingUp = scrollY < previousScrollY.current - 1;
     const isScrollingDown = scrollY > previousScrollY.current + 1;
 
     setSticky(scrollY > navRevealPoint);
+    setLogoSlotOpen(scrollY >= logoSlotPoint);
     setLogoDocked(scrollY >= logoDockPoint);
     if (isScrollingUp && scrollY > 8 && scrollY < logoReturnPoint) {
       setLogoReturning(true);
@@ -189,6 +194,8 @@ const NavbarComponent: React.FC = () => {
     <div>
       <Navbar
         className={`${isSticky ? "sticky" : ""} ${
+          isLogoSlotOpen ? "logo-slot-ready" : ""
+        } ${
           isLogoDocked ? "logo-docked" : ""
         } ${isLogoReturning ? "logo-returning" : ""} ${
           hasNavbarIconIntroPlayed ? "icons-ready" : ""

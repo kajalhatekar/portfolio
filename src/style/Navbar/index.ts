@@ -177,9 +177,10 @@ export const LogoWrapper = styled.div`
 
 export const NavBrandLogo = styled.span`
   position: relative;
-  z-index: 2;
+  z-index: 0;
   width: 0;
   max-width: 0;
+  margin-right: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -187,12 +188,13 @@ export const NavBrandLogo = styled.span`
   color: var(--theme-text, #ffffff);
   line-height: 1;
   opacity: 0;
+  pointer-events: none;
   transform: scale(0.86);
   transform-origin: center;
   transition:
-    width 0.38s ease,
-    max-width 0.38s ease,
-    margin-right 0.38s ease,
+    width 0.46s cubic-bezier(0.16, 1, 0.3, 1),
+    max-width 0.46s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-right 0.46s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.28s ease,
     transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -206,6 +208,8 @@ export const NavBrandLogo = styled.span`
 `;
 
 export const ControlCluster = styled.div`
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: clamp(22px, 2.2vw, 34px);
@@ -824,13 +828,19 @@ export const Navbar = styled.nav`
     }
   }
 
-  &.logo-docked {
+  &.logo-slot-ready {
     ${NavBrandLogo} {
       width: 54px;
       max-width: 54px;
       margin-right: clamp(16px, 1.6vw, 24px);
-      opacity: 1;
-      animation: ${logoArrive} 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+      overflow: visible;
+      opacity: 0;
+    }
+  }
+
+  &.logo-docked {
+    ${NavBrandLogo} {
+      animation: ${logoArrive} 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.86s both;
     }
   }
 
