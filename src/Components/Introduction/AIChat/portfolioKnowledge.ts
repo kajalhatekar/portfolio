@@ -35,14 +35,14 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   {
     alwaysInclude: true,
     content:
-      "Answer directly and naturally. Prefer answers about Kajal, her work, skills, projects, education, experience, tools, resume, and contact. If a question is unrelated to Kajal, politely redirect toward Kajal's work or contact section. If a detail is unavailable, say 'I do not have that detail here.'",
+      "Answer directly and naturally as Kajal Raj's portfolio assistant. Speak about Kajal in third person using Kajal, she, and her. If a visitor says you or your, understand that they mean Kajal, but do not answer as Kajal in first person. Prefer answers about Kajal, her work, skills, projects, education, experience, tools, resume, and contact. If a question is unrelated to Kajal, politely redirect toward Kajal's work or contact section. If a detail is unavailable, say 'That detail is not available here.'",
     id: "answering-rules",
     keywords: ["rules"],
     title: "Answering Rules",
   },
   {
     content:
-      "Current experience: Front-End Developer at Wits Innovation Lab from 01/2023 to Present. Work includes creating 40+ responsive landing pages for company and client projects, collaborating with UX/UI designers to turn wireframes into high-quality interfaces, building dynamic React.js interfaces with MUI and Ant Design, integrating REST APIs, and improving performance through code optimization, image compression, and lazy loading.",
+      "Resume experience: Front-End Developer / Software Engineer at Wits Innovation Lab, Chandigarh, India from 07/2022 to 10/2025. Work included developing and maintaining responsive, high-performance web applications used in production, building scalable reusable UI components, integrating RESTful APIs, handling dynamic data, improving performance with lazy loading, code splitting, and efficient state handling, and collaborating with designers and backend developers in agile workflows.",
     id: "current-experience",
     keywords: [
       "current",
@@ -56,14 +56,14 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Previous experience: Software Developer Intern at Wits Innovation Lab from 07/2022 to 12/2022. Work included developing and deploying web applications, contributing to features and bug fixes in an agile team, adding validations to web forms, and maintaining documentation for application integration.",
+      "Backend and system exposure from resume: Kajal has hands-on experience contributing to API integration and basic server-side logic using Node.js and Express. She applies system design fundamentals such as component architecture, state management, and performance optimization to build scalable applications. She contributed to feature development, bug fixes, and continuous code improvements across multiple projects.",
     id: "internship",
-    keywords: ["experience", "intern", "internship", "previous", "wits"],
-    title: "Internship",
+    keywords: ["backend", "experience", "express", "node", "system", "wits"],
+    title: "Backend and System Exposure",
   },
   {
     content:
-      "Education: Bachelor of Computer Application from Rajindra Mishra College, August 2017 to February 2021. Master of Computer Application from Lovely Professional University, May 2021 to August 2023. Education entries include major as Electronics and Communication Engineering and minor as Information Technology.",
+      "Education from resume: Master of Computer Applications from Lovely Professional University (LPU), Jalandhar, India, 07/2021 to 07/2023. Key coursework included Data Structures and Algorithms, DBMS, Operating Systems, Computer Networks, Software Engineering, Object-Oriented Programming, Data Mining, and Web Technologies. Bachelor of Computer Applications from R.M College, Bihar, India, 06/2017 to 06/2021. Key coursework included Data Structures, DBMS, Software Engineering, Computer Fundamentals, C/C++, Object-Oriented Programming, Web Programming, and Mathematics.",
     id: "education",
     keywords: [
       "bachelor",
@@ -79,7 +79,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Core skills: React, HTML, CSS, Next.js, Git, Redux, JavaScript, TypeScript, MongoDB, React Vite, Node.js, and RegExp. Years of experience: HTML 5 years, CSS 5 years, React 4 years, JavaScript 4 years, Git 4 years, Redux 3.5 years, Next.js 3 years, React Vite 3 years, TypeScript 2 years, MongoDB 1 year, Node.js 1 year. React, CSS, JavaScript, and TypeScript are featured skills.",
+      "Core skills: React, HTML, CSS, Next.js, Git, Redux, JavaScript, TypeScript, MongoDB, React Vite, Node.js, and RegExp. Years of experience: HTML 5 years, CSS 5 years, React 4 years, JavaScript 4 years, Git 4 years, Redux 3.5 years, Next.js 3 years, React Vite 3 years, TypeScript 2 years, MongoDB 1 year, Node.js 1 year. Resume technical skills: React.js, Next.js, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, Material UI, Ant Design, Styled Components, Redux Toolkit, React Query, Context API, GraphQL with Apollo Client, basic Node.js, Express.js, MySQL, MongoDB, OpenAI API, GitHub Copilot, Claude, Prompt Engineering, Git, GitHub, GitLab, Postman, and VS Code.",
     id: "skills",
     keywords: [
       "css",
@@ -100,14 +100,14 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Tools: VS Code, Postman, GitHub, GitLab, Netlify, and Hasura.",
+      "Tools: VS Code, Postman, GitHub, GitLab, Netlify, Hasura, OpenAI API, GitHub Copilot, Claude, and prompt engineering workflows.",
     id: "tools",
     keywords: ["github", "gitlab", "hasura", "netlify", "postman", "tools", "vscode"],
     title: "Tools",
   },
   {
     content:
-      "Project: LinkedIn Clone. It is a LinkedIn-like application built with modern web development technologies and replicates key professional networking features. Link for this project entry: https://www.linkedin.com/in/kajal-raj.",
+      "Project: LinkedIn Clone. Resume stack: React, TypeScript, Tailwind CSS, DaisyUI, Node.js, Express, and MongoDB. Built a full-stack social platform with user authentication, profiles, post sharing, feed, comments, connection requests, notifications, responsive UI, backend services, API handling, data management, and email notifications. Link for this project entry: https://www.linkedin.com/in/kajal-raj.",
     id: "project-linkedin",
     keywords: ["linkedin", "project", "projects"],
     title: "Project - LinkedIn Clone",
@@ -128,7 +128,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Project: Basic Mining. A responsive e-commerce platform for Bitcoin mining devices using Next.js, TypeScript, and Material UI. Work included interactive UI elements, secure API integration, auction and payment interface optimization, Redux state management, testing, scalability, security, and cross-device responsiveness. Link: https://basicmining.com.",
+      "Project: Basic Mining. Resume stack: Next.js, TypeScript, Redux Toolkit, and Material UI. Kajal developed the frontend of a cryptocurrency mining platform with buy, sell, and auction functionality. Work included responsive product listing, pricing and auction management interfaces, CRUD workflows through RESTful API integration, reusable UI components, scalable Redux Toolkit state management, performance optimization, and cross-device responsiveness. Link: https://basicmining.com.",
     id: "project-basic-mining",
     keywords: [
       "basic",
@@ -144,7 +144,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Project: Plan-IT. Kajal designed and implemented task creation, story points, drag-and-drop dashboards, unlimited task management, themes, responsive UI, Redux Toolkit, hooks, React Query, and API integration. Work included improving load time by 20% through code optimization and collaboration with designers and backend developers. Link: https://planit.thewitslab.com/.",
+      "Project: Plan-IT / Plan IT project management tool. Resume stack: React.js, TypeScript, Ant Design, Redux Toolkit, and React Query. Kajal built an agile project management tool for sprint planning and task tracking. Work included drag-and-drop dashboards, customizable workflow lanes, backlog management, CRUD operations for tasks, responsive UI, API integration with React Query, Redux Toolkit state management, performance optimization, and backend collaboration. Link: https://planit.thewitslab.com/.",
     id: "project-plan-it",
     keywords: [
       "dashboard",
@@ -177,6 +177,30 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
       "working",
     ],
     title: "Team Style and Name",
+  },
+  {
+    content:
+      "Resume personal details: Kajal speaks English with professional proficiency, Hindi with professional proficiency, and German at elementary A1 level. Hobbies are not listed in the resume or portfolio context, so do not invent hobbies; say that detail is not available here and suggest using the contact section if someone asks.",
+    id: "resume-personal-details",
+    keywords: [
+      "a1",
+      "english",
+      "german",
+      "hindi",
+      "hobbies",
+      "hobby",
+      "interest",
+      "interests",
+      "language",
+      "languages",
+      "personal",
+      "resume",
+      "speak",
+      "speack",
+      "speaks",
+      "spoken",
+    ],
+    title: "Resume Personal Details",
   },
 ];
 

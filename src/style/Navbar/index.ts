@@ -1,4 +1,3 @@
-import { ListItemProps } from "interfaces";
 import styled, { css, keyframes } from "styled-components";
 
 const spinSlow = keyframes`
@@ -67,89 +66,6 @@ const logoArrive = keyframes`
   100% {
     opacity: 1;
     transform: scale(1);
-  }
-`;
-
-export const Unorderli = styled.ul`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(18px, 2vw, 32px);
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translate(-50%, calc(-50% - 8px));
-  transition:
-    opacity 0.24s ease,
-    visibility 0.24s ease,
-    transform 0.24s ease;
-
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`;
-
-export const Listitems = styled.li<ListItemProps>`
-  display: flex;
-  align-items: center;
-  margin: 0;
-  color: var(--theme-text, ${(props) => props.theme.color.second});
-
-  a {
-    min-height: 38px;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    padding: 0 2px;
-    color: inherit;
-    text-decoration: none;
-    font-size: clamp(13px, 1vw, 15px);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: 0;
-    white-space: nowrap;
-    transition: color 0.24s ease;
-
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 7px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(
-        90deg,
-        var(--theme-secondary-bright, #33d6f4),
-        var(--theme-primary-bright, #964fdd)
-      );
-      transform: scaleX(${(props) => (props.isActive ? 1 : 0)});
-      transform-origin: center;
-      transition: transform 0.24s ease;
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--theme-shadow, rgba(150, 79, 221, 0.42));
-      outline-offset: 5px;
-      border-radius: 6px;
-    }
-  }
-
-  &:hover {
-    a {
-      color: var(--theme-text, #f7f1ff);
-
-      &::after {
-        transform: scaleX(1);
-      }
-    }
   }
 `;
 
@@ -224,6 +140,10 @@ export const ControlCluster = styled.div`
 
   > div button {
     --icon-draw-delay: 1.8s;
+  }
+
+  @media (max-width: 767px) {
+    gap: clamp(12px, 4vw, 20px);
   }
 `;
 
@@ -650,7 +570,11 @@ export const SocialCluster = styled.div`
   }
 
   @media (max-width: 767px) {
-    display: none;
+    gap: clamp(7px, 2.4vw, 12px);
+  }
+
+  @media (max-width: 520px) {
+    gap: 6px;
   }
 `;
 
@@ -707,63 +631,20 @@ export const SocialIconLink = styled.a`
     --icon-fill-opacity: 0.85;
     --icon-final-stroke: 1.35px;
   }
-`;
 
-export const InnerWrapper = styled.div`
-  width: 100%;
-  max-width: 290px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-`;
+  @media (max-width: 520px) {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
 
-export const MainContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 96px 32px 42px;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at 20% 18%, var(--theme-primary-soft, rgba(150, 79, 221, 0.28)), transparent 36%),
-    radial-gradient(ellipse at 82% 76%, var(--theme-secondary-dark, rgba(51, 214, 244, 0.14)), transparent 38%),
-    var(--theme-background, #140c1c);
-
-  ${Listitems} {
-    width: 100%;
-
-    a {
-      width: 100%;
-      min-height: 56px;
-      justify-content: center;
-      padding: 0 18px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.055);
-      font-size: 20px;
-      transition:
-        background 0.24s ease,
-        border-color 0.24s ease,
-        transform 0.24s ease;
-
-      &::after {
-        display: none;
-      }
-
-      &:hover {
-        border-color: var(--theme-shadow, rgba(150, 79, 221, 0.54));
-        background: var(--theme-primary-soft, rgba(150, 79, 221, 0.18));
-        transform: translateY(-2px);
-      }
+    svg,
+    &[data-social="email"] svg,
+    &[data-social="resume"] svg,
+    &[data-social="linkedin"] svg,
+    &[data-social="github"] svg {
+      width: 24px;
+      height: 24px;
     }
-  }
-
-  @media (max-width: 767px) {
-    padding: 88px 22px 34px;
-  }
-
-  @media only screen and (min-width: 768px) and (max-width: 1224px) {
-    padding: 104px 34px 46px;
   }
 `;
 
@@ -871,87 +752,28 @@ export const Navbar = styled.nav`
       top: 20px;
       padding: 0 12px;
     }
+
+    .max-width {
+      gap: 10px;
+    }
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1100px) {
     width: calc(100% - 48px);
   }
-`;
 
-export const MobileRightSection = styled.div`
-  display: none;
-  align-items: center;
-  margin-left: auto;
-
-  @media (max-width: 1100px) {
-    display: flex;
-  }
-`;
-
-export const MobileMenuIconWrapper = styled.button`
-  --icon-draw-delay: 1.25s;
-  --icon-final-stroke: 0.85px;
-
-  width: 44px;
-  height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--theme-text, #ffffff);
-  cursor: pointer;
-  transition:
-    transform 0.24s ease,
-    background 0.24s ease,
-    border-color 0.24s ease;
-
-  svg {
-    width: 24px;
-    height: 24px;
-
-    path,
-    circle,
-    rect,
-    line,
-    polyline,
-    polygon {
-      stroke: currentColor;
-      stroke-width: var(--icon-draw-stroke, 1.4px);
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      vector-effect: non-scaling-stroke;
-      animation: ${drawIconAnimation} 2.6s ease-in-out both;
-      animation-delay: var(--icon-draw-delay, 1.25s);
-    }
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    border-color: var(--theme-shadow, rgba(150, 79, 221, 0.55));
-    background: var(--theme-primary-soft, rgba(150, 79, 221, 0.18));
-  }
-
-  &:focus-visible {
-    outline: 3px solid var(--theme-shadow, rgba(150, 79, 221, 0.42));
-    outline-offset: 4px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    svg {
-      path,
-      circle,
-      rect,
-      line,
-      polyline,
-      polygon {
-        animation: none;
-        fill: var(--icon-fill-color, transparent);
-        stroke-dashoffset: 0;
-        fill-opacity: 1;
+  @media (max-width: 520px) {
+    &.logo-slot-ready {
+      ${NavBrandLogo} {
+        width: 46px;
+        max-width: 46px;
+        margin-right: 8px;
       }
+    }
+
+    ${NavBrandLogo} svg {
+      width: 46px;
+      height: 34px;
     }
   }
 `;

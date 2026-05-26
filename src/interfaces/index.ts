@@ -23,7 +23,3 @@ export interface ITheme {
     tablet: string;
   };
 }
-
-export interface ListItemProps {
-  isActive?: boolean;
-}
