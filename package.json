@@ -40,7 +40,9 @@
     "yup": "^1.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npx --yes netlify-cli dev",
+    "dev": "npm start",
+    "react-start": "node -e \"process.env.BROWSER='none'; require('react-scripts/scripts/start')\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

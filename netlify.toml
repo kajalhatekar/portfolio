@@ -1,6 +1,12 @@
 [functions]
   directory = "netlify/functions"
 
+[dev]
+  command = "npm run react-start"
+  targetPort = 3000
+  port = 8888
+  autoLaunch = true
+
 [[redirects]]
   from = "/api/gemini"
   to = "/.netlify/functions/gemini"

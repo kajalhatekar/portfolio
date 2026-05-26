@@ -4,12 +4,12 @@ const incoming: Message[] = [
   {
     content: (
       <>
-        I&apos;m <strong>Kajal Raj</strong>, here are some quick facts about me:
+        Here are some quick facts about <strong>Kajal Raj</strong>:
         <ul style={{ listStyle: "none", margin: 0, padding: "0 1em" }}>
           <li>{"\u{1F4BB}"} Frontend Developer</li>
           <li>{"\u269B\uFE0F"} React and TypeScript focused</li>
-          <li>{"\u{1F3A8}"} I love polished UI and smooth interactions</li>
-          <li>{"\u{1F680}"} I enjoy building responsive web experiences</li>
+          <li>{"\u{1F3A8}"} Loves polished UI and smooth interactions</li>
+          <li>{"\u{1F680}"} Enjoys building responsive web experiences</li>
           <li>{"\u2728"} Always learning and improving the details</li>
         </ul>
       </>
@@ -20,7 +20,7 @@ const incoming: Message[] = [
     type: "text",
   },
   {
-    content: <>What would you like to know about me? Ask right away!</>,
+    content: <>What would you like to know about Kajal? Ask right away!</>,
     direction: "incoming",
     id: "2",
     status: "writing",
@@ -33,7 +33,7 @@ export const optionSelect: OptionSelectMessage = {
     {
       action: "ask-ai",
       id: "career",
-      label: "Tell me about your career",
+      label: "Tell me about Kajal's career",
       prompt: "Tell me about the career and frontend experience.",
     },
     {
@@ -45,8 +45,8 @@ export const optionSelect: OptionSelectMessage = {
     {
       action: "ask-ai",
       id: "skills",
-      label: "What are your strongest skills?",
-      prompt: "What are your strongest skills?",
+      label: "What are Kajal's strongest skills?",
+      prompt: "What are Kajal's strongest skills?",
     },
     {
       action: "open-live-chat",

@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Drawer } from "@mui/material";
 import {
   BackToTopButton,
   ControlCluster,
   LogoWrapper,
-  MobileMenuIconWrapper,
-  MobileRightSection,
   NavBrandLogo,
   Navbar,
   SocialCluster,
@@ -26,10 +23,7 @@ import {
 import { FaArrowUp } from "react-icons/fa"; // Add an icon for the scroll-up button
 import { BsMoonStars, BsPalette, BsStars, BsSun } from "react-icons/bs";
 import { FiCheck, FiFileText, FiGithub, FiLinkedin } from "react-icons/fi";
-import MobileNav from "./MobileNav";
-import CloseNavMenu from "assets/svg/CloseNavMenu";
 import KajalLogo from "assets/svg/KajalLogo";
-import MenuIcon from "assets/svg/MenuIcon";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
   setContrastMode,
@@ -83,29 +77,10 @@ const NavbarComponent: React.FC = () => {
   const [isLogoDocked, setLogoDocked] = useState(false);
   const [isLogoReturning, setLogoReturning] = useState(false);
   const [scrollUpBtnVisible, setScrollUpBtnVisible] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
   const [isThemePickerOpen, setThemePickerOpen] = useState(false);
   const [hasNavbarIconIntroPlayed, setNavbarIconIntroPlayed] = useState(false);
   const themePickerRef = useRef<HTMLDivElement>(null);
   const previousScrollY = useRef(0);
-
-  useEffect(() => {
-    document.body.style.overflow = showMenu ? "hidden" : "";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [showMenu]);
-
-  useEffect(() => {
-    const closeMenuOnDesktop = () => {
-      if (window.innerWidth > 1100) setShowMenu(false);
-    };
-
-    window.addEventListener("resize", closeMenuOnDesktop);
-
-    return () => window.removeEventListener("resize", closeMenuOnDesktop);
-  }, []);
 
   useEffect(() => {
     if (!isThemePickerOpen) return;
@@ -139,10 +114,6 @@ const NavbarComponent: React.FC = () => {
 
     return () => window.clearTimeout(introTimer);
   }, []);
-
-  const setStateFunc = () => {
-    setShowMenu(false);
-  };
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -328,18 +299,6 @@ const NavbarComponent: React.FC = () => {
               </SocialIconLink>
             ))}
           </SocialCluster>
-
-          <MobileRightSection>
-            <MobileMenuIconWrapper
-              type="button"
-              aria-label={showMenu ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={showMenu}
-              aria-controls="mobile-navigation"
-              onClick={() => setShowMenu(!showMenu)}
-            >
-              {showMenu ? <CloseNavMenu /> : <MenuIcon />}
-            </MobileMenuIconWrapper>
-          </MobileRightSection>
         </div>
       </Navbar>
 
@@ -348,27 +307,6 @@ const NavbarComponent: React.FC = () => {
           <FaArrowUp />
         </BackToTopButton>
       )}
-
-      <Drawer
-        anchor="right"
-        open={showMenu}
-        onClose={() => {
-          setShowMenu(false);
-        }}
-        ModalProps={{ keepMounted: true }}
-        PaperProps={{
-          id: "mobile-navigation",
-          sx: {
-            width: { xs: "100%", sm: 390 },
-            background:
-              "linear-gradient(180deg, var(--theme-surface), var(--theme-background))",
-            borderLeft: "1px solid var(--theme-shadow)",
-            color: "var(--theme-text)",
-          },
-        }}
-      >
-        <MobileNav setStateFunc={setStateFunc} />
-      </Drawer>
     </div>
   );
 };
