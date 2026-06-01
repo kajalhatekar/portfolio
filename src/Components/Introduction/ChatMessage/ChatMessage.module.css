@@ -79,6 +79,8 @@
   background: var(--theme-chat-background, #22272e);
   font-size: 1em;
   line-height: 1.42;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
   box-shadow:
     2px 0 0 color-mix(in srgb, var(--theme-primary-bright) 72%, transparent),
     0 2px 0 color-mix(in srgb, var(--theme-secondary-bright) 60%, var(--theme-primary-bright) 40%),

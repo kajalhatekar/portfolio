@@ -1,0 +1,208 @@
+.container {
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 50px;
+}
+
+.switchButton {
+  cursor: pointer;
+
+  width: 200px;
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 2px solid var(--theme-primary-dark);
+  border-radius: 8px;
+
+  font-size: 0.75em;
+  color: var(--theme-text);
+
+  background: var(--theme-background-opaque);
+  box-shadow: var(--theme-shadow) 0 4px 12px;
+}
+
+.switchButton:hover,
+.switchButton:focus {
+  border: 2px solid var(--theme-secondary-dark);
+}
+
+.flip {
+  overflow: auto hidden;
+
+  width: 800px;
+  max-width: 80vw;
+  height: 600px;
+
+  perspective: 10000px;
+}
+
+.flipper {
+  position: relative;
+  transform-style: preserve-3d;
+
+  width: 100%;
+  height: 100%;
+
+  transition: transform 1s;
+}
+
+.flipperFlipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: rotateY(0);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.hexagon {
+  fill: none;
+  stroke: var(--theme-text);
+}
+
+.line {
+  opacity: calc(50% * (1 + var(--theme-is-contrast)));
+  stroke: var(--theme-text);
+  stroke-dasharray: 3px;
+}
+
+.data {
+  fill: var(--theme-secondary-dark);
+  fill-opacity: calc(25% + 50% * var(--theme-is-contrast));
+  stroke: var(--theme-primary-bright);
+  stroke-width: 2px;
+}
+
+.feedback {
+  fill-opacity: calc(50% + 30% * var(--theme-is-contrast));
+  stroke-width: 2px;
+}
+
+.data:hover,
+.feedback:hover {
+  filter: opacity(50%);
+}
+
+.label {
+  font-family: "Major Mono Display", monospace;
+  font-size: 0.5em;
+  stroke: var(--theme-text);
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  margin-top: 16px;
+}
+
+.button {
+  cursor: pointer;
+
+  margin: 0 8px;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+
+  font-size: 0.75em;
+  color: var(--theme-text);
+
+  background: none;
+}
+
+.button[aria-pressed="true"],
+.button:hover,
+.button:focus {
+  background: var(--theme-background-opaque);
+  box-shadow: var(--theme-shadow) 0 4px 12px;
+}
+
+.buttonIcon {
+  display: inline-block;
+
+  width: 10px;
+  height: 10px;
+  margin-right: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+
+  opacity: 90%;
+}
+
+.tableView {
+  border-spacing: 8px;
+  margin: 32px auto 0;
+  text-align: right;
+}
+
+.tableView > caption {
+  caption-side: bottom;
+  font-size: 0.8em;
+  font-style: italic;
+  line-height: 1.3em;
+}
+
+.tableView th,
+.tableView td {
+  padding: 8px 10px;
+  border-right: 1px solid var(--theme-primary-dark);
+  border-bottom: 1px solid var(--theme-primary-bright);
+  background: var(--theme-table-cell-background);
+}
+
+.tableView th {
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+.tableView td {
+  font-family: "Major Mono Display", monospace;
+}
+
+.tableView th:last-child,
+.tableView td:last-child {
+  font-weight: bold;
+}
+
+.tableView > tbody > tr:nth-child(odd) > td {
+  border-right: 1px solid var(--theme-secondary-dark);
+  border-bottom: 1px solid var(--theme-secondary-bright);
+}
+
+.tableView thead tr th:first-of-type {
+  border: none;
+  background: none;
+}
+
+.tableView tbody tr td:first-of-type {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+@media screen and (width <= 42rem) {
+  .flip {
+    max-width: 95vw;
+    height: 520px;
+  }
+
+  .button {
+    padding: 10px;
+  }
+}

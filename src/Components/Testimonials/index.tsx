@@ -5,6 +5,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useInView } from "react-intersection-observer";
 
 import { TestimonialDivider } from "Components/Devider";
+import { TestimonialSectionTransition } from "Components/TestimonialSectionTransition/TestimonialSectionTransition";
 
 import { TestimonialCard } from "./TestimonialCard/TestimonialCard";
 import { testimonials } from "./testimonials.const";
@@ -119,6 +120,7 @@ const Testimonials: FC = () => {
         </em>
       </section>
 
+      <TestimonialSectionTransition />
       <TestimonialDivider position="bottom" />
     </div>
   );
