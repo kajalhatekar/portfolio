@@ -1,11 +1,11 @@
-import Experience from "Components/Experience";
-import Contact from "Components/Contact";
+// import Experience from "Components/Experience";
+// import Contact from "Components/Contact";
 import Navbar from "Components/Navbar";
 import HomeSec from "Components/Home";
 import Introduction from "Components/Introduction";
 import SkillsSec from "Components/Skills";
-import Educations from "Components/Education";
-import Projects from "Components/Project";
+// import Educations from "Components/Education";
+// import Projects from "Components/Project";
 import Footer from "Components/Footer";
 import ToolsSection from "Components/Tools";
 import { Container } from "style/Navbar";
