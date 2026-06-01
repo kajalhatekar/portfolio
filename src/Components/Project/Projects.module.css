@@ -1,72 +1,66 @@
 .anchor {
-  transform: translateY(-1.5em);
   height: 1px;
+  transform: translateY(-1.5em);
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+  color: var(--theme-text);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--theme-background) 96%, #101924 4%) 0%,
+      var(--theme-background) 100%
+    );
 }
 
 .title {
+  position: relative;
   display: flex;
-  align-items: center; /* Ensures proper alignment */
   justify-content: center;
-  text-align: center;
-  width: 100%; /* Ensures full-width responsiveness */
-  margin: 1em auto 1.5em;
+  margin: 1em 0 0;
   font-family: "Major Mono Display", monospace;
-  font-size: min(8vw, 10em);
+  font-size: min(14vw, 10em);
   font-weight: bolder;
   line-height: 1em;
-  color: #e100ff2b;
-  text-shadow: 0 0 #190e1b;
-  background: linear-gradient(
-    90deg,
-    rgba(225, 0, 255, 100%) 5%,
-    rgba(72, 0, 145, 100%) 100%
-  );
+  color: rgb(var(--theme-code-accent-rgb), 5%);
+  text-align: center;
+  text-shadow: 0 0 var(--theme-background);
+  background:
+    linear-gradient(
+      90deg,
+      rgb(var(--theme-highlight-accent-rgb), 100%) 0%,
+      rgb(var(--theme-highlight-rgb), 100%) 100%
+    );
   background-clip: text;
-  -webkit-text-stroke: 0.08em;
-  position: relative; /* Ensures proper alignment of pseudo-elements */
-  padding: 0 1em; /* Adds spacing for the pseudo-elements */
-}
-
-@media (max-width: 767px) {
-  .title {
-    margin: 20px;
-    font-size: min(10vw, 10em);
-  }
+  -webkit-text-stroke: 0.07em;
 }
 
 .title::before,
 .title::after {
   content: "";
   flex: 1;
-  height: 10px;
-  min-width: 220px;
-  background: linear-gradient(
-    90deg,
-    rgba(72, 0, 145, 100%) 0%,
-    rgba(225, 0, 255, 100%) 100%
-  );
-  display: block;
+  align-self: center;
+  height: 0.1em;
+  background:
+    linear-gradient(
+      90deg,
+      rgb(var(--theme-highlight-rgb), 100%) 0%,
+      rgb(var(--theme-highlight-accent-rgb), 100%) 100%
+    );
 }
 
 .title::before {
-  margin-right: 0.4em;
+  margin-right: 0.15em;
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
 }
 
 .title::after {
-  margin-left: 0.4em;
+  margin-left: 0.15em;
   border-top-left-radius: 1em;
   border-bottom-left-radius: 1em;
-}
-
-/* Fix for smaller screens */
-@media (max-width: 1200px) {
-  .title::before,
-  .title::after {
-    min-width: 30px; /* Reduce width slightly for better scaling */
-    height: 8px; /* Reduce thickness for aesthetics */
-  }
 }
 
 .animate {
@@ -81,12 +75,24 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
+  border: none;
   font-weight: bolder;
   color: transparent;
   background: none;
-  background: linear-gradient(90deg, #7d54ff, #ea47ff);
+  background:
+    linear-gradient(
+      90deg,
+      var(--theme-primary-bright),
+      var(--theme-secondary-bright)
+    );
   background-clip: text;
-  border: none;
+}
+
+@media screen and (width <= 42rem) {
+  .title {
+    margin-top: 1.4em;
+    font-size: min(18vw, 5.6em);
+  }
 }
 
 @keyframes textTransform {
