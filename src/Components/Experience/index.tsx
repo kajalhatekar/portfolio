@@ -17,64 +17,26 @@ const Experience: FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const updateProgress = () => {
-      if (!containerRef.current) {
-        return;
-      }
+    const scrollHandler = () => {
+      if (!containerRef.current) return;
 
-      const transitionTop = containerRef.current.getBoundingClientRect().top;
-      const windowBottomY = window.scrollY + window.innerHeight;
+      const windowBottomY =
+        document.documentElement.scrollTop + window.innerHeight;
       const targetHeight = containerRef.current.clientHeight;
-      const targetY = transitionTop + window.scrollY;
-      const transitionDistance = targetHeight + window.innerHeight * 1.2;
-      const percentage = (windowBottomY - targetY) / transitionDistance;
-      const nextProgress = Math.max(0, Math.min(1, percentage));
-
-      setProgress(
-        transitionTop > 0 ? Math.min(nextProgress, 0.48) : nextProgress,
+      const targetY = containerRef.current.offsetTop;
+      const percentage = Math.min(
+        1,
+        (windowBottomY - targetY) / targetHeight,
       );
+
+      setProgress(Math.max(0, percentage));
     };
 
-    const animationFrameIds: number[] = [];
-    const timeoutIds: number[] = [];
-    let resizeObserver: ResizeObserver | undefined;
-
-    const scheduleLayoutCheck = () => {
-      updateProgress();
-      animationFrameIds.push(window.requestAnimationFrame(updateProgress));
-      animationFrameIds.push(
-        window.requestAnimationFrame(() =>
-          window.requestAnimationFrame(updateProgress),
-        ),
-      );
-    };
-
-    updateProgress();
-    scheduleLayoutCheck();
-    [150, 500, 1000].forEach((delay) => {
-      timeoutIds.push(window.setTimeout(updateProgress, delay));
-    });
-
-    if ("ResizeObserver" in window) {
-      resizeObserver = new ResizeObserver(updateProgress);
-      resizeObserver.observe(document.body);
-    }
-
-    window.addEventListener("load", updateProgress);
-    window.addEventListener("pageshow", scheduleLayoutCheck);
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("resize", updateProgress);
+    document.addEventListener("scroll", scrollHandler, { passive: true });
+    scrollHandler();
 
     return () => {
-      animationFrameIds.forEach((animationFrameId) =>
-        window.cancelAnimationFrame(animationFrameId),
-      );
-      timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId));
-      resizeObserver?.disconnect();
-      window.removeEventListener("load", updateProgress);
-      window.removeEventListener("pageshow", scheduleLayoutCheck);
-      window.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("resize", updateProgress);
+      document.removeEventListener("scroll", scrollHandler);
     };
   }, []);
 

@@ -4,12 +4,6 @@
   margin-bottom: 25vh;
 }
 
-.container:last-child {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 0;
-}
-
 .size {
   width: calc(100vw - 6em);
   max-width: calc(1200px * 1.1);

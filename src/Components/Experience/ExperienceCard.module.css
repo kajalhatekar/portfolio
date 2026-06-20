@@ -1,4 +1,4 @@
-.card {
+/* .card {
   position: relative;
   display: flex;
   width: 50%;
@@ -220,5 +220,203 @@
   .content,
   .reveal {
     transition: none;
+  }
+} */
+
+
+.card {
+  position: relative;
+
+  display: flex;
+
+  width: 50%;
+  margin: 2em 0;
+  padding: 0 50px;
+
+  list-style: none;
+}
+
+.card:nth-child(odd) {
+  align-self: flex-end;
+}
+
+.card:nth-child(even) {
+  text-align: right;
+}
+
+.card:last-child {
+  padding-bottom: 40vh;
+}
+
+.dot {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, 0.5em);
+
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--theme-secondary-bright);
+  border-radius: 50px;
+
+  background-color: var(--theme-background);
+  outline: 6px solid var(--theme-background);
+
+  transition:
+    background-color 250ms,
+    outline-color 250ms;
+}
+
+.card:nth-child(even) > .dot {
+  right: 0;
+  left: unset;
+  transform: translate(50%, 0.5em);
+}
+
+.companyLogo {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transform: translate(calc(-100% - 50px), calc(-50% + 16px));
+
+  display: flex;
+
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  padding: 8px;
+  border-radius: 100%;
+
+  opacity: 100%;
+
+  transition:
+    opacity 500ms 100ms,
+    transform 500ms;
+}
+
+.companyLogo > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card:nth-child(even) > .companyLogo {
+  right: 0;
+  left: unset;
+  transform: translate(calc(100% + 50px), calc(-50% + 16px));
+}
+
+.card[data-revealed='false'] > .companyLogo {
+  transform: translate(calc(-100% + 100px), calc(-50% + 16px));
+  opacity: 0%;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  transform: translateX(0);
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 100%;
+
+  transition:
+    opacity 500ms 300ms,
+    transform 500ms 300ms;
+}
+
+.card[data-revealed='false'] > .content {
+  transform: translateX(-50px);
+  opacity: 0%;
+}
+
+.card:nth-child(even)[data-revealed='false'] > .content {
+  transform: translateX(50px);
+}
+
+.company {
+  margin: 0;
+}
+
+.jobTitle {
+  font-size: 0.9em;
+}
+
+.period {
+  font-size: 0.8em;
+  opacity: 80%;
+}
+
+.consultant {
+  font-size: 0.75em;
+  opacity: 50%;
+}
+
+.reveal {
+  position: absolute;
+  inset: 0;
+  transform-origin: bottom;
+  transform: translateX(-5px) scaleY(0%);
+
+  width: calc(100% + 10px);
+  height: calc(100% + 100px);
+
+  background: var(--theme-background);
+
+  transition: transform 1.5s cubic-bezier(0.25, 0, 0, 1);
+}
+
+.card[data-revealed='false'] > .reveal {
+  transform: translateX(-5px) scaleY(100%);
+}
+
+@media screen and (width <= 65rem) {
+  .card {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (width <= 42rem) {
+  .card {
+    align-self: flex-end;
+    width: calc(100% - 50px);
+    padding: 0 25px;
+  }
+
+  .card:nth-child(even) {
+    text-align: left;
+  }
+
+  .card:nth-child(even) > .dot {
+    right: unset;
+    left: 0;
+    transform: translate(-50%, 0.5em);
+  }
+
+  .card[data-revealed='false'] > .content {
+    transform: translateX(-50px);
+  }
+
+  .companyLogo {
+    position: static;
+    transform: none;
+
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+
+  .card:nth-child(even) > .companyLogo {
+    transform: none;
+  }
+}
+
+@media screen and (width <= 32rem) {
+  .card {
+    width: calc(100% - 25px);
+    padding: 0 25px;
   }
 }

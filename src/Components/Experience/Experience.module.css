@@ -1,10 +1,10 @@
 .animatedScroll {
-  animation-delay: calc(var(--scroll) * -1s);
   animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-iteration-count: 1;
   animation-play-state: paused;
   animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: calc(var(--scroll) * -1s);
+  animation-iteration-count: 1;
 }
 
 .anchor {
@@ -12,26 +12,17 @@
 }
 
 .section {
-  position: relative;
   display: flex;
   flex-direction: column;
   color: var(--theme-text);
-  background: var(--theme-background);
 }
 
 .title {
   position: relative;
-  z-index: 1;
-  transform: translateY(clamp(18rem, 42vh, 29rem));
-  margin: 0;
+
   margin-bottom: 0;
 
-  pointer-events: none;
-
-  color: transparent;
   font-size: 10em;
-  font-weight: 800;
-  line-height: 1;
   text-align: center;
   text-transform: uppercase;
 }
@@ -45,57 +36,60 @@
   right: 0;
   left: 0;
 
-  color: color-mix(in srgb, var(--theme-primary-dark) 44%, transparent);
-  text-shadow: none;
-  mix-blend-mode: multiply;
+  color: transparent;
+  text-shadow: 0 0 var(--theme-experience-transition-adjust);
+
+  background: linear-gradient(
+    90deg,
+    var(--theme-primary-bright),
+    var(--theme-secondary-bright)
+  );
+  background-clip: text;
+  mix-blend-mode: color-burn;
 }
 
 .transitionContainer {
-  position: relative;
-  z-index: 0;
-  margin-top: -2.5em;
   height: 500px;
 }
 
 .transitionOverflow {
+  --translate-y-end: -125vh;
   --height-end: 500px;
-  --height-start: 155vh;
-  --translate-y-end: -82vh;
 
   composes: animatedScroll;
+
   overflow: hidden;
+
   max-width: 100%;
   height: var(--height-end);
+
   animation-name: transitionOverflow;
 }
 
 @keyframes transitionOverflow {
-  0%,
-  48% {
+  0% {
     transform: translateY(var(--translate-y-end));
-    height: var(--height-start);
+    height: 200vh;
   }
 
   100% {
-    transform: translateY(0);
     height: var(--height-end);
   }
 }
 
 .transitionLine {
-  --margin-left-end: auto;
-  --margin-left-middle: auto;
   --margin-left-start: auto;
+  --margin-left-middle: auto;
+  --margin-left-end: auto;
   --scale-start: 1.5;
 
-  position: relative;
-  overflow: hidden;
-
   composes: animatedScroll;
+
   width: 2px;
   height: 100%;
   margin: 0 auto;
   border-radius: 50px;
+
   background: linear-gradient(
     to right,
     var(--theme-secondary-bright),
@@ -105,22 +99,19 @@
 }
 
 @keyframes transitionLine {
-  0%,
-  48% {
-    transform: perspective(150px) rotateX(10deg) scale(var(--scale-start));
+  0% {
+    transform: perspective(150px) rotateX(10deg)
+      scale(var(--scale-start));
     width: 100%;
     margin-left: var(--margin-left-start);
     border-radius: 50vw 50vw 0 0;
   }
 
-  68% {
-    transform: perspective(120px) rotateX(6deg) scale(1);
-    width: 72%;
-    margin-left: 14%;
-    border-radius: 40vw 40vw 0 0;
+  30% {
+    transform: perspective(100px) rotateX(5deg) scale(1);
   }
 
-  86% {
+  75% {
     width: 10%;
     margin-left: var(--margin-left-middle);
   }
@@ -150,11 +141,14 @@
 
 .timeline {
   composes: timelineBackground;
+
   position: relative;
+
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: min(100%, 1600px);
+
+  max-width: 1600px;
   margin: auto;
   padding: 0;
 }
@@ -186,9 +180,9 @@
   }
 
   .transitionLine {
-    --margin-left-end: 50px;
-    --margin-left-middle: 50%;
     --margin-left-start: 0;
+    --margin-left-middle: 50%;
+    --margin-left-end: 50px;
     --scale-start: 3;
   }
 
@@ -204,22 +198,5 @@
 
   .timelineBackground {
     background-position: 25px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animatedScroll {
-    animation: none;
-  }
-
-  .transitionOverflow {
-    transform: none;
-    height: var(--height-end);
-  }
-
-  .transitionLine {
-    width: 2px;
-    margin: 0 auto;
-    border-radius: 50px;
   }
 }

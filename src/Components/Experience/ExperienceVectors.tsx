@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import { type FC } from "react";
 
 const ExperienceVectors: FC = () => (
   <svg aria-hidden focusable="false" height="0" width="0">
