@@ -1,99 +1,114 @@
-import React from "react";
 import {
-  QuoteContainer,
-  QuoteContent,
-  ServiceList,
-  ServiceListItem,
-  ServiceText,
-  MainWrapper,
-  Location,
-  DataWrapper,
-  TimePeriod,
-  Circle,
-  RoleText,
-} from "style/Experience";
-import { Heading } from "style/Skill";
-import { MainContainer } from "style/Education";
-import { useInView } from "react-intersection-observer";
-import WilIcon from "assets/svg/WilIcon";
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type FC,
+} from "react";
 
-const serviceData = [
-  {
-    Role: "Front-End Developer",
-    location: "Wits Innovation Lab",
-    TimePeriod: "01/ 2023 - Present",
-    icon: <WilIcon />,
-    services: [
-      "Utilized HTML, CSS, and JavaScript, to create 40+ responsive landing pages for both company and clients.",
-      "Collaborated with UX/UI designers to transform wireframes into high-quality, user-friendly interfaces, enhancing overall user experience.",
-      "Utilized modern front-end frameworks like React.js, MUI, ANT-Design for building dynamic and interactive user interfaces, integrating RESTful APIs for seamless data exchange.",
-      "Optimized website performance by implementing best practices in code optimization, image compression, and Lazy loading, resulting in faster load times and improved user engagement.",
-    ],
-  },
-  {
-    Role: "Software Developer Intern",
-    location: "Wits Innovation Lab",
-    TimePeriod: "07/ 2022 - 12/ 2022",
-    icon: <WilIcon />,
-    services: [
-      "Developed and deployed web applications, enhancing user experience through innovative design and functionality.",
-      "Actively contributed to coding tasks, implementing features, and resolving bugs as part of an agile development team.",
-      "Performed validations on Web Forms, improving data accuracy and system reliability.",
-      "Created and maintained documentation to ensure accurate integration of applications into the existing system architecture.",
-    ],
-  },
-];
+import ExperienceCard from "./ExperienceCard";
+import ExperienceVectors from "./ExperienceVectors";
+import { experiences } from "./experiences.const";
 
-const Experience = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+import styles from "./Experience.module.css";
+
+const Experience: FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const updateProgress = () => {
+      if (!containerRef.current) {
+        return;
+      }
+
+      const transitionTop = containerRef.current.getBoundingClientRect().top;
+      const windowBottomY = window.scrollY + window.innerHeight;
+      const targetHeight = containerRef.current.clientHeight;
+      const targetY = transitionTop + window.scrollY;
+      const transitionDistance = targetHeight + window.innerHeight * 1.2;
+      const percentage = (windowBottomY - targetY) / transitionDistance;
+      const nextProgress = Math.max(0, Math.min(1, percentage));
+
+      setProgress(
+        transitionTop > 0 ? Math.min(nextProgress, 0.48) : nextProgress,
+      );
+    };
+
+    const animationFrameIds: number[] = [];
+    const timeoutIds: number[] = [];
+    let resizeObserver: ResizeObserver | undefined;
+
+    const scheduleLayoutCheck = () => {
+      updateProgress();
+      animationFrameIds.push(window.requestAnimationFrame(updateProgress));
+      animationFrameIds.push(
+        window.requestAnimationFrame(() =>
+          window.requestAnimationFrame(updateProgress),
+        ),
+      );
+    };
+
+    updateProgress();
+    scheduleLayoutCheck();
+    [150, 500, 1000].forEach((delay) => {
+      timeoutIds.push(window.setTimeout(updateProgress, delay));
+    });
+
+    if ("ResizeObserver" in window) {
+      resizeObserver = new ResizeObserver(updateProgress);
+      resizeObserver.observe(document.body);
+    }
+
+    window.addEventListener("load", updateProgress);
+    window.addEventListener("pageshow", scheduleLayoutCheck);
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    return () => {
+      animationFrameIds.forEach((animationFrameId) =>
+        window.cancelAnimationFrame(animationFrameId),
+      );
+      timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId));
+      resizeObserver?.disconnect();
+      window.removeEventListener("load", updateProgress);
+      window.removeEventListener("pageshow", scheduleLayoutCheck);
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, []);
+
   return (
-    <MainContainer ref={ref} id="experience">
-      <DataWrapper>
-        <Heading
-          style={{
-            animation: inView ? "fadeInAndMoveDown 2s ease-out" : "none",
-          }}
-          
+    <section className={styles.section}>
+      <ExperienceVectors />
+      <div aria-hidden className={styles.anchor} id="experience" />
+
+      <h2 className={styles.title}>Experience</h2>
+
+      <div className={styles.transitionContainer} ref={containerRef}>
+        <div
+          className={styles.transitionOverflow}
+          style={{ "--scroll": `${progress}` } as CSSProperties}
         >
-          Experience
-        </Heading>
-        <MainWrapper>
-          {serviceData.map((service, index) => (
-            <QuoteContainer
-              key={index}
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 1s ease-out ${
-                  index * 0.5
-                }s, transform 1s ease-out ${index * 0.5}s`,
-              }}
-            >
-              <p className="quote">
-                <QuoteContent>
-                  <Circle> {service.icon}</Circle>
+          <div className={styles.transitionLine} />
+        </div>
+      </div>
 
-                  <RoleText>{service.location}</RoleText>
-                </QuoteContent>
-                <ServiceList>
-                  <Location>{service.Role}</Location>
-                  <TimePeriod>{service.TimePeriod}</TimePeriod>
-
-                  {service.services.map((text, idx) => (
-                    <ServiceListItem key={idx}>
-                      •<ServiceText>{text}</ServiceText>
-                    </ServiceListItem>
-                  ))}
-                </ServiceList>
-              </p>
-            </QuoteContainer>
-          ))}
-        </MainWrapper>
-      </DataWrapper>
-    </MainContainer>
+      <ul className={styles.timeline}>
+        {experiences.map((experience) => (
+          <ExperienceCard
+            company={experience.company}
+            consultant={experience.consultant}
+            jobTitle={experience.jobTitle}
+            key={experience.id}
+            period={experience.period}
+            title={experience.title}
+          >
+            {experience.description}
+          </ExperienceCard>
+        ))}
+      </ul>
+    </section>
   );
 };
 
