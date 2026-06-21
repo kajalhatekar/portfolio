@@ -18,15 +18,23 @@ const Experience: FC = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let animationFrame: number | null = null;
+
     const scrollHandler = () => {
-      if (!containerRef.current || !titleRef.current) return;
+      if (animationFrame !== null) return;
 
-      const titleBounds = titleRef.current.getBoundingClientRect();
-      const animationDistance = containerRef.current.clientHeight;
-      const visibleDistance = window.innerHeight - titleBounds.top;
-      const percentage = visibleDistance / animationDistance;
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = null;
 
-      setProgress(Math.min(1, Math.max(0, percentage)));
+        if (!containerRef.current || !titleRef.current) return;
+
+        const titleBounds = titleRef.current.getBoundingClientRect();
+        const animationDistance = containerRef.current.clientHeight;
+        const visibleDistance = window.innerHeight - titleBounds.bottom;
+        const percentage = visibleDistance / animationDistance;
+
+        setProgress(Math.min(1, Math.max(0, percentage)));
+      });
     };
 
     document.addEventListener("scroll", scrollHandler, { passive: true });
@@ -34,6 +42,10 @@ const Experience: FC = () => {
 
     return () => {
       document.removeEventListener("scroll", scrollHandler);
+
+      if (animationFrame !== null) {
+        window.cancelAnimationFrame(animationFrame);
+      }
     };
   }, []);
 
