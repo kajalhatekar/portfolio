@@ -14,22 +14,19 @@ import styles from "./Experience.module.css";
 
 const Experience: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const scrollHandler = () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !titleRef.current) return;
 
-      const windowBottomY =
-        document.documentElement.scrollTop + window.innerHeight;
-      const targetHeight = containerRef.current.clientHeight;
-      const targetY = containerRef.current.offsetTop;
-      const percentage = Math.min(
-        1,
-        (windowBottomY - targetY) / targetHeight,
-      );
+      const titleBounds = titleRef.current.getBoundingClientRect();
+      const animationDistance = containerRef.current.clientHeight;
+      const visibleDistance = window.innerHeight - titleBounds.top;
+      const percentage = visibleDistance / animationDistance;
 
-      setProgress(Math.max(0, percentage));
+      setProgress(Math.min(1, Math.max(0, percentage)));
     };
 
     document.addEventListener("scroll", scrollHandler, { passive: true });
@@ -45,7 +42,9 @@ const Experience: FC = () => {
       <ExperienceVectors />
       <div aria-hidden className={styles.anchor} id="experience" />
 
-      <h2 className={styles.title}>Experience</h2>
+      <h2 className={styles.title} ref={titleRef}>
+        Experience
+      </h2>
 
       <div className={styles.transitionContainer} ref={containerRef}>
         <div

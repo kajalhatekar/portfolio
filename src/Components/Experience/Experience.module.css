@@ -19,6 +19,7 @@
 
 .title {
   position: relative;
+  z-index: 2;
 
   margin-bottom: 0;
 
@@ -81,7 +82,7 @@
   --margin-left-start: auto;
   --margin-left-middle: auto;
   --margin-left-end: auto;
-  --scale-start: 1.5;
+  --scale-start: 1;
 
   composes: animatedScroll;
 
@@ -104,11 +105,12 @@
       scale(var(--scale-start));
     width: 100%;
     margin-left: var(--margin-left-start);
-    border-radius: 50vw 50vw 0 0;
+    border-radius: 50% 50% 0 0 / 12% 12% 0 0;
   }
 
   30% {
     transform: perspective(100px) rotateX(5deg) scale(1);
+    border-radius: 35% 35% 0 0 / 6% 6% 0 0;
   }
 
   75% {
