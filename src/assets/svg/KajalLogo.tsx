@@ -8,6 +8,7 @@ const KajalLogo = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
+    {/* K */}
     <path
       d="M14 10V54"
       stroke="currentColor"
@@ -21,19 +22,28 @@ const KajalLogo = (props: SVGProps<SVGSVGElement>) => (
       strokeLinejoin="round"
       strokeWidth="5.5"
     />
+
+    {/* H */}
     <path
-      d="M52 54V10H70C82 10 90 17 90 28C90 39 81 46 68 46H52"
-      stroke="var(--theme-secondary-bright, #33d6f4)"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="5.5"
-    />
-    <path
-      d="M68 46L90 56"
+      d="M54 10V54"
       stroke="var(--theme-secondary-bright, #33d6f4)"
       strokeLinecap="round"
       strokeWidth="5.5"
     />
+    <path
+      d="M86 10V54"
+      stroke="var(--theme-secondary-bright, #33d6f4)"
+      strokeLinecap="round"
+      strokeWidth="5.5"
+    />
+    <path
+      d="M54 32H86"
+      stroke="var(--theme-secondary-bright, #33d6f4)"
+      strokeLinecap="round"
+      strokeWidth="5.5"
+    />
+
+    {/* Accent */}
     <path
       d="M47 32H57"
       stroke="var(--theme-primary-bright, #964fdd)"

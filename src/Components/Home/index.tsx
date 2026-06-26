@@ -121,7 +121,7 @@ const HomeSec = () => {
     subtitle,
   } = useHeroTypingEffect({
     firstName: "kajal",
-    lastName: "raj",
+    lastName: "Hatekar",
     resetKey: typingResetKey,
     subtitles: SUBTITLES,
   });
@@ -293,7 +293,7 @@ const HomeSec = () => {
         <HeroContent>
           <HeroName
             ref={heroNameRef}
-            aria-label="Kajal Raj, frontend developer"
+            aria-label="Kajal Hatekar, frontend developer"
             data-complete={isFullNameTypingComplete && isSubtitleTypingComplete}
             style={heroNameStyle}
           >
@@ -319,7 +319,7 @@ const HomeSec = () => {
               {subtitle}
             </HeroSubtitle>
 
-            <ScreenReaderText>Kajal Raj, frontend developer</ScreenReaderText>
+            <ScreenReaderText>Kajal Hatekar, frontend developer</ScreenReaderText>
           </HeroName>
         </HeroContent>
 

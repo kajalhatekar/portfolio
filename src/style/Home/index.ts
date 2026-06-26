@@ -187,34 +187,72 @@ export const HeroContent = styled.div`
   }
 `;
 
+// export const HeroName = styled.h1`
+//   position: relative;
+//   width: min(100%, 6ch);
+//   min-width: 6ch;
+//   min-height: min(29vmin, 16rem);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: stretch;
+//   margin: 0;
+//   color: var(--theme-text, rgba(255, 255, 255, 0.96));
+//   font-family: "Major Mono Display", "Rajdhani", monospace;
+//   font-size: min(12vmin, 6.67rem);
+//   font-weight: 600;
+//   line-height: 1;
+//   letter-spacing: 0;
+//   text-align: left;
+//   transform-origin: center;
+//   opacity: var(--hero-name-opacity, 1);
+//   transform: scale(var(--hero-name-scale, 1));
+//   transition:
+//     opacity 0.12s linear,
+//     transform 0.12s linear;
+
+//   @media (max-width: 30rem) {
+//     width: min(100%, 80vmin);
+//     min-width: min(100%, 80vmin);
+//     min-height: 43vmin;
+//     font-size: clamp(52px, 16vmin, 74px);
+//   }
+// `;
+
 export const HeroName = styled.h1`
   position: relative;
-  width: min(100%, 6ch);
-  min-width: 6ch;
-  min-height: min(29vmin, 16rem);
+  width: min(100%, 7.8ch);
+  min-width: 7.8ch;
+  min-height: min(30vmin, 16rem);
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 0;
-  color: var(--theme-text, rgba(255, 255, 255, 0.96));
-  font-family: "Major Mono Display", "Rajdhani", monospace;
-  font-size: min(12vmin, 6.67rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0;
-  text-align: left;
-  transform-origin: center;
-  opacity: var(--hero-name-opacity, 1);
-  transform: scale(var(--hero-name-scale, 1));
-  transition:
-    opacity 0.12s linear,
-    transform 0.12s linear;
 
-  @media (max-width: 30rem) {
-    width: min(100%, 80vmin);
-    min-width: min(100%, 80vmin);
-    min-height: 43vmin;
-    font-size: clamp(52px, 16vmin, 74px);
+  margin: 0;
+
+  color: var(--theme-text, rgba(255,255,255,.96));
+
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(60px, 10vmin, 110px);
+  font-weight: 700;
+  line-height: .92;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  text-align: left;
+
+  opacity: var(--hero-name-opacity,1);
+  transform: scale(var(--hero-name-scale,1));
+  transition:
+    opacity .12s linear,
+    transform .12s linear;
+
+  @media (max-width:30rem){
+    width:min(100%,80vmin);
+    min-width:min(100%,80vmin);
+    min-height:43vmin;
+
+    font-size:clamp(50px,15vmin,72px);
   }
 `;
 
@@ -231,7 +269,7 @@ export const FlyingHeroLogo = styled.span`
   color: var(--theme-text, #ffffff);
   font-family: "Major Mono Display", "Rajdhani", monospace;
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
   pointer-events: none;
@@ -275,20 +313,51 @@ export const FlyingHeroLogo = styled.span`
   }
 `;
 
+// export const HeroTitle = styled.span`
+//   position: relative;
+//   display: block;
+//   min-height: 1em;
+//   margin: 0;
+//   font: inherit;
+//   line-height: 1em;
+//   white-space: nowrap;
+//   transition: font-size 100ms ease-in-out 100ms;
+
+//   &[data-caret="true"]::after{
+//     content:"_";
+//     color:#fff;
+//     -webkit-text-fill-color:#fff;
+//     animation:${blinkCursor} 1s steps(1) infinite;
+//   }
+// `;
 export const HeroTitle = styled.span`
   position: relative;
   display: block;
   min-height: 1em;
-  margin: 0;
-  font: inherit;
-  line-height: 1em;
-  white-space: nowrap;
-  transition: font-size 100ms ease-in-out 100ms;
 
-  &[data-caret="true"]::after {
-    content: "_";
-    display: inline-block;
-    animation: ${blinkCursor} 1s steps(1) infinite;
+  line-height: .92;
+  white-space: nowrap;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #f5f5f5 35%,
+    var(--theme-secondary-bright) 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 0 18px rgba(255,255,255,.06),
+    0 0 30px rgba(51,214,244,.08);
+
+  &[data-caret="true"]::after{
+    content:"_";
+    color:#fff;
+    -webkit-text-fill-color:#fff;
+    animation:${blinkCursor} 1s steps(1) infinite;
   }
 `;
 
@@ -329,7 +398,7 @@ export const HeroSubtitle = styled.span`
   color: var(--theme-muted-text, rgba(255, 255, 255, 0.9));
   font: inherit;
   font-size: min(3vmin, 1.67rem);
-  font-weight: normal;
+  font-weight: 700;
   line-height: 1em;
   letter-spacing: 0;
   text-align: right;

@@ -29,8 +29,16 @@ const Experience: FC = () => {
         if (!containerRef.current || !titleRef.current) return;
 
         const titleBounds = titleRef.current.getBoundingClientRect();
+        const titleTransform = window.getComputedStyle(
+          titleRef.current,
+        ).transform;
+        const titleTranslateY =
+          titleTransform === "none"
+            ? 0
+            : new DOMMatrixReadOnly(titleTransform).m42;
         const animationDistance = containerRef.current.clientHeight;
-        const visibleDistance = window.innerHeight - titleBounds.bottom;
+        const layoutBottom = titleBounds.bottom - titleTranslateY;
+        const visibleDistance = window.innerHeight - layoutBottom;
         const percentage = visibleDistance / animationDistance;
 
         setProgress(Math.min(1, Math.max(0, percentage)));
@@ -54,10 +62,9 @@ const Experience: FC = () => {
       <ExperienceVectors />
       <div aria-hidden className={styles.anchor} id="experience" />
 
-      <h2 className={styles.title} ref={titleRef}>
+      <h2 className={styles.title} data-text="EXPERIENCE" ref={titleRef}>
         Experience
       </h2>
-
       <div className={styles.transitionContainer} ref={containerRef}>
         <div
           className={styles.transitionOverflow}

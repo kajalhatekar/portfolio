@@ -13,7 +13,7 @@ const Loader: React.FC = () => {
                     autoStart: true,
                     loop: true,
                     delay: 45,
-                    strings: ["Kajal Raj"],
+                    strings: ["Kajal Hatekar"],
                   }}
                 />
               </span>
