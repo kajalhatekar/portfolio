@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { FiInfo, FiX } from "react-icons/fi";
+import { FiClock, FiX } from "react-icons/fi";
 
 import styles from "./RedesignNotice.module.css";
 
-const STORAGE_KEY = "portfolio-redesign-notice-dismissed-v2";
+const STORAGE_KEY = "portfolio-redesign-notice-dismissed-v3";
+const AUTO_HIDE_DELAY = 6200;
 
 const getInitialDismissedState = () => {
   try {
@@ -16,8 +17,27 @@ const getInitialDismissedState = () => {
 
 export const RedesignNotice = () => {
   const [dismissed, setDismissed] = useState(getInitialDismissedState);
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  useEffect(() => {
+    if (dismissed) return undefined;
+
+    const hideTimer = window.setTimeout(() => {
+      setIsLeaving(true);
+    }, AUTO_HIDE_DELAY);
+
+    const removeTimer = window.setTimeout(() => {
+      setDismissed(true);
+    }, AUTO_HIDE_DELAY + 280);
+
+    return () => {
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(removeTimer);
+    };
+  }, [dismissed]);
 
   const dismissNotice = () => {
+    setIsLeaving(true);
     setDismissed(true);
 
     try {
@@ -33,19 +53,18 @@ export const RedesignNotice = () => {
     <aside
       aria-label="Portfolio redesign notice"
       className={styles.notice}
+      data-leaving={isLeaving}
       role="status"
     >
       <span aria-hidden="true" className={styles.icon}>
-        <FiInfo />
+        <FiClock />
       </span>
 
       <div className={styles.content}>
-        <strong>Redesign in progress</strong>
+        <strong>Portfolio update</strong>
         <p>
-          I'm actively redesigning this portfolio with improved frontend
-          architecture, UI enhancements, and AI-powered interactions. Some
-          sections are updated already, while others are currently being
-          refined.
+          This website is still being polished. A few sections may change while
+          the final experience comes together.
         </p>
       </div>
 

@@ -84,6 +84,12 @@ const aiTools: AiTool[] = [
     initials: "GM",
     name: "Gemini",
   },
+  {
+    accent: "#d97757",
+    description: "Deep reasoning, code review, and UI copy refinement",
+    initials: "CL",
+    name: "Claude",
+  },
 ];
 
 const ToolsSection = () => {
@@ -120,7 +126,11 @@ const ToolsSection = () => {
           <div className={styles.orbit}>
             <span className={styles.orbitSweepPrimary} />
             <span className={styles.orbitSweepSecondary} />
-            <svg className={styles.orbitLines} focusable="false" viewBox="0 0 100 100">
+            <svg
+              className={styles.orbitLines}
+              focusable="false"
+              viewBox="0 0 100 100"
+            >
               <circle
                 className={styles.orbitLineOuter}
                 cx="50"
@@ -180,9 +190,8 @@ const ToolsSection = () => {
           <div className={styles.aiHeading}>
             <span className={styles.kicker}>comfortable with ai tools</span>
             <p>
-              Tools Kajal uses comfortably to support planning, debugging, API
-              experiments, and faster implementation while keeping final
-              decisions and quality checks human-led.
+              Tools I use to support planning, debugging, API testing, and
+              faster development while maintaining code quality.
             </p>
           </div>
 
