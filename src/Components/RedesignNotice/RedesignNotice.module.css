@@ -1,43 +1,45 @@
 .notice {
   position: fixed;
-  right: clamp(1rem, 3vw, 2rem);
-  bottom: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 1.6rem);
+  bottom: clamp(1rem, 3vw, 1.6rem);
   z-index: 1200;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.8rem;
-  align-items: flex-start;
-  width: min(520px, calc(100vw - 2rem));
-  padding: 0.95rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-secondary-bright) 32%, var(--theme-chat-border-soft));
-  border-radius: 0.5rem;
+  gap: 0.7rem;
+  align-items: center;
+  width: min(390px, calc(100vw - 2rem));
+  overflow: hidden;
+  padding: 0.78rem 0.82rem;
+  border: 1px solid color-mix(in srgb, var(--theme-primary-bright) 24%, transparent);
+  border-radius: 0.85rem;
   color: var(--theme-text);
-  background: color-mix(in srgb, var(--theme-surface) 92%, var(--theme-background));
+  background: color-mix(in srgb, var(--theme-surface) 94%, var(--theme-background));
   box-shadow:
-    0 18px 52px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  animation: noticeEnter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    0 14px 34px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: noticeEnter 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.notice::before {
+.notice::after {
   content: "";
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--theme-primary-bright) 24%, transparent),
-      transparent 38%,
-      color-mix(in srgb, var(--theme-secondary-bright) 20%, transparent)
-    );
-  opacity: 0.55;
-  pointer-events: none;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  padding: 1px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--theme-secondary-bright),
+    var(--theme-primary-bright)
+  );
+  transform-origin: left;
+  animation: noticeTimer 6.2s linear both;
+}
+
+.notice[data-leaving="true"] {
+  animation: noticeLeave 260ms ease-in both;
 }
 
 .icon {
@@ -51,8 +53,8 @@
 }
 
 .icon svg {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .content {
@@ -61,25 +63,26 @@
 
 .content strong {
   display: block;
-  margin-bottom: 0.22rem;
-  font-size: 0.94rem;
-  line-height: 1.25;
+  margin-bottom: 0.16rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.15;
   letter-spacing: 0;
 }
 
 .content p {
   margin: 0;
   color: var(--theme-muted-text);
-  font-size: 0.86rem;
-  line-height: 1.45;
+  font-size: 0.78rem;
+  line-height: 1.35;
   letter-spacing: 0;
 }
 
 .closeButton {
   display: inline-grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -93,8 +96,8 @@
 }
 
 .closeButton svg {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .closeButton:hover,
@@ -108,7 +111,7 @@
 @keyframes noticeEnter {
   from {
     opacity: 0%;
-    transform: translate3d(0, 0.75rem, 0) scale(0.98);
+    transform: translate3d(0, 0.7rem, 0) scale(0.98);
   }
 
   to {
@@ -117,12 +120,46 @@
   }
 }
 
+@keyframes noticeLeave {
+  to {
+    opacity: 0%;
+    transform: translate3d(0, 0.55rem, 0) scale(0.98);
+  }
+}
+
+@keyframes noticeTimer {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
 @media screen and (width <= 42rem) {
   .notice {
-    right: 0.85rem;
-    bottom: 0.85rem;
-    left: 0.85rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    left: 0.75rem;
     width: auto;
-    padding: 0.85rem;
+    padding: 0.72rem 0.76rem;
+    border-radius: 0.78rem;
+  }
+
+  .content strong {
+    font-size: 0.86rem;
+  }
+
+  .content p {
+    font-size: 0.74rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notice,
+  .notice::after,
+  .notice[data-leaving="true"] {
+    animation: none;
   }
 }

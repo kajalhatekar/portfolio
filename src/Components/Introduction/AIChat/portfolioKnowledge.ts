@@ -21,7 +21,6 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
       "from",
       "india",
       "intro",
-      "jalandhar",
       "kajal",
       "live",
       "location",
