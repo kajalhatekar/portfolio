@@ -84,6 +84,12 @@ const aiTools: AiTool[] = [
     initials: "GM",
     name: "Gemini",
   },
+  {
+    accent: "#d97757",
+    description: "Deep reasoning, code review, and UI copy refinement",
+    initials: "CL",
+    name: "Claude",
+  },
 ];
 
 const ToolsSection = () => {
