@@ -1,7 +1,7 @@
 .section {
   position: relative;
   z-index: 9;
-  overflow: hidden;
+  overflow: visible;
   min-height: 100vh;
   color: var(--theme-text);
   background:
@@ -124,7 +124,7 @@
 
 .animatedMessage {
   position: sticky;
-  top: 0;
+  /* top: 0; */
   height: 100vh;
   padding-bottom: 1em;
 }

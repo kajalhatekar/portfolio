@@ -3,7 +3,7 @@
   z-index: 8;
   width: 100%;
   filter: contrast(calc(1 + 0.5 * var(--theme-is-contrast, 0)));
-  background: var(--theme-testimonial-background);
+  /* background: var(--theme-testimonial-background); */
 }
 
 .anchor {

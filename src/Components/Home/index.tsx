@@ -25,10 +25,11 @@ import {
 import { useHeroTypingEffect } from "./useHeroTypingEffect";
 
 const SUBTITLES = [
+  "software engineer",
   "frontend developer",
   "react developer",
   "web developer",
-  "ui engineer",
+  "ui enthusiast",
 ];
 
 const clamp = (value: number, min = 0, max = 1) =>

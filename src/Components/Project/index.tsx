@@ -22,7 +22,6 @@ const Projects = () => {
       <div aria-hidden className={styles.anchor} id="projects" />
 
       <h2 className={styles.title} ref={ref}>
-        <VisuallyHidden>{title}</VisuallyHidden>
 
         <span aria-hidden>
           {title.split(" ").map((word) => {

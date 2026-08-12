@@ -96,7 +96,7 @@ export const MainContainer = styled.section`
   place-items: center;
   position: relative;
   isolation: isolate;
-  overflow: hidden;
+  overflow: clip;
   padding: 118px 24px 104px;
   background:
     radial-gradient(ellipse at 48% 40%, var(--theme-primary-soft, rgba(255, 255, 255, 0.035)), transparent 35%),
@@ -124,7 +124,7 @@ export const HeroWaves = styled.div`
   z-index: -2;
   width: 100vw;
   height: 100%;
-  overflow: hidden;
+  overflow: clip;
   background: var(--theme-background, #07111a);
 
   svg {
