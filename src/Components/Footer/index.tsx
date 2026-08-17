@@ -7,7 +7,6 @@ const Footer = () => {
       <ChildContainer>
         <Para>
         <MadeBy />
-        {/* © 2024 All rights reserved by Kajal Raj */}
         </Para>
       </ChildContainer>
     </FooterContainer>

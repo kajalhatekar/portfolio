@@ -12,27 +12,31 @@
   font-family: 'Major Mono Display', monospace;
   font-size: 1.1em;
   font-style: italic;
+  
+  /* Theme-aware text fill */
+  color: var(--theme-text, #ffffff);
 }
 
 .name[data-caret='true']::after {
   content: '_';
+  color: var(--theme-primary-bright, #964fdd);
   animation: blink ease 1s infinite;
 }
 
 @keyframes blink {
-  from {
+  0%, 100% {
     opacity: 0%;
   }
 
-  to {
+  50% {
     opacity: 100%;
   }
 }
 
-/* SVG */
+/* SVG Handwriting */
 .handwriting {
   fill: none;
-  stroke: currentColor;
+  stroke: var(--theme-text, #ffffff);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 3.5px;
@@ -50,7 +54,7 @@
 }
 
 .visible > .madeM {
-  transition-delay: 0;
+  transition-delay: 0s;
   transition-duration: 0.75s;
 }
 
@@ -104,20 +108,22 @@
   transition-duration: 0.25s;
 }
 
+/* Theme-Aware Heart */
 .heart {
   fill: transparent;
-  stroke: #7d54ff;
+  stroke: var(--theme-primary-bright, #964fdd);
   stroke-dasharray: 233.1723px;
   stroke-dashoffset: 233.1723px;
 }
 
 .visible > .heart {
-  fill: rgba( 72, 0, 145, 25%);
+  fill: color-mix(in srgb, var(--theme-primary-bright, #964fdd) 25%, transparent);
+  stroke: var(--theme-secondary-bright, var(--theme-primary-bright, #c770f0));
   stroke-width: 6px;
 
   transition-delay: 3.5s, 4s;
   transition-duration: 0.5s, 0.5s;
-  transition-property: stroke-dashoffset, fill;
+  transition-property: stroke-dashoffset, fill, stroke;
 }
 
 .by {

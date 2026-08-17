@@ -11,24 +11,35 @@
   transform: translateY(-5.5em);
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1600px;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .section {
   display: flex;
   flex-direction: column;
   color: var(--theme-text);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--theme-background) 96%, #101924 4%) 0%,
+    var(--theme-background) 100%
+  );
+  overflow: hidden;
+  transform-origin: center center;
+  transform: scale(calc(1 - (var(--exit-progress, 0) * 0.08)));
+  border-radius: calc(var(--exit-progress, 0) * 32px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, calc(var(--exit-progress, 0) * 0.8));
+  transition:
+    transform 0.05s linear,
+    border-radius 0.05s linear;
 }
-
-/* .title {
-  position: relative;
-  z-index: 1;
-
-  margin-bottom: 0;
-
-  font-size: 10em;
-  text-align: center;
-  text-transform: uppercase;
-  top: 10rem;
-  margin-top: 5rem;
-} */
 
 .title {
   position: relative;
@@ -50,32 +61,6 @@
   }
 }
 
-/* .title::after {
-  content: attr(data-text);
-
-  position: absolute;
-  inset: 0;
-
-  z-index: 2;
-
-  font: inherit;
-
-  background: linear-gradient(
-    90deg,
-    var(--theme-primary-bright),
-    var(--theme-secondary-bright)
-  );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-
-  opacity: 0.35;
-
-  pointer-events: none;
-} */
-
 .title::after {
   content: "experience";
 
@@ -88,8 +73,7 @@
 
   color: transparent;
 
-  text-shadow: 0 0
-    var(--theme-experience-transition-adjust);
+  text-shadow: 0 0 var(--theme-experience-transition-adjust);
 
   background: linear-gradient(
     90deg,
@@ -116,7 +100,7 @@
   composes: animatedScroll;
 
   overflow: hidden;
-padding-top: 90px;
+  padding-top: 90px;
   max-width: 100%;
   height: var(--height-end);
 
@@ -157,8 +141,7 @@ padding-top: 90px;
 
 @keyframes transitionLine {
   0% {
-    transform: perspective(150px) rotateX(10deg)
-      scale(var(--scale-start));
+    transform: perspective(150px) rotateX(10deg) scale(var(--scale-start));
     width: 100%;
     margin-left: var(--margin-left-start);
     border-radius: 50% 50% 0 0 / 12% 12% 0 0;
@@ -201,7 +184,6 @@ padding-top: 90px;
   composes: timelineBackground;
 
   position: relative;
-
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -209,6 +191,8 @@ padding-top: 90px;
   max-width: 1600px;
   margin: auto;
   padding: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 @media screen and (width <= 84rem) {

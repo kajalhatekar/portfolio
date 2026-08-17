@@ -11,6 +11,7 @@ import ToolsSection from "Components/Tools";
 import { Container } from "style/Navbar";
 import { RedesignNotice } from "Components/RedesignNotice";
 import Testimonials from "Components/Testimonials";
+import { Wrapper } from "style/Education";
 
 const Home: React.FC = () => {
   return (
@@ -24,11 +25,13 @@ const Home: React.FC = () => {
       <SkillsSec />
       <ToolsSection />
       {/* <TestimonialDivider position="top" /> */}
+      {/* <Educations /> */}
       <Projects />
-      <Experience />
-      <Educations />
-      <Contact />
-      <Footer />
+      <Wrapper>
+        <Experience />
+        <Contact />
+        <Footer />
+      </Wrapper>
     </Container>
   );
 };

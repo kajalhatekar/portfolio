@@ -663,6 +663,8 @@ export const Navbar = styled.nav`
   backdrop-filter: blur(0);
   transform: translateX(-50%);
   transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease,
     width 0.24s ease,
     top 0.24s ease,
     min-height 0.24s ease,
@@ -671,6 +673,12 @@ export const Navbar = styled.nav`
     backdrop-filter 0.24s ease,
     border-color 0.24s ease,
     box-shadow 0.24s ease;
+
+  &.nav-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -120%);
+  }
 
   &.sticky {
     top: 20px;

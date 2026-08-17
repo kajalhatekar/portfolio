@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import topoBg from "assets/images/footer.png";
 
 export const MainContainer = styled.div`
   display: flex;
@@ -14,11 +15,20 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   gap: 30px;
-  margin: 0px 0 90px 0;
 
   @media (max-width: 767px) {
     margin: 62px 0px;
   }
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #050308;
+  background-image: url(${topoBg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const EducationWrapper = styled.div`
@@ -74,7 +84,9 @@ export const Box = styled.div`
   padding: 20px 0;
   display: flex;
   background-color: #140c1c;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
   border-radius: 15px;
   animation: fadeInAndMoveRight1 1.5s ease-out;
 
