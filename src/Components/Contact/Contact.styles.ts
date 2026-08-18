@@ -1,14 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const blink = keyframes`
-  0%, 100% { 
-    opacity: 1; 
-  }
-  50% { 
-    opacity: 0; 
-  }
-`;
-
 const popIn = keyframes`
   from {
     transform: scale(0.92) translateY(20px);

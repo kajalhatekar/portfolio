@@ -33,9 +33,12 @@
   );
   overflow: hidden;
   transform-origin: center center;
-  transform: scale(calc(1 - (var(--exit-progress, 0) * 0.08)));
+  transform: scale(calc(1 - (var(--exit-progress, 0) * 0.09)));
   border-radius: calc(var(--exit-progress, 0) * 32px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, calc(var(--exit-progress, 0) * 0.8));
+  box-shadow:
+  0 10px 30px rgba(120, 130, 145, calc(var(--exit-progress, 0) * 0.12)),
+  0 30px 70px rgba(80, 90, 105, calc(var(--exit-progress, 0) * 0.22)),
+  0 0 45px rgba(160, 175, 195, calc(var(--exit-progress, 0) * 0.15));
   transition:
     transform 0.05s linear,
     border-radius 0.05s linear;

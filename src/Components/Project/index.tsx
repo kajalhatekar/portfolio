@@ -3,8 +3,6 @@ import { Fragment, type CSSProperties } from "react";
 import classNames from "classnames";
 import { useInView } from "react-intersection-observer";
 
-import { VisuallyHidden } from "Components/VisuallyHidden/VisuallyHidden";
-
 import { ProjectCard } from "./ProjectCard/ProjectCard";
 import { projects } from "./projects.const";
 

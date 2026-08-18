@@ -4,7 +4,6 @@ import Navbar from "Components/Navbar";
 import HomeSec from "Components/Home";
 import Introduction from "Components/Introduction";
 import SkillsSec from "Components/Skills";
-import Educations from "Components/Education";
 import Projects from "Components/Project";
 import Footer from "Components/Footer";
 import ToolsSection from "Components/Tools";
@@ -12,6 +11,7 @@ import { Container } from "style/Navbar";
 import { RedesignNotice } from "Components/RedesignNotice";
 import Testimonials from "Components/Testimonials";
 import { Wrapper } from "style/Education";
+import Educations from "Components/Education";
 
 const Home: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       <SkillsSec />
       <ToolsSection />
       {/* <TestimonialDivider position="top" /> */}
-      {/* <Educations /> */}
+      <Educations />
       <Projects />
       <Wrapper>
         <Experience />
