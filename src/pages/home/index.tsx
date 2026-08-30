@@ -8,7 +8,6 @@ import Projects from "Components/Project";
 import Footer from "Components/Footer";
 import ToolsSection from "Components/Tools";
 import { Container } from "style/Navbar";
-import { RedesignNotice } from "Components/RedesignNotice";
 import Testimonials from "Components/Testimonials";
 import { Wrapper } from "style/Education";
 
@@ -16,7 +15,6 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Navbar />
-      <RedesignNotice />
       {/* <ScrollText content={content} /> */}
       <HomeSec />
       <Introduction />

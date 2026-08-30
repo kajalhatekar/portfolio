@@ -338,20 +338,41 @@
 
 .company {
   margin: 0;
+  line-height: 1.12;
 }
 
 .jobTitle {
   font-size: 0.9em;
+  line-height: 1.25;
 }
 
 .period {
+  display: inline-block;
+  margin-top: 0.18em;
   font-size: 0.8em;
+  line-height: 1.3;
   opacity: 80%;
 }
 
 .consultant {
+  display: inline-block;
+  margin-top: 0.45em;
   font-size: 0.75em;
+  line-height: 1.35;
   opacity: 50%;
+}
+
+.description {
+  margin-top: 1em;
+  line-height: 1.45;
+}
+
+.description p {
+  margin: 0 0 0.8em;
+}
+
+.description p:last-child {
+  margin-bottom: 0;
 }
 
 .reveal {
@@ -396,7 +417,7 @@
   }
 
   .dot {
-    left: 25px;
+    left: 11px;
   }
 
   .card[data-revealed='false'] > .content {
@@ -413,6 +434,25 @@
     margin-right: 16px;
   }
 
+  .company {
+    margin-bottom: 0.18em;
+    font-size: 1.15em;
+  }
+
+  .jobTitle {
+    margin-bottom: 0.08em;
+  }
+
+  .description {
+    margin-top: 1.05em;
+    font-size: 0.98em;
+    line-height: 1.42;
+  }
+
+  .description p {
+    margin-bottom: 0.85em;
+  }
+
   .card:nth-child(even) > .companyLogo {
     transform: none;
   }
@@ -420,7 +460,7 @@
 
 @media screen and (width <= 32rem) {
   .card {
-    width: calc(100% - 25px);
+    width: calc(100% - 15px);
     padding: 0 25px;
   }
 }
