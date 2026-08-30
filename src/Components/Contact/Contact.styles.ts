@@ -19,6 +19,10 @@ export const ContactContainer = styled.div`
   width: 100%;
   position: relative;
   z-index: 10;
+
+  @media (max-width: 767px) {
+    padding: 28px 16px 72px;
+  }
 `;
 
 const blinkColor = keyframes`
@@ -98,6 +102,11 @@ export const TerminalButton = styled.button`
     box-shadow: none;
     background-color: transparent;
   }
+
+  @media (max-width: 767px) {
+    margin-bottom: 110px;
+    font-size: clamp(1.25rem, 8vw, 1.75rem);
+  }
 `;
 
 /* Modal Overlay & Card */
@@ -123,6 +132,13 @@ export const ModalContent = styled.div`
   padding: 36px 32px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
   animation: ${popIn} 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @media (max-width: 767px) {
+    max-height: calc(100svh - 32px);
+    overflow-y: auto;
+    padding: 30px 18px 22px;
+    border-radius: 12px;
+  }
 `;
 
 export const ModalCloseButton = styled.button`
@@ -242,6 +258,10 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 8px;
+
+  @media (max-width: 767px) {
+    justify-content: stretch;
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -262,5 +282,9 @@ export const SubmitButton = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.color.third};
     box-shadow: 0 0 15px ${({ theme }) => theme.color.third};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
   }
 `;

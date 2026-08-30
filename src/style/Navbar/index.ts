@@ -574,7 +574,103 @@ export const SocialCluster = styled.div`
   }
 
   @media (max-width: 520px) {
-    gap: 6px;
+    display: none;
+  }
+`;
+
+export const MobileSocialWrapper = styled.div`
+  position: relative;
+  display: none;
+  margin-left: auto;
+
+  @media (max-width: 520px) {
+    display: inline-flex;
+  }
+`;
+
+export const MobileSocialButton = styled.button`
+  ${drawnIconBase}
+  --icon-final-stroke: 1.3px;
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+`;
+
+export const MobileSocialPopover = styled.div`
+  position: absolute;
+  top: calc(100% + 18px);
+  right: 0;
+  z-index: 1200;
+  width: 100px;
+  padding: 12px 14px 14px;
+  border-radius: 5px;
+  color: #111827;
+  background: #ffffff;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+  animation: ${popoverReveal} 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    transform: rotate(45deg);
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-bottom: 12px;
+    color: #111827;
+    font-size: 13px;
+    line-height: 1;
+    text-align: center;
+  }
+
+  div {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 18px;
+    align-items: center;
+    justify-items: center;
+  }
+
+  a {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+    color: #111827;
+    filter: none;
+
+    svg,
+    &[data-social="email"] svg,
+    &[data-social="resume"] svg,
+    &[data-social="linkedin"] svg,
+    &[data-social="github"] svg {
+      width: 24px;
+      height: 24px;
+      filter: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #111827;
+      filter: none;
+      transform: translateY(-2px);
+    }
   }
 `;
 
@@ -754,10 +850,11 @@ export const Navbar = styled.nav`
   @media (max-width: 767px) {
     top: 18px;
     width: calc(100% - 32px);
-    min-height: 60px;
+    min-height: 56px;
 
     &.sticky {
-      top: 20px;
+      top: 14px;
+      min-height: 60px;
       padding: 0 12px;
     }
 
@@ -771,12 +868,12 @@ export const Navbar = styled.nav`
   }
 
   @media (max-width: 520px) {
-    &.logo-slot-ready {
-      ${NavBrandLogo} {
-        width: 46px;
-        max-width: 46px;
-        margin-right: 8px;
-      }
+    width: calc(100% - 20px);
+
+    &.sticky,
+    &.sticky.logo-docked {
+      width: calc(100% - 20px);
+      padding: 0 10px;
     }
 
     ${NavBrandLogo} svg {

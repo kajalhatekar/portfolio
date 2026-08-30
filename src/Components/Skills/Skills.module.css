@@ -79,7 +79,8 @@
 
 @media screen and (width <= 96rem) {
   .grid {
-    grid-template-columns: repeat(4, 150px);
+    grid-template-columns: repeat(4, minmax(132px, 150px));
+    justify-content: center;
   }
 }
 
@@ -89,11 +90,33 @@
   }
 
   .grid {
-    grid-template-columns: repeat(2, 150px);
+    grid-template-columns: repeat(3, minmax(132px, 150px));
+    gap: 24px;
   }
 
   .title {
     font-size: 2.5em;
+  }
+}
+
+@media screen and (width <= 42rem) {
+  .section {
+    padding: 64px 16px 36px;
+  }
+
+  .scroll {
+    height: 72vh;
+  }
+
+  .title {
+    font-size: clamp(2.1rem, 15vw, 3rem);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(128px, 1fr));
+    width: 100%;
+    max-width: 360px;
+    gap: 42px 16px;
   }
 }
 

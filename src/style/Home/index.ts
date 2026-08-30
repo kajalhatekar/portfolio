@@ -114,6 +114,14 @@ export const MainContainer = styled.section`
 
   @media (max-width: 767px) {
     padding: 104px 18px 92px;
+    min-height: 148vh;
+    min-height: 148svh;
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    min-height: 160vh;
+    min-height: 160svh;
+    padding-inline: 32px;
   }
 `;
 
@@ -247,12 +255,17 @@ export const HeroName = styled.h1`
     opacity .12s linear,
     transform .12s linear;
 
-  @media (max-width:30rem){
-    width:min(100%,80vmin);
-    min-width:min(100%,80vmin);
-    min-height:43vmin;
+  @media (max-width: 767px) {
+    width: min(100%, 8.1ch);
+    min-width: min(100%, 8.1ch);
+    min-height: 0;
+    font-size: clamp(42px, 13vw, 72px);
+    line-height: 0.96;
+    letter-spacing: 0.045em;
+  }
 
-    font-size:clamp(50px,15vmin,72px);
+  @media (min-width: 768px) and (max-width: 1100px) {
+    font-size: clamp(72px, 10vw, 96px);
   }
 `;
 
@@ -297,12 +310,6 @@ export const FlyingHeroLogo = styled.span`
     > span {
       color: var(--theme-text, #ffffff);
       text-shadow: none;
-    }
-  }
-
-  @media (max-width: 767px) {
-    &[data-visible="true"] {
-      opacity: 0;
     }
   }
 
@@ -418,7 +425,12 @@ export const HeroSubtitle = styled.span`
   }
 
   @media (max-width: 30rem) {
-    font-size: 5vmin;
+    align-self: flex-start;
+    min-width: 0;
+    margin-top: 12px;
+    font-size: clamp(16px, 5vw, 22px);
+    text-align: left;
+    white-space: normal;
   }
 `;
 
@@ -518,12 +530,13 @@ export const ScrollCue = styled.a`
   }
 
   @media (max-width: 520px) {
-    top: calc(50% + 190px);
-    font-size: 18px;
+    top: auto;
+    bottom: 56px;
+    font-size: 16px;
 
     svg {
-      width: 52px;
-      height: 52px;
+      width: 46px;
+      height: 46px;
     }
   }
 `;

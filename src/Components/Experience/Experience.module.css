@@ -202,12 +202,16 @@
   .title {
     font-size: 5em;
   }
+
+  /* .container {
+    padding-inline: 24px;
+  } */
 }
 
 @media screen and (width <= 42rem) {
-  .section {
-    margin-top: 40vh;
-  }
+  /* .section {
+    margin-top: 18vh;
+  } */
 
   .title {
     margin: 0 25px;

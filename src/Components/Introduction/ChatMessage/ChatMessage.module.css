@@ -296,12 +296,13 @@
   }
 
   .bubble {
-    max-width: calc(100vw - 88px);
-    font-size: 0.8em;
+    max-width: calc(100vw - 92px);
+    padding: 0.85em 0.95em;
+    font-size: 0.95rem;
   }
 
   .messageBody {
-    max-width: calc(100vw - 88px);
+    max-width: calc(100vw - 92px);
   }
 }
 

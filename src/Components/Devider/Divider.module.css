@@ -80,11 +80,11 @@
 
 @media screen and (width <= 42rem) {
   .dividerStroke {
-    stroke-width: 35px;
+    stroke-width: 20px;
   }
 
   .dividerTop {
-    --divider-top-offset: 64px;
+    --divider-top-offset: 36px;
   }
 
   .dividerGlow > path {
@@ -92,8 +92,8 @@
   }
 
   .dividerBottom {
-    height: 110px;
+    height: 82px;
     transform: translateY(-2%);
-    stroke-width: 50px;
+    stroke-width: 24px;
   }
 }

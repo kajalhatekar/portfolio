@@ -380,9 +380,9 @@
 
 @media screen and (width <= 42rem) {
   .card {
-    align-self: flex-end;
-    width: calc(100% - 50px);
-    padding: 0 25px;
+    align-self: stretch;
+    width: 100%;
+    padding: 0 18px 0 62px;
   }
 
   .card:nth-child(even) {
@@ -391,8 +391,12 @@
 
   .card:nth-child(even) > .dot {
     right: unset;
-    left: 0;
+    left: 25px;
     transform: translate(-50%, 0.5em);
+  }
+
+  .dot {
+    left: 25px;
   }
 
   .card[data-revealed='false'] > .content {

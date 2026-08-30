@@ -319,6 +319,9 @@ import {
   BackToTopButton,
   ControlCluster,
   LogoWrapper,
+  MobileSocialButton,
+  MobileSocialPopover,
+  MobileSocialWrapper,
   NavBrandLogo,
   Navbar,
   SocialCluster,
@@ -338,7 +341,7 @@ import {
 } from "style/Navbar";
 import { FaArrowUp } from "react-icons/fa";
 import { BsMoonStars, BsPalette, BsStars, BsSun } from "react-icons/bs";
-import { FiCheck, FiFileText, FiGithub, FiLinkedin } from "react-icons/fi";
+import { FiCheck, FiFileText, FiGithub, FiLinkedin, FiUserPlus } from "react-icons/fi";
 import KajalLogo from "assets/svg/KajalLogo";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import {
@@ -394,8 +397,10 @@ const NavbarComponent: React.FC = () => {
   const [isLogoReturning, setLogoReturning] = useState(false);
   const [scrollUpBtnVisible, setScrollUpBtnVisible] = useState(false);
   const [isThemePickerOpen, setThemePickerOpen] = useState(false);
+  const [isMobileSocialOpen, setMobileSocialOpen] = useState(false);
   const [hasNavbarIconIntroPlayed, setNavbarIconIntroPlayed] = useState(false);
   const [isNavHidden, setNavHidden] = useState(false);
+  const mobileSocialRef = useRef<HTMLDivElement>(null);
   const themePickerRef = useRef<HTMLDivElement>(null);
   const previousScrollY = useRef(0);
 
@@ -423,6 +428,31 @@ const NavbarComponent: React.FC = () => {
       document.removeEventListener("keydown", closePickerWithEscape);
     };
   }, [isThemePickerOpen]);
+
+  useEffect(() => {
+    if (!isMobileSocialOpen) return;
+
+    const closeSocials = (event: MouseEvent) => {
+      if (
+        mobileSocialRef.current &&
+        !mobileSocialRef.current.contains(event.target as Node)
+      ) {
+        setMobileSocialOpen(false);
+      }
+    };
+
+    const closeSocialsWithEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileSocialOpen(false);
+    };
+
+    document.addEventListener("mousedown", closeSocials);
+    document.addEventListener("keydown", closeSocialsWithEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", closeSocials);
+      document.removeEventListener("keydown", closeSocialsWithEscape);
+    };
+  }, [isMobileSocialOpen]);
 
   useEffect(() => {
     const introTimer = window.setTimeout(() => {
@@ -628,6 +658,54 @@ const NavbarComponent: React.FC = () => {
               </SocialIconLink>
             ))}
           </SocialCluster>
+
+          <MobileSocialWrapper ref={mobileSocialRef}>
+            <MobileSocialButton
+              aria-controls="mobile-social-popover"
+              aria-expanded={isMobileSocialOpen}
+              aria-label="Open social links"
+              onClick={() => setMobileSocialOpen((isOpen) => !isOpen)}
+              title="Social links"
+              type="button"
+            >
+              <FiUserPlus />
+            </MobileSocialButton>
+
+            {isMobileSocialOpen && (
+              <MobileSocialPopover
+                aria-label="Social links menu"
+                id="mobile-social-popover"
+                role="dialog"
+              >
+                <span>Socials</span>
+                <div>
+                  {socialLinks.map((link) => (
+                    <SocialIconLink
+                      key={link.label}
+                      href={link.href}
+                      aria-label={link.label}
+                      data-social={link.label.toLowerCase()}
+                      onClick={() => setMobileSocialOpen(false)}
+                      target={
+                        link.href.startsWith("http") ||
+                        link.href.endsWith(".pdf")
+                          ? "_blank"
+                          : undefined
+                      }
+                      rel={
+                        link.href.startsWith("http") ||
+                        link.href.endsWith(".pdf")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                    >
+                      {link.icon}
+                    </SocialIconLink>
+                  ))}
+                </div>
+              </MobileSocialPopover>
+            )}
+          </MobileSocialWrapper>
         </div>
       </Navbar>
 

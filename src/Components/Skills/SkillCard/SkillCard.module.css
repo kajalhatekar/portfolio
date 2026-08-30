@@ -248,3 +248,28 @@
     font-size: 0.9em;
   }
 }
+
+@media screen and (width <= 42rem) {
+  .content {
+    height: 132px;
+  }
+
+  .featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .featured > .content {
+    height: 300px;
+  }
+
+  .name {
+    padding-right: 8px;
+    font-size: 0.82rem;
+  }
+
+  .brief {
+    min-height: 150px;
+    padding: 22px 12px;
+  }
+}

@@ -12,5 +12,12 @@
   );
 }
 
+@media screen and (width <= 42rem) {
+  .transition {
+    height: 88vh;
+    transform: translateY(-10px);
+  }
+}
+
 
 

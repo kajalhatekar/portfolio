@@ -87,7 +87,7 @@
 @media screen and (width <= 42rem) {
   .title {
     margin-top: 1.4em;
-    font-size: min(18vw, 5.6em);
+    font-size: clamp(2.6rem, 15vw, 4.8rem);
   }
 }
 

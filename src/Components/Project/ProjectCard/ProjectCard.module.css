@@ -172,29 +172,55 @@
     width: calc(100vw - 4em);
   }
 
+  .container {
+    --project-card-overlap-offset: 120px;
+    margin-bottom: 18vh;
+  }
+
+  .stickyContainer {
+    top: 92px;
+    height: 48vh;
+  }
+
+  .card {
+    height: auto;
+    min-height: 50vh;
+    max-height: none;
+    margin-top: -80px;
+  }
+
   .cardHeader {
     flex-direction: column;
+    gap: 18px;
+  }
+
+  .cardDescription {
+    columns: 1;
   }
 }
 
 @media screen and (width <= 42rem) {
   .container {
-    --project-card-overlap-offset: 110px;
+    --project-card-overlap-offset: 34px;
 
-    margin-bottom: 18vh;
+    margin-bottom: 12vh;
     font-size: 0.9em;
   }
 
   .card {
     transform: translateY(var(--project-card-overlap-offset));
-    margin: -50px auto auto;
+    margin: -18px auto auto;
     padding: 1em;
+    height: auto;
+    min-height: 58vh;
+    max-height: none;
+    border-radius: 12px;
   }
 
   .sideTitle {
     top: 0;
     right: unset;
-    transform: translateY(-100%);
+    transform: translateY(calc(-100% - 12px));
     width: 100%;
     writing-mode: unset;
     font-size: 1.35em;
@@ -203,18 +229,18 @@
   }
 
   .container:nth-child(even) .sideTitle {
-    transform: translateY(-100%);
+    transform: translateY(calc(-100% - 12px));
     text-align: right;
   }
 
   .size {
     width: calc(100vw - 2em);
-    height: 74vh;
+    height: auto;
   }
 
   .stickyContainer {
     top: 96px;
-    height: 40vh;
+    height: clamp(220px, 44vw, 300px);
   }
 
   .imageContainer {
@@ -223,6 +249,12 @@
 
   .cardDescription {
     columns: 1;
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .cardTitle {
+    font-size: clamp(1.35rem, 8vw, 1.8rem);
   }
 }
 

@@ -243,10 +243,12 @@ const HomeSec = () => {
     isReturningHome || heroDockProgress <= HERO_LOGO_APPEAR_PROGRESS
       ? 0
       : logoFormProgress;
+  const isCompactViewport =
+    typeof window !== "undefined" && window.innerWidth <= 520;
   const logoStartX = logoOrigin?.x ?? 0;
   const logoStartY = logoOrigin?.y ?? 0;
-  const logoEndX = 76;
-  const logoEndY = 41;
+  const logoEndX = isCompactViewport ? 18 : 76;
+  const logoEndY = isCompactViewport ? 27 : 41;
   const logoX = logoStartX + (logoEndX - logoStartX) * logoFlyProgress;
   const logoY = logoStartY + (logoEndY - logoStartY) * logoFlyProgress;
   const logoScale = 2.65 + (1 - 2.65) * logoFlyProgress;

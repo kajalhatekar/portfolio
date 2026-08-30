@@ -235,12 +235,32 @@
 }
 
 @media screen and (width <= 42rem) {
+  .section {
+    min-height: auto;
+    padding: 0 16px 48px;
+  }
+
+  .messages {
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  .messageListContainer {
+    margin-top: clamp(-180px, -18vh, -96px);
+  }
+
   .messageList {
-    height: 75vh;
+    height: 68vh;
+    padding-right: 0;
+    font-size: 1rem;
   }
 }
 
 @media screen and (width <= 82rem) {
+  /* .messages {
+    max-width: min(100% - 48px, 980px);
+  } */
+
   .scroll {
     height: 122vh;
   }

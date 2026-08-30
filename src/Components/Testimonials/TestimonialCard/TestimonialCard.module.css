@@ -161,10 +161,27 @@
 
 @media screen and (width <= 42rem) {
   .card {
-    min-height: 280px;
+    min-height: 330px;
+    border-radius: 15px 15px 25px 25px;
   }
 
   .quote {
+    padding: 30px 28px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .author {
+    height: 50px;
+    min-height: 50px;
+    border-radius: 25px;
+  }
+
+  .authorName {
     font-size: 0.95rem;
+  }
+
+  .authorRole {
+    white-space: normal;
   }
 }
