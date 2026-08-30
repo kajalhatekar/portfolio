@@ -1,11 +1,7 @@
-import { type FC } from "react";
-
+import { type FC, useEffect, useRef } from "react";
 import classNames from "classnames";
-
 import { type Project } from "../projects.const";
-
 import { RepositoryDetails } from "./RepositoryDetails/RepositoryDetails";
-
 import styles from "./ProjectCard.module.css";
 
 type Props = {
@@ -14,6 +10,18 @@ type Props = {
 };
 
 export const ProjectCard: FC<Props> = ({ order, project }) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    if (project.video && videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.defaultMuted = true;
+      videoRef.current.play().catch((err) => {
+        console.warn("Autoplay was prevented:", err);
+      });
+    }
+  }, [project.video]);
+
   return (
     <div className={styles.container}>
       <div className={classNames(styles.stickyContainer, styles.size)}>
@@ -26,12 +34,27 @@ export const ProjectCard: FC<Props> = ({ order, project }) => {
             [styles.noImageGradient]: project.name === "basic mining",
           })}
         >
-          <img
-            alt={`${project.title} project preview`}
-            className={styles.image}
-            loading="lazy"
-            src={project.image}
-          />
+          {project.video ? (
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={styles.image}
+              style={{ objectFit: "cover", width: "100%", height: "100%" }}
+            >
+              <source src={project.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img
+              alt={`${project.title} project preview`}
+              className={styles.image}
+              loading="lazy"
+              src={project.image}
+            />
+          )}
         </div>
       </div>
 

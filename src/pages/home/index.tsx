@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       <SkillsSec />
       <ToolsSection />
       {/* <TestimonialDivider position="top" /> */}
-      <Educations />
+      {/* <Educations /> */}
       <Projects />
       <Wrapper>
         <Experience />
