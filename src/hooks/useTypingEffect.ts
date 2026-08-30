@@ -85,7 +85,9 @@ export const useTypingEffect = ({
     keyStrokeMinTimeMs,
   ]);
 
-  const isReducedMotion = true
+  const isReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Deleting effect
   useEffect(() => {

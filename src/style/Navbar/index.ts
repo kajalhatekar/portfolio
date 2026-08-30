@@ -942,13 +942,13 @@ export const BackToTopButton = styled.button`
   position: fixed;
   right: 30px;
   bottom: 34px;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: none;
+  border: 1px solid color-mix(in srgb, var(--theme-secondary-bright, #33d6f4) 52%, #ffffff);
   border-radius: 50%;
   background: linear-gradient(
     135deg,
@@ -958,22 +958,56 @@ export const BackToTopButton = styled.button`
   color: #ffffff;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 14px 28px rgba(9, 5, 29, 0.34);
+  box-shadow:
+    0 14px 28px rgba(9, 5, 29, 0.34),
+    0 0 18px var(--theme-shadow, rgba(127, 0, 255, 0.24)),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  isolation: isolate;
+  overflow: hidden;
   transition:
-    transform 0.24s ease,
-    filter 0.24s ease;
+    transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.24s ease,
+    box-shadow 0.24s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 34% 22%, rgba(255, 255, 255, 0.42), transparent 34%),
+      rgba(0, 0, 0, 0.08);
+  }
 
   svg {
-    font-size: 16px;
+    font-size: 17px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+    transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   &:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px) scale(1.04);
     filter: brightness(1.05);
+    box-shadow:
+      0 18px 34px rgba(9, 5, 29, 0.38),
+      0 0 26px var(--theme-shadow, rgba(127, 0, 255, 0.32)),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  }
+
+  &:hover svg {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--theme-secondary-bright, #33d6f4) 60%, transparent);
+    outline-offset: 4px;
   }
 
   @media (max-width: 767px) {
     right: 16px;
     bottom: 20px;
+    width: 44px;
+    height: 44px;
   }
 `;

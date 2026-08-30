@@ -107,7 +107,7 @@ const Contact: FC = () => {
                     name="name"
                     control={control}
                     render={({ field }) => (
-                      <Input {...field} type="text" placeholder="Kajal Raj" />
+                      <Input {...field} type="text" placeholder="Kajal Hatekar" />
                     )}
                   />
                   <ErrorMessageWrapper>

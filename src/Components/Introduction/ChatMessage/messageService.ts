@@ -145,7 +145,7 @@ class MessageService {
 
     const message: TextMessage = {
       content:
-        "Hi! I'm Kajal Raj's AI portfolio assistant. I can help you explore her projects, frontend skills, experience, and technical work. What would you like to know?",
+        "Hi! I'm Kajal Hatekar's AI portfolio assistant. I can help you explore her projects, frontend skills, experience, and technical work. What would you like to know?",
       direction: "incoming",
       id: createId("live-ai-ready"),
       shouldAnimateText: true,

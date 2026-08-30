@@ -127,7 +127,7 @@ const Introduction = () => {
   return (
     <section className={styles.section} id="introduction">
       <VisuallyHidden as="div">
-        <h2>About Kajal Raj</h2>
+        <h2>About Kajal Hatekar</h2>
       </VisuallyHidden>
 
       <div aria-hidden className={styles.signalLayer}>

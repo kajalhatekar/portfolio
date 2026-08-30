@@ -17,7 +17,7 @@ export const MadeBy = () => {
   const name = useTypingEffect({
     halt: haltTypingEffect,
     startDelayMs: 500,
-    targetText: handWritingFinished ? 'kajalRaj' : '',
+    targetText: handWritingFinished ? 'kajalHatekar' : '',
   });
 
   const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -39,7 +39,7 @@ export const MadeBy = () => {
   return (
     <div className={styles.container}>
       <svg
-        aria-label="Made with love by: Renato Böhler"
+        aria-label="Made with love by: Kajal Hatekar"
         className={classNames(styles.handwriting, {
           [styles.visible]: inView,
         })}

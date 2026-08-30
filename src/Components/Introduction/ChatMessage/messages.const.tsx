@@ -4,7 +4,7 @@ const incoming: Message[] = [
   {
     content: (
       <>
-        Here are some quick facts about <strong>Kajal Raj</strong>:
+        Here are some quick facts about <strong>Kajal Hatekar</strong>:
         <ul style={{ listStyle: "none", margin: 0, padding: "0 1em" }}>
           <li>{"\u{1F4BB}"} Frontend Developer</li>
           <li>{"\u269B\uFE0F"} React and TypeScript focused</li>

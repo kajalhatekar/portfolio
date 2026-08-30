@@ -32,7 +32,7 @@ const cleanGeminiText = (text) =>
       "",
     )
     .replace(/^the portfolio (says|shows|mentions|highlights) that\s+/i, "")
-    .replace(/^kajal(?: raj)?\s+is\s+described\s+as\s+/i, "Kajal Raj is ")
+    .replace(/^kajal(?: raj)?\s+is\s+described\s+as\s+/i, "Kajal Hatekar is ")
     .replace(/^portfolio highlights:?\s*/i, "")
     .trim();
 

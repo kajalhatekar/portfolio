@@ -228,12 +228,12 @@
   .content {
     height: min-content;
     margin-top: -4vw;
-    padding: 48px 16px 0;
+    padding: 96px 16px 72px;
   }
 
   .carouselContainer {
     width: 100%;
-    margin-top: 34px;
+    margin-top: 58px;
   }
 
   .cardStage {
@@ -244,7 +244,28 @@
   }
 
   .navigationButton {
-    display: none;
+    top: auto;
+    bottom: -92px;
+    display: inline-flex;
+    width: 46px;
+    height: 46px;
+    color: #ffffff;
+    font-size: 2.3em;
+    opacity: 1;
+    transform: none;
+  }
+
+  .navigationButton:hover,
+  .navigationButton:focus-visible {
+    transform: scale(1.06);
+  }
+
+  .previousButton {
+    left: calc(50% - 58px);
+  }
+
+  .nextButton {
+    right: calc(50% - 58px);
   }
 
   .cardShell[data-stack="active"] {

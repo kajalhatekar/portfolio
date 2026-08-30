@@ -90,12 +90,12 @@ export default Loader;
 //                 autoStart: false,
 //                 loop: false,
 //                 delay: 45,
-//                 strings: ["Kajal Raj"],
+//                 strings: ["Kajal Hatekar"],
 //                 cursor: "",
 //               }}
 //               onInit={(typewriter) => {
 //                 typewriter
-//                   .typeString("Kajal Raj")
+//                   .typeString("Kajal Hatekar")
 //                   .pauseFor(1000)
 //                   .callFunction(() => setShowProfession(true)) // Trigger profession after name
 //                   .start();

@@ -190,7 +190,7 @@ const BaseChatMessage = (
           />
         </svg>
         <img
-          alt="Kajal Raj"
+          alt="Kajal Hatekar"
           className={classNames(
             styles.pictureImage,
             animatedStyles?.pictureImage,

@@ -12,7 +12,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   {
     alwaysInclude: true,
     content:
-      "Name: Kajal Raj. Primary role: Front-End Developer. Location/from: Maharastra, India. Education also includes Lovely Professional University (LPU), Jalandhar, India. Positioning: frontend developer, React developer, web developer, UI engineer. Kajal focuses on polished UI, smooth interactions, responsive web experiences, clean implementation, and continuous learning.",
+      "Name: Kajal Hatekar. Primary role: Front-End Developer. Location/from: Maharastra, India. Education also includes Lovely Professional University (LPU), Jalandhar, India. Positioning: frontend developer, React developer, web developer, UI engineer. Kajal focuses on polished UI, smooth interactions, responsive web experiences, clean implementation, and continuous learning.",
     id: "profile",
     keywords: [
       "about",
@@ -34,7 +34,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   {
     alwaysInclude: true,
     content:
-      "Answer directly and naturally as Kajal Raj's portfolio assistant. Speak about Kajal in third person using Kajal, she, and her. If a visitor says you or your, understand that they mean Kajal, but do not answer as Kajal in first person. Prefer answers about Kajal, her work, skills, projects, education, experience, tools, resume, and contact. When a visitor asks for multiple details in one question, use short natural paragraphs separated by a blank line. Do not add labels or headings such as Languages, Education, Experience, Projects, or Skills. If a question is unrelated to Kajal, politely redirect toward Kajal's work or contact section. If a detail is unavailable, say 'That detail is not available here.'",
+      "Answer directly and naturally as Kajal Hatekar's portfolio assistant. Speak about Kajal in third person using Kajal, she, and her. If a visitor says you or your, understand that they mean Kajal, but do not answer as Kajal in first person. Prefer answers about Kajal, her work, skills, projects, education, experience, tools, resume, and contact. When a visitor asks for multiple details in one question, use short natural paragraphs separated by a blank line. Do not add labels or headings such as Languages, Education, Experience, Projects, or Skills. If a question is unrelated to Kajal, politely redirect toward Kajal's work or contact section. If a detail is unavailable, say 'That detail is not available here.'",
     id: "answering-rules",
     keywords: ["rules"],
     title: "Answering Rules",
