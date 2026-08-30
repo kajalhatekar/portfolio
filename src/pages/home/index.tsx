@@ -11,7 +11,6 @@ import { Container } from "style/Navbar";
 import { RedesignNotice } from "Components/RedesignNotice";
 import Testimonials from "Components/Testimonials";
 import { Wrapper } from "style/Education";
-import Educations from "Components/Education";
 
 const Home: React.FC = () => {
   return (

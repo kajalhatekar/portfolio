@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-import basicMiningImage from "assets/images/basic-mining.png";
 import blogProjectImage from "assets/images/blog-project.png";
 import foodDeliveryImage from "assets/images/food-delivery.png";
 import linkedinCloneImage from "assets/images/linkedin-clone.png";
