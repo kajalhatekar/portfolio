@@ -55,6 +55,18 @@
   background: var(--theme-background);
 }
 
+html[data-color-scheme="light"] .title,
+:root[data-color-scheme="light"] .title {
+  color: #4d5258;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--theme-secondary-bright) 12%, transparent),
+      color-mix(in srgb, var(--theme-secondary-bright) 22%, transparent),
+      color-mix(in srgb, var(--theme-secondary-bright) 12%, transparent)
+    );
+}
+
 .caret {
   content: "_";
   animation: blink ease 1s infinite;

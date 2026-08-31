@@ -339,7 +339,8 @@ export const ThemePopover = styled.div`
 
   @media (max-width: 520px) {
     left: -8px;
-    width: min(92vw, calc(100vw - 32px));
+    width: min(260px, calc(100vw - 32px));
+    padding: 14px 12px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -369,8 +370,8 @@ export const ThemePopoverTitle = styled.span`
   }
 
   @media (max-width: 560px) {
-    gap: 12px;
-    font-size: 28px;
+    gap: 8px;
+    font-size: 16px;
   }
 `;
 
@@ -384,8 +385,8 @@ export const ThemePopoverSubtitle = styled.span`
   text-align: center;
 
   @media (max-width: 560px) {
-    margin-top: 12px;
-    font-size: 16px;
+    margin-top: 8px;
+    font-size: 12px;
   }
 `;
 
@@ -400,7 +401,7 @@ export const ThemeGrid = styled.div`
 
   @media (max-width: 760px) {
     grid-template-columns: repeat(2, minmax(90px, 1fr));
-    row-gap: 24px;
+    row-gap: 16px;
   }
 `;
 
@@ -649,6 +650,9 @@ export const MobileSocialPopover = styled.div`
   }
 
   a {
+    --icon-draw-delay: 0.35s;
+    --icon-draw-duration: 0.85s;
+    --icon-final-stroke: 1.1px;
     width: 24px;
     height: 24px;
     flex-basis: 24px;
@@ -665,12 +669,42 @@ export const MobileSocialPopover = styled.div`
       filter: none;
     }
 
+    svg {
+      path:not([data-icon-fill]),
+      circle:not([data-icon-fill]),
+      rect:not([data-icon-fill]),
+      line:not([data-icon-fill]),
+      polyline:not([data-icon-fill]),
+      polygon:not([data-icon-fill]) {
+        animation-delay: 0s;
+        animation-delay: var(--icon-draw-delay);
+      }
+
+      [data-icon-fill] {
+        animation-delay: calc(
+          var(--icon-draw-delay) + var(--icon-draw-duration)
+        );
+      }
+    }
+
     &:hover,
     &:focus-visible {
       color: #111827;
       filter: none;
       transform: translateY(-2px);
     }
+  }
+
+  a:nth-child(2) {
+    --icon-draw-delay: 0.7s;
+  }
+
+  a:nth-child(3) {
+    --icon-draw-delay: 1.05s;
+  }
+
+  a:nth-child(4) {
+    --icon-draw-delay: 1.4s;
   }
 `;
 
@@ -801,6 +835,40 @@ export const Navbar = styled.nav`
     backdrop-filter: blur(14px) saturate(120%);
     -webkit-backdrop-filter: blur(14px) saturate(120%);
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+  }
+
+  html[data-color-scheme="light"] &.sticky,
+  html[data-color-scheme="light"] &.sticky.logo-docked,
+  :root[data-color-scheme="light"] &.sticky,
+  :root[data-color-scheme="light"] &.sticky.logo-docked {
+    background: rgba(31, 36, 42, 0.58);
+  }
+
+  html[data-color-scheme="light"] &.sticky,
+  :root[data-color-scheme="light"] &.sticky {
+    ${NavBrandLogo},
+    ${ThemeControlButton},
+    ${SocialIconLink},
+    ${MobileSocialButton} {
+      color: #ffffff;
+    }
+
+    ${NavBrandLogo} svg,
+    ${ThemeControlButton} svg,
+    ${SocialIconLink} svg,
+    ${MobileSocialButton} svg {
+      color: #ffffff;
+    }
+
+    ${ThemeControlButton}[aria-expanded="true"],
+    ${ThemeControlButton}[aria-pressed="true"] {
+      color: #33d6f4;
+    }
+
+    ${ThemeControlButton}[aria-expanded="true"] svg,
+    ${ThemeControlButton}[aria-pressed="true"] svg {
+      color: #33d6f4;
+    }
   }
 
   &.icons-ready {

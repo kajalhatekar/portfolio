@@ -159,6 +159,16 @@
   opacity: 0;
 }
 
+html[data-color-scheme="light"] .authorName,
+:root[data-color-scheme="light"] .authorName {
+  color: #4d5258;
+}
+
+html[data-color-scheme="light"] .authorRole,
+:root[data-color-scheme="light"] .authorRole {
+  color: rgba(77, 82, 88, 0.78);
+}
+
 @media screen and (width <= 42rem) {
   .card {
     min-height: 330px;

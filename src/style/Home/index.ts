@@ -313,6 +313,13 @@ export const FlyingHeroLogo = styled.span`
     }
   }
 
+  @media (max-width: 767px) {
+    html[data-color-scheme="light"] &[data-visible="true"],
+    :root[data-color-scheme="light"] &[data-visible="true"] {
+      color: #ffffff;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     &[data-visible="true"] {
       opacity: 0;
@@ -347,8 +354,8 @@ export const HeroTitle = styled.span`
 
   background: linear-gradient(
     90deg,
-    #ffffff 0%,
-    #f5f5f5 35%,
+    var(--hero-name-base-color, var(--theme-text, #ffffff)) 0%,
+    color-mix(in srgb, var(--hero-name-base-color, var(--theme-text, #ffffff)) 88%, var(--theme-secondary-bright) 12%) 35%,
     var(--theme-secondary-bright) 100%
   );
 
@@ -362,9 +369,14 @@ export const HeroTitle = styled.span`
 
   &[data-caret="true"]::after{
     content:"_";
-    color:#fff;
-    -webkit-text-fill-color:#fff;
+    color: var(--hero-name-base-color, var(--theme-text, #ffffff));
+    -webkit-text-fill-color: var(--hero-name-base-color, var(--theme-text, #ffffff));
     animation:${blinkCursor} 1s steps(1) infinite;
+  }
+
+  :root[data-color-scheme="light"] &,
+  html[data-color-scheme="light"] & {
+    --hero-name-base-color: #4d5258;
   }
 `;
 

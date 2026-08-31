@@ -218,6 +218,26 @@
   margin-top: clamp(4px, 0.7vw, 12px);
 }
 
+html[data-color-scheme="light"] .title,
+:root[data-color-scheme="light"] .title {
+  color: #4d5258;
+  filter:
+    drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.88))
+    drop-shadow(2px 2px 0 color-mix(in srgb, var(--theme-secondary-bright) 56%, transparent));
+}
+
+html[data-color-scheme="light"] .navigationButton,
+:root[data-color-scheme="light"] .navigationButton {
+  color: #4d5258;
+}
+
+html[data-color-scheme="light"] .navigationButton:hover,
+html[data-color-scheme="light"] .navigationButton:focus-visible,
+:root[data-color-scheme="light"] .navigationButton:hover,
+:root[data-color-scheme="light"] .navigationButton:focus-visible {
+  color: var(--theme-secondary-bright);
+}
+
 @media screen and (width <= 55rem) {
   .title {
     font-size: clamp(25px, 7vw, 36px);
@@ -227,8 +247,7 @@
 @media screen and (width <= 42rem) {
   .content {
     height: min-content;
-    margin-top: -4vw;
-    padding: 96px 16px 72px;
+    padding: 76px 16px 72px;
   }
 
   .carouselContainer {

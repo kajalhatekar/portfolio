@@ -213,10 +213,42 @@
     margin-top: 18vh;
   } */
 
+  .section {
+    border-top: none;
+    box-shadow: none;
+    margin-top: -2px;
+    padding-top: 2px;
+  }
+
+  .section::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin-top: -2px;
+    background: var(--theme-background);
+  }
+
   .title {
-    margin: 0 25px;
+    width: 100%;
+    margin: 0 auto;
     font-size: 2.5em;
-    text-align: left;
+    text-align: center;
+    color: var(--experience-title-color, var(--theme-text));
+    -webkit-text-fill-color: var(--experience-title-color, var(--theme-text));
+  }
+
+  .title::after {
+    background: none;
+    color: var(--experience-title-color, var(--theme-text));
+    -webkit-text-fill-color: var(--experience-title-color, var(--theme-text));
+    text-shadow: none;
+    mix-blend-mode: normal;
+  }
+
+  html[data-color-scheme="light"] .title,
+  :root[data-color-scheme="light"] .title {
+    --experience-title-color: #4d5258;
   }
 
   .transitionContainer {
