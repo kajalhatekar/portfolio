@@ -15,14 +15,11 @@ const Home: React.FC = () => {
   return (
     <Container>
       <Navbar />
-      {/* <ScrollText content={content} /> */}
       <HomeSec />
       <Introduction />
       <Testimonials />
       <SkillsSec />
       <ToolsSection />
-      {/* <TestimonialDivider position="top" /> */}
-      {/* <Educations /> */}
       <Projects />
       <Wrapper>
         <Experience />
