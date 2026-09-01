@@ -1,9 +1,4 @@
-import {
-  useCallback,
-  useRef,
-  useState,
-  type UIEvent,
-} from "react";
+import { useCallback, useRef, useState, type UIEvent } from "react";
 
 import classNames from "classnames";
 

@@ -12,11 +12,11 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   {
     alwaysInclude: true,
     content:
-      "Name: Kajal Hatekar. Primary role: Front-End Developer. Location/from: Maharastra, India. Education also includes Lovely Professional University (LPU), Jalandhar, India. Positioning: frontend developer, React developer, web developer, UI engineer. Kajal focuses on polished UI, smooth interactions, responsive web experiences, clean implementation, and continuous learning.",
+      "Name: Kajal Hatekar. Primary role: Front-End Developer. Location/from: Maharashtra, India. Education also includes Lovely Professional University (LPU), Jalandhar, India. Positioning: frontend developer, React developer, web developer, UI engineer. Kajal focuses on polished UI, smooth interactions, responsive web experiences, clean implementation, and continuous learning.",
     id: "profile",
     keywords: [
       "about",
-      "Maharastra",
+      "Maharashtra",
       "bio",
       "from",
       "india",
@@ -78,7 +78,7 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
   },
   {
     content:
-      "Core skills: React, HTML, CSS, Next.js, Git, Redux, JavaScript, TypeScript, MongoDB, React Vite, Node.js, and RegExp. Years of experience: HTML 5 years, CSS 5 years, React 4 years, JavaScript 4 years, Git 4 years, Redux 3.5 years, Next.js 3 years, React Vite 3 years, TypeScript 2 years, MongoDB 1 year, Node.js 1 year. Resume technical skills: React.js, Next.js, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, Material UI, Ant Design, Styled Components, Redux Toolkit, React Query, Context API, GraphQL with Apollo Client, basic Node.js, Express.js, MySQL, MongoDB, OpenAI API, GitHub Copilot, Claude, Prompt Engineering, Git, GitHub, GitLab, Postman, and VS Code.",
+      "Core skills: React, HTML, CSS, Next.js, Git, Redux, JavaScript, TypeScript, MongoDB, React Vite, Node.js, and RegExp. Backend knowledge includes basic Node.js, Express.js, REST API integration, API testing with Postman, basic server-side logic, authentication flow understanding, MySQL, MongoDB, request/response handling, and working closely with backend developers to connect frontend features with real data. Years of experience: HTML 5 years, CSS 5 years, React 4 years, JavaScript 4 years, Git 4 years, Redux 3.5 years, Next.js 3 years, React Vite 3 years, TypeScript 2 years, MongoDB 1 year, Node.js 1 year. Resume technical skills: React.js, Next.js, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, Material UI, Ant Design, Styled Components, Redux Toolkit, React Query, Context API, GraphQL with Apollo Client, basic Node.js, Express.js, MySQL, MongoDB, OpenAI API, GitHub Copilot, Claude, Prompt Engineering, Git, GitHub, GitLab, Postman, and VS Code.",
     id: "skills",
     keywords: [
       "css",
@@ -88,6 +88,10 @@ const portfolioKnowledgeSections: PortfolioKnowledgeSection[] = [
       "mongodb",
       "next",
       "node",
+      "express",
+      "mysql",
+      "api",
+      "backend",
       "react",
       "redux",
       "regexp",

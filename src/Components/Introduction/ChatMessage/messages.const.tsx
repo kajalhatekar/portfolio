@@ -4,12 +4,23 @@ const incoming: Message[] = [
   {
     content: (
       <>
-        Here are some quick facts about <strong>Kajal Hatekar</strong>:
+        <p>
+          Here are some quick facts about <strong>Kajal Hatekar</strong>:
+        </p>
+
         <ul style={{ listStyle: "none", margin: 0, padding: "0 1em" }}>
-          <li>{"\u{1F4BB}"} Frontend Developer</li>
-          <li>{"\u269B\uFE0F"} React and TypeScript focused</li>
+          <li>{"\u{1F4BB}"} Frontend Developer with backend knowledge</li>
+          <li>
+            {"\u269B\uFE0F"} Focused on React, TypeScript, Node.js, and
+            Express.js
+          </li>
+          <li>
+            {"\u{1F5C4}\uFE0F"} Familiar with MongoDB, MySQL, and REST APIs
+          </li>
           <li>{"\u{1F3A8}"} Loves polished UI and smooth interactions</li>
-          <li>{"\u{1F680}"} Enjoys building responsive web experiences</li>
+          <li>
+            {"\u{1F680}"} Enjoys building responsive full-stack experiences
+          </li>
           <li>{"\u2728"} Always learning and improving the details</li>
         </ul>
       </>

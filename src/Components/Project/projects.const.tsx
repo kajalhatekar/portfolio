@@ -27,9 +27,9 @@ export const projects: Project[] = [
     {
     title: "linkedin-clone",
     name: "linkedin clone",
-    role: "Frontend Developer",
-    subtitle: "Pixel-accurate professional networking feed & profile layout",
-    tags: ["React", "UI Components", "CSS Grid", "Responsive Design", "Modular CSS"],
+    role: "Full-stack Developer",
+    subtitle: "Full-stack professional networking platform with feed, profiles, and APIs",
+    tags: ["React", "Node.js", "Express", "MongoDB", "REST API", "Responsive Design"],
     image: linkedinCloneImage,
     links: [
       {
@@ -42,34 +42,38 @@ export const projects: Project[] = [
       <>
         <div>
           <p>
-            A modular frontend recreation of LinkedIn&apos;s desktop and mobile feed,
-            engineered to practice building scalable, complex design systems and feed architectures.
+            A full-stack professional networking platform inspired by LinkedIn,
+            built with a responsive feed, user profiles, post sharing, and real backend data flow.
           </p>
           <p>
-            It incorporates standard social media capabilities: user identity cards,
-            rich-media post composers, engagement bars, and recommendation sidebars.
-          </p>
-        </div>
-
-        <div>
-          <p>
-            I decomposed the interface into standalone, reusable <strong>React</strong> UI
-            components to maintain clean separation of concerns and high readability.
-          </p>
-          <p>
-            Utilizing <strong>CSS Grid</strong> and <strong>Flexbox</strong>, I mirrored
-            LinkedIn&apos;s layout, ensuring alignment across diverse screen resolutions.
+            It incorporates standard social media capabilities: authentication,
+            profile management, posts, comments, connection requests, notifications,
+            and recommendation-style interface sections.
           </p>
         </div>
 
         <div>
           <p>
-            Interactive states like likes, comment toggles, and modal dialogs were managed
-            through controlled component states.
+            I built the frontend with reusable <strong>React</strong> UI components,
+            structured layouts, controlled interaction states, and responsive styling for
+            desktop and mobile screens.
           </p>
           <p>
-            This build served as a deep dive into replicating modern production UI standards,
-            accessibility, and cohesive component styling.
+            The backend was developed with <strong>Node.js</strong> and{" "}
+            <strong>Express</strong>, exposing REST APIs for user, post, connection,
+            and notification workflows.
+          </p>
+        </div>
+
+        <div>
+          <p>
+            Data persistence is handled with <strong>MongoDB</strong>, supporting
+            user records, feed content, comments, and relationship-based features.
+          </p>
+          <p>
+            This build strengthened my understanding of connecting polished frontend UI
+            with API handling, backend services, database models, and production-style
+            social platform behavior.
           </p>
         </div>
       </>
@@ -105,35 +109,37 @@ export const projects: Project[] = [
       <>
         <div>
           <p>
-            A high-performance personal portfolio engineered to present my technical journey,
-            skill competencies, and production builds through an immersive, terminal-inspired interface.
+            This portfolio started as a simple idea and grew into a much more expressive,
+            polished showcase of my work, skills, and personality.
           </p>
           <p>
-            Designed and developed responsive layouts featuring smooth scroll-linked card scaling,
-            SVG path-drawing micro-interactions, and multi-mode theme customizations.
-          </p>
-        </div>
-
-        <div>
-          <p>
-            Integrated an intelligent, in-browser AI portfolio assistant powered by{" "}
-            <strong>Google Gemini LLM</strong> with serverless edge functions, enabling
-            visitors to interactively query my background, projects, and strengths in real time.
-          </p>
-          <p>
-            Built using modern <strong>AI-assisted engineering workflows</strong> to accelerate
-            component prototyping, animation tuning, and unit validation.
+            Everything here was created by me, from the visual direction, custom sections,
+            interactions, and assets through implementation, AI integration, and deployment.
           </p>
         </div>
 
         <div>
           <p>
-            Architected global color palettes, contrast states, and reactive navigation dock behaviors
-            using <strong>Redux Toolkit</strong> and <strong>TypeScript</strong>.
+            I treated this portfolio as a personal creative project, rebuilding sections
+            multiple times until the layout, motion, responsiveness, and mood felt right.
           </p>
           <p>
-            Focused on accessible UI standards, cross-device typography scaling, and
-            optimized media delivery for maximum responsiveness.
+            The experience includes smooth scroll-linked card scaling, SVG path-drawing
+            micro-interactions, multi-mode theme customization, and a terminal-inspired
+            interface designed to feel unique instead of template-based.
+          </p>
+        </div>
+
+        <div>
+          <p>
+            Integrated an intelligent AI portfolio assistant powered by{" "}
+            <strong>Google Gemini LLM</strong> with serverless functions, allowing visitors
+            to ask about my background, projects, skills, and contact details in real time.
+          </p>
+          <p>
+            Built with <strong>React</strong>, <strong>TypeScript</strong>,{" "}
+            <strong>Redux Toolkit</strong>, and modern AI-assisted workflows, with focus on
+            accessible UI, cross-device polish, performance, and thoughtful details.
           </p>
         </div>
       </>
