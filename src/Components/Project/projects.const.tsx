@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-import blogProjectImage from "assets/images/blog-project.png";
-import foodDeliveryImage from "assets/images/food-delivery.png";
+// import blogProjectImage from "assets/images/blog-project.png";
+// import foodDeliveryImage from "assets/images/food-delivery.png";
 import linkedinCloneImage from "assets/images/linkedin-clone.png";
 import planItImage from "assets/images/plan-it.png";
 
